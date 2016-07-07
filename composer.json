@@ -22,11 +22,19 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "symfony/assetic-bundle": "^2.8",
+        "friendsofsymfony/jsrouting-bundle": "^1.6",
+        "jms/serializer-bundle": "^1.1",
+        "whiteoctober/breadcrumbs-bundle": "^1.2",
+        "cocur/slugify": "^2.1",
+        "stof/doctrine-extensions-bundle": "^1.2",
+        "beberlei/DoctrineExtensions": "^1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "doctrine/doctrine-fixtures-bundle": "^2.3"
     },
     "scripts": {
         "post-install-cmd": [
