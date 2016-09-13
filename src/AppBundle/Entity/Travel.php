@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMbehaviors;
 
 /**
  * Travel
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Travel
 {
+    use ORMbehaviors\Timestampable\Timestampable;
+
     /**
      * @var int
      *
