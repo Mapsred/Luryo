@@ -31,7 +31,9 @@
 </head>
 
 <body>
-{% block navbar %}{% endblock %}
+{% block navbar %}
+    {% include 'AppBundle:Parts:nav.html.twig' %}
+{% endblock %}
 
 {% block body %}{% endblock %}
 
