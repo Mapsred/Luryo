@@ -8,7 +8,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
-
+    assetic.filter.compass.images_dir: '%kernel.root_dir%/../web/img'
+    assetic.filter.compass.http_path:  /img
 framework:
     #esi:             ~
     translator:       ~
@@ -78,3 +79,17 @@ fos_user:
     user_class: UserBundle\Entity\User
 
 white_october_breadcrumbs: ~
+
+assetic:
+  debug:          "%kernel.debug%"
+  use_controller: false
+  bundles:        [ AppBundle, UserBundle ]
+  # Set path to your ruby
+  ruby: /usr/bin/ruby
+  filters:
+    cssrewrite: ~
+    #sass and compass assetic conf
+    sass:
+        bin: /usr/local/bin/sass
+    compass:
+        bin: /usr/local/bin/compass
