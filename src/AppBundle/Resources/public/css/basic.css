@@ -15,3 +15,15 @@
 .navbar-default .navbar-nav > .active > a:hover {
     background : #272C3B none;
 }
+
+.navbar{
+	border: none;
+}
+.logo-bar{
+	width: 50px;
+	text-align: center;
+}
+
+.navbar .navbar-nav {
+margin-left: 10%;
+}
