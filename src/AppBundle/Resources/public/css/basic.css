@@ -1,7 +1,17 @@
-.container {
-    background-color: red;
+.navbar.navbar-default {
+    background-color : #272C3B;
+    border-color     : #272C3B;
 }
 
-.container-fluid {
-    background-color: #0000F0;
+.navbar-default .container-fluid, .navbar-default {
+    background-color : #272C3B;
+}
+
+.navbar-nav > li > a {
+    padding-right : 50px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+    background : #272C3B none;
 }
