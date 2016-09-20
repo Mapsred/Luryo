@@ -1,14 +1,46 @@
-.navbar.navbar-default {
-    background-color : #272C3B;
-    border-color     : #272C3B;
+@media screen and (min-width : 768px) {
+    .navbar-brand-centered {
+        position         : absolute;
+        top              : -35px;
+        left             : 50%;
+        display          : block;
+        width            : 120px;
+        text-align       : center;
+        background-color : #272C3B;
+    }
+
+    .navbar > .container .navbar-brand-centered,
+    .navbar > .container-fluid .navbar-brand-centered {
+        background-color : #272C3B;
+    }
+
+    .logo-nav {
+        width   : 50px;
+        padding : -20px;
+    }
+
+    .container {
+        background-color : #272C3B;
+        border           : none;
+    }
+
+    .navbar-brand {
+        height : 34px;
+    }
 }
 
-.navbar-default .container-fluid, .navbar-default {
+.navbar.navbar-default {
+    background    : #272C3B none;
+    border-radius : 0;
+    border-color  : #272C3B;
+}
+
+.navbar-default .container, .navbar-default {
     background-color : #272C3B;
 }
 
 .navbar-nav > li > a {
-	margin-left: 70px;
+    margin-left : 70px;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus,
@@ -16,23 +48,19 @@
     background : #272C3B none;
 }
 
-.navbar {
-    border : none;
-}
-
 .logo-bar {
     width      : 50px;
     text-align : center;
 }
 
-
-.navbar-default .navbar-nav>li>a ,
-.navbar-default .navbar-nav>li>a:hover{
-    color: #fff;
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:hover {
+    color : #FFFFFF;
 }
-.navbar-default .navbar-nav>li>a:hover {
-	border: 1px solid #fff;
-	padding-top: 0px;
-	padding-bottom: 3px;
-	margin-top: 15px;
+
+.navbar-default .navbar-nav > li > a:hover {
+    border         : 1px solid #FFFFFF;
+    padding-top    : 0px;
+    padding-bottom : 3px;
+    margin-top     : 15px;
 }
