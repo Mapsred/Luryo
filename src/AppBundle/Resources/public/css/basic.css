@@ -16,14 +16,15 @@
     background : #272C3B none;
 }
 
-.navbar{
-	border: none;
+.navbar {
+    border : none;
 }
-.logo-bar{
-	width: 50px;
-	text-align: center;
+
+.logo-bar {
+    width      : 50px;
+    text-align : center;
 }
 
 .navbar .navbar-nav {
-margin-left: 10%;
+    margin-left : 10%;
 }

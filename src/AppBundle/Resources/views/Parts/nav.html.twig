@@ -23,13 +23,13 @@
                     <li><a href="#">Onglet</a></li>
                     <li><a href="#">Onglet</a></li>
                 </ul>
-            <ul class="nav navbar-nav">
-                <li>
-            {% image '@AppBundle/Resources/public/images/logo.png' output='compiled/images/logo.png' %}
-                <img src="{{ asset_url }}" alt="logo" class="logo-bar"/>
-            {% endimage %}
-                </li>
-            </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        {% image '@AppBundle/Resources/public/images/logo.png' output='compiled/images/logo.png' %}
+                        <img src="{{ asset_url }}" alt="logo" class="logo-bar img-responsive"/>
+                        {% endimage %}
+                    </li>
+                </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Onglet</a></li>
