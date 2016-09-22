@@ -18,3 +18,5 @@
 .DS_Store
 npm-debug.log
 /web/compiled
+/web/assetic
+/web/css
