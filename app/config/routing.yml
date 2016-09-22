@@ -1,8 +1,3 @@
-admin:
-    resource: "@AdminBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 fos_user:
     resource: "@UserBundle/Resources/config/routing/fos_user/all.xml"
 #    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
@@ -16,3 +11,8 @@ app:
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation
+
+admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/
