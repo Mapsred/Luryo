@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
+            new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
             //Bundles
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
