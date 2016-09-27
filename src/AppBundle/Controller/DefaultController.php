@@ -15,6 +15,16 @@ class DefaultController extends Controller
     public function indexAction()
     {
         // replace this example code with whatever you need
-        return $this->render('AppBundle:Default:index.html.twig');
+        return $this->render('AppBundle:Default:homepage.html.twig');
+    }
+
+    /**
+     * @Route("/voyage", name="voyage")
+     * @return Response
+     */
+    public function indevoyageAction()
+    {
+        // replace this example code with whatever you need
+        return $this->render('AppBundle:Default:voyages.html.twig');
     }
 }

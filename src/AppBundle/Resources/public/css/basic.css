@@ -19,7 +19,7 @@
         padding : -20px;
     }
 
-    .container {
+    .navbar> .container {
         background-color : #272C3B;
         border           : none;
     }

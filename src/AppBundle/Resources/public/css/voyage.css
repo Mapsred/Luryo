@@ -1,0 +1,25 @@
+body{
+    background-color: #E7E3E0;
+}
+
+h3{
+    text-align: center;
+    margin: 0;
+}
+
+.margin-p{
+    margin-top :50px;
+}
+
+.bouton{
+    margin-right: 1%;
+    font-size: 16px;
+}
+
+.titre{
+    margin-left: 20%;
+}
+
+.bouton button{
+    margin-right:10px;
+}
