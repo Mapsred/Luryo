@@ -39,6 +39,8 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         admin_skin: skin-blue
+    form_themes:
+        - bootstrap_3_layout.html.twig
 
 # Doctrine Configuration
 doctrine:
