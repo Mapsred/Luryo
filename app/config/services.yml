@@ -21,3 +21,14 @@ services:
       class: UserBundle\Form\RegistrationType
       tags:
           - { name: form.type, alias: app_user_registration }
+
+  admin.travel:
+        class: AppBundle\Admin\TravelAdmin
+        arguments: [~, AppBundle\Entity\Travel, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Voyage, group: "Default" }
+  admin.image:
+        class: AppBundle\Admin\ImageAdmin
+        arguments: [~, AppBundle\Entity\Image, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Image, group: "Default" }

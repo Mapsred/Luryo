@@ -159,7 +159,6 @@ class Travel
         return $this->description;
     }
 
-
     /**
      * Get images
      *
