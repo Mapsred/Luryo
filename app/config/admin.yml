@@ -1,0 +1,17 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+  admin.travel:
+        class: AppBundle\Admin\TravelAdmin
+        arguments: [~, AppBundle\Entity\Travel, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Voyage, group: "Default" }
+  admin.image:
+        class: AppBundle\Admin\ImageAdmin
+        arguments: [~, AppBundle\Entity\Image, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Image, group: "Default" }
+

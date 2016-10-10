@@ -49,6 +49,13 @@ class Image
     protected $file;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
      * Get id
      *
      * @return integer
@@ -127,4 +134,36 @@ class Image
     }
 
 
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Image
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Updates the hash value to force the preUpdate and postUpdate events to fire
+     */
+    public function refreshUpdated()
+    {
+        $this->setUpdated(new \DateTime());
+    }
 }

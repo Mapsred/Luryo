@@ -21,20 +21,33 @@ use Sonata\AdminBundle\Form\FormMapper;
 class TravelAdmin extends AbstractAdmin
 {
     /**
+     * @param mixed $object
+     * @return string
+     */
+    public function toString($object)
+    {
+        return $object instanceof Travel ? $object->getTitle() : 'Voyage';
+    }
+
+    /**
      * @param FormMapper $formMapper
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with("Contenu", ['class' => "col-md-9"])
+            ->with("Contenu", ['class' => "col-md-7"])
             ->add('title', 'text', ['label' => 'Titre'])
             ->add('places', 'integer', ['label' => 'Nombre de places'])
             ->add('description', 'textarea', ['label' => 'Description'])
             ->end()
-            ->with("Image", ['class' => "col-md-3"])
-            ->add('image')
-            ->end()
-        ;
+            ->with("Image", ['class' => "col-md-5"])
+            ->add(
+                'images',
+                'sonata_type_collection',
+                ['by_reference' => false],
+                ['edit' => 'inline', 'inline' => 'table','sonata_help' => 'help message rendered in parent sonata_type_collection']
+            )
+            ->end();
     }
 
     /**
@@ -51,12 +64,5 @@ class TravelAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('id')->add("title")->add('places')->add("description");
-    }
-
-    public function toString($object)
-    {
-        return $object instanceof Travel
-            ? $object->getTitle()
-            : 'Voyage'; // shown in the breadcrumb on the create view
     }
 }

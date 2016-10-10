@@ -16,6 +16,11 @@ class Travel
 {
     use ORMbehaviors\Timestampable\Timestampable;
 
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
     /**
      * @var int
      *
@@ -42,7 +47,7 @@ class Travel
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="travel", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="travel", cascade={"all"})
      * @ORM\JoinTable(name="images")
      */
     private $images;
