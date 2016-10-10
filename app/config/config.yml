@@ -99,3 +99,12 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
+
+
+sonata_doctrine_orm_admin:
+  templates:
+    types:
+      show:
+        image: :CRUD:show_image.html.twig
+      list:
+        image: :CRUD:list_image.html.twig

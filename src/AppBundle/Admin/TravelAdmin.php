@@ -21,7 +21,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class TravelAdmin extends AbstractAdmin
 {
     /**
-     * @param mixed $object
+     * @param Travel|mixed $object
      * @return string
      */
     public function toString($object)
@@ -41,11 +41,9 @@ class TravelAdmin extends AbstractAdmin
             ->add('description', 'textarea', ['label' => 'Description'])
             ->end()
             ->with("Image", ['class' => "col-md-5"])
-            ->add(
-                'images',
-                'sonata_type_collection',
+            ->add('images','sonata_type_collection',
                 ['by_reference' => false],
-                ['edit' => 'inline', 'inline' => 'table','sonata_help' => 'help message rendered in parent sonata_type_collection']
+                ['edit' => 'inline', 'inline' => 'table']
             )
             ->end();
     }
