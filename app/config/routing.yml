@@ -12,11 +12,6 @@ user:
     resource: "@UserBundle/Controller/"
     type:     annotation
 
-admin:
-    resource: "@AdminBundle/Controller/"
-    type:     annotation
-    prefix:   /admin/
-
 admin_area:
     resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
     prefix: /sonata/

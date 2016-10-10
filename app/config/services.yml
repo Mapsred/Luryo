@@ -8,11 +8,6 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
-  admin.menu_listener:
-        class: AdminBundle\EventListener\ListListener
-        tags:
-            - { name: kernel.event_listener, event:theme.sidebar_setup_menu, method:onSetupMenu }
-
       #Event Listener
   app.doctrine_projects_listener:
       class: AppBundle\EventListener\UploadListener
