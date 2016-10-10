@@ -16,3 +16,12 @@ admin:
     resource: "@AdminBundle/Controller/"
     type:     annotation
     prefix:   /admin/
+
+admin_area:
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    prefix: /sonata/
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /sonata

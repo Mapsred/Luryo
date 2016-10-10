@@ -12,3 +12,14 @@ services:
         class: AdminBundle\EventListener\ListListener
         tags:
             - { name: kernel.event_listener, event:theme.sidebar_setup_menu, method:onSetupMenu }
+
+  admin.travel:
+        class: AppBundle\Admin\TravelAdmin
+        arguments: [~, AppBundle\Entity\Travel, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Voyage, group: "Default" }
+  admin.image:
+        class: AppBundle\Admin\ImageAdmin
+        arguments: [~, AppBundle\Entity\Image, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Image, group: "Default" }

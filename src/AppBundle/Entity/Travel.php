@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMbehaviors;
 
@@ -39,11 +40,12 @@ class Travel
     private $places;
 
     /**
-     * @var string
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="travel", cascade={"persist"})
+     * @ORM\JoinTable(name="images")
      */
-    private $image;
+    private $images;
 
     /**
      * @var string
@@ -112,30 +114,6 @@ class Travel
     }
 
     /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Travel
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
@@ -158,5 +136,61 @@ class Travel
     {
         return $this->description;
     }
+
+
+    /**
+     * Get images
+     *
+     * @return ArrayCollection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Set images
+     *
+     * @param ArrayCollection $images
+     *
+     * @return Travel
+     */
+    public function setImages($images)
+    {
+        $this->images = new ArrayCollection();
+        /** @var Image $image */
+        foreach ($images as $image) {
+            $this->addImage($image);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Add image
+     *
+     * @param Image $image
+     *
+     * @return Travel
+     */
+    public function addImage(Image $image)
+    {
+        $this->images[] = $image;
+        $image->setTravel($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param Image $image
+     */
+    public function removeImage(Image $image)
+    {
+        $this->images->removeElement($image);
+    }
+
+
 }
 
