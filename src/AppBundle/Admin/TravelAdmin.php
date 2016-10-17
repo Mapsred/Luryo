@@ -61,6 +61,9 @@ class TravelAdmin extends AbstractAdmin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id')->add("title")->add('places')->add("description");
+        $listMapper->add('id', null, ['label' => 'ID'])
+            ->addIdentifier("title", null, ['label' => 'Titre'])
+            ->add('places', null, ['label' => 'Nombre de places'])
+            ->add("description");
     }
 }

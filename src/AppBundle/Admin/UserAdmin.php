@@ -34,17 +34,17 @@ class UserAdmin extends AbstractAdmin
         $formMapper
             ->tab('Utilisateur')
             ->with("Profil", ['class' => "col-md-6"])
-            ->add('username', 'text')
+            ->add('username', 'text', ['label' => 'Nom d\'utilisateur'])
             ->end()
             ->with("Général", ['class' => "col-md-6"])
             ->add('email', 'email')
             ->end()
             ->end()
             ->tab('Sécurité')
-            ->with("Status", ['class' => "col-md-6"])
-            ->add('locked', 'checkbox')
-            ->add('expired', 'checkbox')
-            ->add('enabled', 'checkbox')
+            ->with("Statut", ['class' => "col-md-6"])
+            ->add('locked', 'checkbox',['label' => 'Bloqué'])
+            ->add('expired', 'checkbox', ['label' => 'Expiré'])
+            ->add('enabled', 'checkbox', ['label' => 'Activé'])
             ->end()
             ->with("Rôles", ['class' => "col-md-6"])
             ->add('roles', 'choice', ['multiple' => true, 'choices' => $roles])
@@ -66,12 +66,11 @@ class UserAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('username')
+            ->addIdentifier('username', null, ['label' => 'Nom d\'utilisateur'])
             ->add('email')
-            ->add('groups', 'array')
-            ->add('enabled')
-            ->add('locked')
-            ->add('created_at')
+            ->add('enabled', null, ['label' => 'Activé'])
+            ->add('locked', null, ['label' => 'Bloqué'])
+            ->add('created_at', 'datetime', ['label' => 'Créé le'])
 
         ;
     }

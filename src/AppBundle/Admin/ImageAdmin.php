@@ -84,6 +84,9 @@ class ImageAdmin extends AbstractAdmin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->add('id')->addIdentifier('path', 'image', ['prefix' => '/uploads/images/', 'width' => 100]);
+        $listMapper->add('id', null, ['label' => 'ID'])
+            ->addIdentifier('path', 'image',
+                ['prefix' => '/uploads/images/', 'width' => 200, 'height' => null, 'label' => "Image"]
+            );
     }
 }
