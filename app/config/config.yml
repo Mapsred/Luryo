@@ -91,10 +91,9 @@ white_october_breadcrumbs: ~
 assetic:
   debug:          "%kernel.debug%"
   use_controller: false
-  bundles:        [ AppBundle, UserBundle ]
+  bundles:        [ AppBundle, UserBundle, FOSUserBundle ]
   filters:
     cssrewrite: ~
-
 sonata_block:
     default_contexts: [cms]
     blocks:
