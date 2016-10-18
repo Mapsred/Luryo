@@ -5,8 +5,6 @@
     {% stylesheets 'bundles/app/css/index.css' output='compiled/css/index.css' filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet">
     {% endstylesheets %}
-     {{ sonata_seo_title() }}
-     {{ sonata_seo_metadatas() }}
 {% endblock %}
 
 {% block body %}
@@ -26,9 +24,30 @@
         <div>
 
         </div>
-
     </div>
-</div>
+
+
+    <div class="row">
+        <div class="col-sm-4">
+            {% image '@AppBundle/Resources/public/images/avion.png' output='compiled/images/avion.png' %} 
+            <img src="{{ asset_url }}" alt="logo" class=" img-responsive"/> 
+            {% endimage %}
+
+        </div>
+        <div class="col-sm-4">
+            {% image '@AppBundle/Resources/public/images/avion.png' output='compiled/images/avion.png' %} 
+            <img src="{{ asset_url }}" alt="logo" class=" img-responsive"/> 
+            {% endimage %}
+
+        </div>
+        <div class="col-sm-4">
+            {% image '@AppBundle/Resources/public/images/avion.png' output='compiled/images/avion.png' %} 
+            <img src="{{ asset_url }}" alt="logo" class=" img-responsive"/> 
+            {% endimage %}
+
+        </div>
+    </div>
+
 
 
 
