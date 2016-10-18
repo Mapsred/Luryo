@@ -1,0 +1,20 @@
+{% trans_default_domain 'FOSUserBundle' %}
+    {% stylesheets 'bundles/user/css/register.css' output='compiled/css/register.css' filter='cssrewrite' %}
+<link href="{{ asset_url }}" rel="stylesheet" >
+
+{% endstylesheets %}
+
+{% block body %}
+<div class="container">
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+<div>
+    <input type="submit" value="{{ 'registration.submit'|trans }}" />
+</div>
+{{ form_end(form) }}
+
+</div>
+
+{% endblock %}
+

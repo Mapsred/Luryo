@@ -1,11 +1,9 @@
 .first{
     background-image: url("../images/image_page_accueil.jpg ");
+    max-width: 100%;
+    min-height: 800px;
     text-align: center;
-    padding-top: 5%;
+
 
 }
 
-.inscri{
-    text-align: center;
-    padding-top: 5%;
-}

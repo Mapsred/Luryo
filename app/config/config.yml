@@ -86,6 +86,6 @@ white_october_breadcrumbs: ~
 assetic:
   debug:          "%kernel.debug%"
   use_controller: false
-  bundles:        [ AppBundle, UserBundle ]
+  bundles:        [ AppBundle, UserBundle, FOSUserBundle ]
   filters:
     cssrewrite: ~
