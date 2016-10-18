@@ -19,4 +19,9 @@ services:
         arguments: [~, UserBundle\Entity\User, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Utilisateurs, group: "Default" }
+  admin.interest:
+        class: AppBundle\Admin\InterestAdmin
+        arguments: [~, AppBundle\Entity\Interest, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Intérêts, group: "Default" }
 

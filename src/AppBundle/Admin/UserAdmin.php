@@ -35,6 +35,7 @@ class UserAdmin extends AbstractAdmin
             ->tab('Utilisateur')
             ->with("Profil", ['class' => "col-md-6"])
             ->add('username', 'text', ['label' => 'Nom d\'utilisateur'])
+            ->add("interests", null, ['label' => 'Intérêts'])
             ->end()
             ->with("Général", ['class' => "col-md-6"])
             ->add('email', 'email')

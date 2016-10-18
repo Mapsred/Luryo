@@ -16,11 +16,6 @@ class Travel
 {
     use ORMbehaviors\Timestampable\Timestampable;
 
-    public function __construct()
-    {
-        $this->images = new ArrayCollection();
-    }
-
     /**
      * @var int
      *
@@ -59,6 +54,17 @@ class Travel
      */
     private $description;
 
+    /**
+     * @var ArrayCollection $interests
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Interest", inversedBy="travels")
+     */
+    private $interests;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+        $this->interests = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -196,6 +202,37 @@ class Travel
         $this->images->removeElement($image);
     }
 
+    /**
+     * Add interest
+     *
+     * @param Interest $interest
+     *
+     * @return Travel
+     */
+    public function addInterest(Interest $interest)
+    {
+        $this->interests[] = $interest;
 
+        return $this;
+    }
+
+    /**
+     * Remove interest
+     *
+     * @param Interest $interest
+     */
+    public function removeInterest(Interest $interest)
+    {
+        $this->interests->removeElement($interest);
+    }
+
+    /**
+     * Get interests
+     *
+     * @return ArrayCollection
+     */
+    public function getInterests()
+    {
+        return $this->interests;
+    }
 }
-

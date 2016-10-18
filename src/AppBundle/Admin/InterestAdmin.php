@@ -8,25 +8,25 @@
 
 namespace AppBundle\Admin;
 
-use AppBundle\Entity\Travel;
+use AppBundle\Entity\Interest;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class TravelAdmin
+ * Class InterestAdmin
  * @package AppBundle\Admin
  */
-class TravelAdmin extends AbstractAdmin
+class InterestAdmin extends AbstractAdmin
 {
     /**
-     * @param Travel|mixed $object
+     * @param Interest|mixed $object
      * @return string
      */
     public function toString($object)
     {
-        return $object instanceof Travel ? $object->getTitle() : 'Voyage';
+        return $object instanceof Interest ? $object->getName() : 'Intérêt';
     }
 
     /**
@@ -36,16 +36,8 @@ class TravelAdmin extends AbstractAdmin
     {
         $formMapper
             ->with("Contenu", ['class' => "col-md-7"])
-            ->add('title', 'text', ['label' => 'Titre'])
-            ->add('places', 'integer', ['label' => 'Nombre de places'])
-            ->add('description', 'textarea', ['label' => 'Description'])
-            ->add("interests", null, ['label' => 'Intérêts'])
-            ->end()
-            ->with("Image", ['class' => "col-md-5"])
-            ->add('images','sonata_type_collection',
-                ['by_reference' => false],
-                ['edit' => 'inline', 'inline' => 'table']
-            )
+            ->add('name', 'text', ['label' => 'Nom'])
+
             ->end();
     }
 
@@ -54,7 +46,7 @@ class TravelAdmin extends AbstractAdmin
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('title')->add('places');
+        $datagridMapper->add('name');
     }
 
     /**
@@ -63,8 +55,8 @@ class TravelAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->add('id', null, ['label' => 'ID'])
-            ->addIdentifier("title", null, ['label' => 'Titre'])
-            ->add('places', null, ['label' => 'Nombre de places'])
-            ->add("description");
+            ->addIdentifier("name", null, ['label' => 'Nom'])
+            ->add("userCount", null, ['label' => 'Nombre d\'utilisateurs'])
+            ->add("travelCount", null, ['label' => 'Nombre de voyages']);
     }
 }
