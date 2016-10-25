@@ -30,9 +30,9 @@ class User extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthdate", type="date")
+     * @ORM\Column(name="birthday", type="date")
      */
-    private $birthdate;
+    private $birthday;
 
     /**
      * @var string
@@ -88,27 +88,27 @@ class User extends BaseUser
     }
 
     /**
-     * Set birthdate
+     * Set birthday
      *
-     * @param \DateTime $birthdate
+     * @param \DateTime $birthday
      *
      * @return User
      */
-    public function setBirthdate($birthdate)
+    public function setBirthday($birthday)
     {
-        $this->birthdate = $birthdate;
+        $this->birthday = $birthday;
 
         return $this;
     }
 
     /**
-     * Get birthdate
+     * Get birthday
      *
      * @return \DateTime
      */
-    public function getBirthdate()
+    public function getBirthday()
     {
-        return $this->birthdate;
+        return $this->birthday;
     }
 
     /**
