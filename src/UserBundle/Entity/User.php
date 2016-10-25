@@ -29,7 +29,7 @@ class User extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthdate", type="datetime")
+     * @ORM\Column(name="birthdate", type="date")
      */
     private $birthdate;
 
