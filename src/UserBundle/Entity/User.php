@@ -2,6 +2,7 @@
 
 namespace UserBundle\Entity;
 
+use AppBundle\Entity\County;
 use AppBundle\Entity\Interest;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
@@ -41,11 +42,10 @@ class User extends BaseUser
     private $sexe;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="postal_code", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\County", inversedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn(name="county", referencedColumnName="id")
      */
-    private $postalCode;
+    private $county;
 
     public function __construct()
     {
@@ -136,26 +136,12 @@ class User extends BaseUser
     }
 
     /**
-     * Set postalCode
+     * Get county
      *
-     * @param string $postalCode
-     *
-     * @return User
+     * @return ArrayCollection
      */
-    public function setPostalCode($postalCode)
+    public function getCounty()
     {
-        $this->postalCode = $postalCode;
-
-        return $this;
-    }
-
-    /**
-     * Get postalCode
-     *
-     * @return string
-     */
-    public function getPostalCode()
-    {
-        return $this->postalCode;
+        return $this->county;
     }
 }

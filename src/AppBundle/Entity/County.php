@@ -11,6 +11,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use UserBundle\Entity\User;
 
 /**
  * County
@@ -47,6 +48,11 @@ class County
      * @ORM\OneToMany(targetEntity="City", mappedBy="county")
      */
     private $cities;
+
+    /**
+     * @ORM\OneToMany(targetEntity="UserBundle\Entity\User", mappedBy="county", cascade={"persist"})
+     */
+    private $user;
 
     /**
      * Constructor
@@ -166,5 +172,29 @@ class County
     public function removeCity(City $city)
     {
         $this->cities->removeElement($city);
+    }
+
+    /**
+     * Set user
+     *
+     * @param User $user
+     *
+     * @return County
+     */
+    public function setUser(User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
