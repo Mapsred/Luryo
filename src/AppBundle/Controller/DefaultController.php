@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Travel;
+use AppBundle\Entity\Travel;
 use Pagerfanta\Exception\NotValidCurrentPageException;
 use Pagerfanta\Pagerfanta;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -31,6 +32,7 @@ class DefaultController extends Controller
     public function detailAction(Travel $travel)
     {
         // replace this example code with whatever you need
+        return $this->render('AppBundle:Default:voyages.html.twig', ['travel' => $travel]);
         return $this->render('AppBundle:Default:voyages.html.twig', ['travel' => $travel]);
     }
 
