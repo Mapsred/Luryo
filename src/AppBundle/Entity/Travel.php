@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMbehaviors;
+use UserBundle\Entity\User;
 
 /**
  * Travel
@@ -60,10 +61,20 @@ class Travel
      */
     private $interests;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User", cascade={"persist"}, inversedBy="travels")
+     * @ORM\JoinTable(name="user_travel",
+     *      joinColumns={@ORM\JoinColumn(name="travel_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}
+     * )
+     */
+    private $users;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->interests = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     /**
@@ -234,5 +245,39 @@ class Travel
     public function getInterests()
     {
         return $this->interests;
+    }
+
+    /**
+     * Add user
+     *
+     * @param User $user
+     *
+     * @return Travel
+     */
+    public function addUser(User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param User $user
+     */
+    public function removeUser(User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return ArrayCollection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

@@ -4,6 +4,7 @@ namespace UserBundle\Entity;
 
 use AppBundle\Entity\County;
 use AppBundle\Entity\Interest;
+use AppBundle\Entity\Travel;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -47,10 +48,16 @@ class User extends BaseUser
      */
     private $county;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Travel", cascade={"persist"}, mappedBy="users")
+     */
+    protected $travels;
+
     public function __construct()
     {
         parent::__construct();
         $this->interests = new ArrayCollection();
+        $this->travels = new ArrayCollection();
     }
 
     /**
@@ -143,5 +150,53 @@ class User extends BaseUser
     public function getCounty()
     {
         return $this->county;
+    }
+
+    /**
+     * Set county
+     *
+     * @param County $county
+     *
+     * @return User
+     */
+    public function setCounty(County $county = null)
+    {
+        $this->county = $county;
+
+        return $this;
+    }
+
+    /**
+     * Add travel
+     *
+     * @param Travel $travel
+     *
+     * @return User
+     */
+    public function addTravel(Travel $travel)
+    {
+        $this->travels[] = $travel;
+
+        return $this;
+    }
+
+    /**
+     * Remove travel
+     *
+     * @param Travel $travel
+     */
+    public function removeTravel(Travel $travel)
+    {
+        $this->travels->removeElement($travel);
+    }
+
+    /**
+     * Get travels
+     *
+     * @return ArrayCollection
+     */
+    public function getTravels()
+    {
+        return $this->travels;
     }
 }
