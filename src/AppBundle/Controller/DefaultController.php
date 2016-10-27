@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Travel;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,12 +20,13 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/voyage", name="voyage")
+     * @Route("/detail/{id}", name="detail_page")
+     * @param Travel $travel
      * @return Response
      */
-    public function indevoyageAction()
+    public function indevoyageAction(Travel $travel)
     {
         // replace this example code with whatever you need
-        return $this->render('AppBundle:Default:voyages.html.twig');
+        return $this->render('AppBundle:Default:voyages.html.twig', ['travel' => $travel]);
     }
 }
