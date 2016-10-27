@@ -7,9 +7,13 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\City;
 use AppBundle\Entity\County;
-use Symfony\Component\Yaml\Yaml;
+
 ini_set('memory_limit', '-1');
 
+/**
+ * Class LoadLocationData
+ * @package AppBundle\DataFixtures\ORM
+ */
 class LoadLocationData implements FixtureInterface
 {
     /**
@@ -17,7 +21,7 @@ class LoadLocationData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $counties = include(__DIR__."/county.php");
+        $counties = include(__DIR__."/../Data/county.php");
         foreach ($counties as $county) {
             $obj = new County();
             $obj->setName($county['name'])->setCode($county['code']);
@@ -26,7 +30,7 @@ class LoadLocationData implements FixtureInterface
 
         $manager->flush();
 
-        $cities = include(__DIR__."/city.php");
+        $cities = include(__DIR__."/../Data/city.php");
         foreach ($cities as $city) {
             if (strlen($city['zipcode']) > 5) {
                 $zipcodes = explode("-", $city['zipcode']);
@@ -41,6 +45,11 @@ class LoadLocationData implements FixtureInterface
         $manager->flush();
     }
 
+    /**
+     * @param ObjectManager $manager
+     * @param $city
+     * @param $zipcode
+     */
     private function createObject(ObjectManager $manager, $city, $zipcode)
     {
         $obj = new City();
