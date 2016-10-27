@@ -24,7 +24,7 @@ class DefaultController extends Controller
      * @param Travel $travel
      * @return Response
      */
-    public function indevoyageAction(Travel $travel)
+    public function detailAction(Travel $travel)
     {
         // replace this example code with whatever you need
         return $this->render('AppBundle:Default:voyages.html.twig', ['travel' => $travel]);
