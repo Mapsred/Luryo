@@ -8,6 +8,7 @@ use Pagerfanta\Pagerfanta;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Pagerfanta\Adapter\AdapterInterface;
 
@@ -26,10 +27,17 @@ class DefaultController extends Controller
     /**
      * @Route("/detail/{id}", name="detail_page")
      * @param Travel $travel
+     * @param Request $request
      * @return Response
      */
-    public function detailAction(Travel $travel)
+    public function detailAction(Travel $travel, Request $request)
     {
+        if ($request->request->has("joining")) {
+            $travel->addUser($this->getUser());
+
+            return $this->redirectToRoute("detail_page", ['id' => $travel->getId()]);
+        }
+
         // replace this example code with whatever you need
         return $this->render('AppBundle:Default:voyages.html.twig', ['travel' => $travel]);
     }
