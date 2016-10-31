@@ -59,8 +59,5 @@
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    border         : 1px solid #FFFFFF;
-    padding-top    : 0px;
-    padding-bottom : 3px;
-    margin-top     : 15px;
+   color:red;
 }
