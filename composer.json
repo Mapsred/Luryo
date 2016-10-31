@@ -27,6 +27,7 @@
         "friendsofsymfony/jsrouting-bundle": "^1.6",
         "jms/serializer-bundle": "^1.1",
         "whiteoctober/breadcrumbs-bundle": "^1.2",
+        "white-october/pagerfanta-bundle": "^1.0",
         "cocur/slugify": "^2.1",
         "stof/doctrine-extensions-bundle": "^1.2",
         "beberlei/DoctrineExtensions": "^1.0",
