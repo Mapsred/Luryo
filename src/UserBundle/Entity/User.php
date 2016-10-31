@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  * @ORM\Table(name="user")
  */
 class User extends BaseUser
@@ -49,15 +50,23 @@ class User extends BaseUser
     private $county;
 
     /**
+     * @var ArrayCollection
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Travel", cascade={"persist"}, mappedBy="users")
      */
     protected $travels;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Favorite", mappedBy="user")
+     */
+    private $favorites;
 
     public function __construct()
     {
         parent::__construct();
         $this->interests = new ArrayCollection();
         $this->travels = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     /**
@@ -198,5 +207,39 @@ class User extends BaseUser
     public function getTravels()
     {
         return $this->travels;
+    }
+
+    /**
+     * Add favorite
+     *
+     * @param Favorite $favorite
+     *
+     * @return User
+     */
+    public function addFavorite(Favorite $favorite)
+    {
+        $this->favorites[] = $favorite;
+
+        return $this;
+    }
+
+    /**
+     * Remove favorite
+     *
+     * @param Favorite $favorite
+     */
+    public function removeFavorite(Favorite $favorite)
+    {
+        $this->favorites->removeElement($favorite);
+    }
+
+    /**
+     * Get favorites
+     *
+     * @return ArrayCollection
+     */
+    public function getFavorites()
+    {
+        return $this->favorites;
     }
 }

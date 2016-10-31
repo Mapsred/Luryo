@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMbehaviors;
+use UserBundle\Entity\Favorite;
 use UserBundle\Entity\User;
 
 /**
@@ -62,6 +63,7 @@ class Travel
     private $interests;
 
     /**
+     * @var ArrayCollection
      * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User", cascade={"persist"}, inversedBy="travels")
      * @ORM\JoinTable(name="user_travel",
      *      joinColumns={@ORM\JoinColumn(name="travel_id", referencedColumnName="id")},
@@ -70,11 +72,18 @@ class Travel
      */
     private $users;
 
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="UserBundle\Entity\Favorite", mappedBy="travel")
+     */
+    private $favorites;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->interests = new ArrayCollection();
         $this->users = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     /**
@@ -278,5 +287,39 @@ class Travel
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add favorite
+     *
+     * @param Favorite $favorite
+     *
+     * @return Travel
+     */
+    public function addFavorite(Favorite $favorite)
+    {
+        $this->favorites[] = $favorite;
+
+        return $this;
+    }
+
+    /**
+     * Remove favorite
+     *
+     * @param Favorite $favorite
+     */
+    public function removeFavorite(Favorite $favorite)
+    {
+        $this->favorites->removeElement($favorite);
+    }
+
+    /**
+     * Get favorites
+     *
+     * @return ArrayCollection
+     */
+    public function getFavorites()
+    {
+        return $this->favorites;
     }
 }
