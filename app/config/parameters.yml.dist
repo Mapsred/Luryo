@@ -17,3 +17,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    paypal_username: username
+    paypal_password: password
+    paypal_signature: signature
+    paypal_api_url:   https://api-3t.sandbox.paypal.com/nvp
+    paypal_api_version:   93

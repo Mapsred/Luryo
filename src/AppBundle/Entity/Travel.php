@@ -322,4 +322,9 @@ class Travel
     {
         return $this->favorites;
     }
+
+    public function getPrice()
+    {
+        return 1;
+    }
 }

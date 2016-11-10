@@ -1,0 +1,13 @@
+jms_payment_paypal:
+    username: "%paypal_username%"
+    password: "%paypal_password%"
+    signature: "%paypal_signature%"
+    debug: true # when true, connect to PayPal sandbox; uses kernel debug value when not specified
+
+jms_payment_core:
+    secret: "%secret%"
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles: [AppBundle]
+        directories: ["%kernel.root_dir%/../src"]

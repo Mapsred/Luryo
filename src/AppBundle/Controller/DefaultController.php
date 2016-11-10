@@ -5,9 +5,11 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Travel;
 use Pagerfanta\Exception\NotValidCurrentPageException;
 use Pagerfanta\Pagerfanta;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Pagerfanta\Adapter\AdapterInterface;
@@ -81,5 +83,16 @@ class DefaultController extends Controller
         return $this->render("AppBundle:Default:list.html.twig", $twigArray);
     }
 
+    /**
+     * @Route("/paiement/{id}", name="paiement_page")
+     * @Method({"POST"})
+     * @param Travel $travel
+     * @param Request $request
+     * @return Response
+     */
+    public function PaiementAction(Travel $travel, Request $request)
+    {
+
+    }
 
 }
