@@ -82,17 +82,4 @@ class DefaultController extends Controller
 
         return $this->render("AppBundle:Default:list.html.twig", $twigArray);
     }
-
-    /**
-     * @Route("/paiement/{id}", name="paiement_page")
-     * @Method({"POST"})
-     * @param Travel $travel
-     * @param Request $request
-     * @return Response
-     */
-    public function PaiementAction(Travel $travel, Request $request)
-    {
-
-    }
-
 }

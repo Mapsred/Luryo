@@ -1,13 +1,15 @@
-jms_payment_paypal:
-    username: "%paypal_username%"
-    password: "%paypal_password%"
-    signature: "%paypal_signature%"
-    debug: true # when true, connect to PayPal sandbox; uses kernel debug value when not specified
-
-jms_payment_core:
-    secret: "%secret%"
-jms_di_extra:
-    locations:
-        all_bundles: false
-        bundles: [AppBundle]
-        directories: ["%kernel.root_dir%/../src"]
+kmj_pay_pal_bridge:
+    environment: sandbox                      #The environment to make the calls to
+    sandbox:
+        clientId: "%sandbox_client_id%"  #Client Id provided from developer.paypal.com
+        secret: "%sandbox_secret%"    #Client Secret provided from developer.paypal.com
+    production:
+        clientId: "%production_client_id%"  #Client Id provided from developer.paypal.com
+        secret: "%production_secret%"    #Client Secret provided from developer.paypal.com
+    logs:
+        enabled: true                                   #Should logs be used
+        filename: '%kernel.logs_dir%/paypal.log'        #the location for the log file
+        level: FINE                                     #level of log reporting
+    http:
+        timeout: 30                                     #The http timeout before an error is generated
+        retry: true                                     #Should the request be tried again if timeout is reached

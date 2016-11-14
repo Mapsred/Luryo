@@ -35,10 +35,7 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
 
             //Paiement Bundle
-            new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
-            new JMS\Payment\PaypalBundle\JMSPaymentPaypalBundle(),
-            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-            new JMS\AopBundle\JMSAopBundle(),
+            new KMJ\PayPalBridgeBundle\KMJPayPalBridgeBundle(),
 
             //Bundles
             new AppBundle\AppBundle(),

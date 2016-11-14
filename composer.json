@@ -34,10 +34,8 @@
         "knplabs/doctrine-behaviors": "~1.1",
         "sonata-project/admin-bundle": "^3.9",
         "sonata-project/doctrine-orm-admin-bundle": "^3.1",
-        "jms/payment-core-bundle": "^1.2",
-        "jms/payment-paypal-bundle": "^1.1",
-        "jms/di-extra-bundle": "^1.8"
-
+        "paypal/rest-api-sdk-php": "dev-master",
+        "kmj/paypalbridgebundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
