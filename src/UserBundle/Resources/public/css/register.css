@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: purple;
+    background-image: url("../images/inscription.jpg");
 
 }
 
@@ -14,4 +14,13 @@ body{
 
 .color-button{
     background-color: #4c5c8a;
+}
+
+.tinder{
+    color: deepskyblue;
+}
+
+.button{
+    width: 100%;
+    background-color: black;
 }
