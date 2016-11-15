@@ -1,9 +1,56 @@
 .first{
     background-image: url("../images/image_page_accueil.jpg ");
     max-width: 100%;
-    min-height: 800px;
+    min-height: 700px;
     text-align: center;
+    padding-top: 10%;
+    color: white;
 
 
 }
 
+.second{
+    background-color: white;
+    max-width: 100%;
+
+    background: ;
+
+}
+
+.troisieme{
+    background-image: url("../images/motifs_video.jpg ");
+    max-width: 100%;
+    min-height:800px;
+}
+
+.quatrieme{
+    background-image: url("../images/avis.jpg ");
+    max-width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.icone1{
+    padding-left: 50%;
+    width: 20px;
+}
+
+.oeil{
+    margin-left: 25%;
+}
+
+.pantheon{
+    width: 200px;
+    height: 200px;
+}
+
+.avion{
+    width: 200px;
+    height: 200px;
+}
+
+.Ami{
+    width: 200px;
+    height: 200px;
+    padding-left: 10%;
+}

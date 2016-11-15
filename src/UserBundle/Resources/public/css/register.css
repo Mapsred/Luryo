@@ -1,7 +1,17 @@
 .container{
     color: white;
+
 }
 
 body{
     background-color: purple;
+
+}
+
+.center{
+    padding-top: 20%;
+}
+
+.color-button{
+    background-color: #4c5c8a;
 }
