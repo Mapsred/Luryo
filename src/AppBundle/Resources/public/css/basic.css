@@ -15,8 +15,9 @@
     }
 
     .logo-nav {
-        width   : 50px;
+        width   : 45px;
         padding : -20px;
+        margin-top: -32px;
     }
 
     .navbar> .container {
