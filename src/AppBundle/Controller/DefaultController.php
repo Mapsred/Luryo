@@ -79,7 +79,6 @@ class DefaultController extends Controller
         }
 
         return $this->render("AppBundle:Default:list.html.twig", $twigArray);
-
     }
 
 
