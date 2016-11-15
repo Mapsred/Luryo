@@ -6,13 +6,15 @@
 
 {% block body %}
 <div class="container">
+    <div class="center">
 
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
     {{ form_widget(form) }}
 <div>
-    <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    <input type="submit" value="{{ 'registration.submit'|trans }}" class="color-button btn btn-default" />
 </div>
 {{ form_end(form) }}
+    </div>
 
 </div>
 
