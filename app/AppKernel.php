@@ -33,6 +33,10 @@ class AppKernel extends Kernel
             // And finally, the storage and SonataAdminBundle
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+
+            //Paiement Bundle
+            new KMJ\PayPalBridgeBundle\KMJPayPalBridgeBundle(),
+
             //Bundles
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),

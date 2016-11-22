@@ -63,27 +63,23 @@ class Travel
     private $interests;
 
     /**
-     * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\User", cascade={"persist"}, inversedBy="travels")
-     * @ORM\JoinTable(name="user_travel",
-     *      joinColumns={@ORM\JoinColumn(name="travel_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}
-     * )
+     * @var $price
+     *
+     * @ORM\Column(type="float", name="price")
      */
-    private $users;
+    private $price;
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="UserBundle\Entity\Favorite", mappedBy="travel")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Order", mappedBy="travel", cascade={"persist"})
      */
-    private $favorites;
+    private $orders;
 
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->interests = new ArrayCollection();
-        $this->users = new ArrayCollection();
-        $this->favorites = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     /**
@@ -256,70 +252,60 @@ class Travel
     }
 
     /**
-     * Add user
+     * Set price
      *
-     * @param User $user
+     * @param float $price
      *
      * @return Travel
      */
-    public function addUser(User $user)
+    public function setPrice($price)
     {
-        $this->users[] = $user;
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Remove user
+     * Get price
      *
-     * @param User $user
+     * @return float
      */
-    public function removeUser(User $user)
+    public function getPrice()
     {
-        $this->users->removeElement($user);
+        return $this->price;
     }
 
     /**
-     * Get users
+     * Add order
      *
-     * @return ArrayCollection
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
-    /**
-     * Add favorite
-     *
-     * @param Favorite $favorite
+     * @param Order $order
      *
      * @return Travel
      */
-    public function addFavorite(Favorite $favorite)
+    public function addOrder(Order $order)
     {
-        $this->favorites[] = $favorite;
+        $this->orders[] = $order;
 
         return $this;
     }
 
     /**
-     * Remove favorite
+     * Remove order
      *
-     * @param Favorite $favorite
+     * @param Order $order
      */
-    public function removeFavorite(Favorite $favorite)
+    public function removeOrder(Order $order)
     {
-        $this->favorites->removeElement($favorite);
+        $this->orders->removeElement($order);
     }
 
     /**
-     * Get favorites
+     * Get orders
      *
-     * @return ArrayCollection
+     * @return ArrayCollection|Order[]
      */
-    public function getFavorites()
+    public function getOrders()
     {
-        return $this->favorites;
+        return $this->orders;
     }
 }
