@@ -8,73 +8,73 @@
 {% endblock %}
 
 {% block body %}
-    <div class="row">
         <div class="col-sm-12">
             <h3>
-                <span class="text-uppercase titre">voyage à Rennes</span>
-                <span class="pull-right bouton">
-        <button type="button" class="btn btn-success text-uppercase">s'inscrire</button>12/20 places
-
-            </span>
+                <span class="text-uppercase titre">Visite des catacombes</span>
             </h3>
-        </div>
-
-        {% image '@AppBundle/Resources/public/images/voyage.png' output='compiled/images/voyage.png' %} 
-        <img src="{{ asset_url }}" alt="voyage" class=" img-responsive"/> 
+              <div class="bloc-left">
+                        {% image '@AppBundle/Resources/public/images/map.jpg' output='compiled/images/voyage.png' %} 
+            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="img-tablet"/>
         {% endimage %}
-        <div class="container">
-            <div class="col-sm-2">
-                <i class="fa fa-location-arrow" aria-hidden="true"></i> Destination
-            </div>
-
-            <div class="col-sm-2"><i class="fa fa-calendar" aria-hidden="true"></i> Date - Date
-            </div>
-
-            <div class="col-sm-2">
-                <i class="fa fa-hourglass-half" aria-hidden="true"></i> Dead line insription
-            </div>
-
-            <div class="col-sm-2">
-                <i class="fa fa-bus" aria-hidden="true"></i> Moyen de transport
-            </div>
-            <div class="col-sm-2">
-                <i class="fa fa-clock-o" aria-hidden="true"></i> Temps de trajet
-            </div>
-            <div class="col-sm-2">
-                <i class="fa fa-credit-card" aria-hidden="true"></i> Prix
-            </div>
-
-            <div class="margin-p col-sm-8 col-sm-offset-2">
-                <p>
-                    <b> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                        mus.
-                        Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</b>
-                </p>
-                <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis
-                    pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
-                    tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,
-                    dapibus in, viverra quis, feugiat a,</p>
-            </div>
-
-
-        </div>
+           {% image '@AppBundle/Resources/public/images/crane.jpg' output='compiled/images/voyage.png' %} 
+            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="img-second-tablet"/>
+        {% endimage %}
+           {% image '@AppBundle/Resources/public/images/croix.jpg' output='compiled/images/voyage.png' %} 
+            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive yop" id="lala"/>
+        {% endimage %}
+        {% image '@AppBundle/Resources/public/images/jeunes.jpg' output='compiled/images/voyage.png' %} 
+            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="img-second-tablet"/>
+        {% endimage %}
+        </div> 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <div class="bloc-right">
+            <div class="decalage">
+                <div class="col-sm-2">
+                    <i class="fa fa-dot-circle-o" aria-hidden="true"></i>  &nbsp; Prix moyen
+                </div>
+                <div class="col-sm-2">
+                    <i class="fa fa-hourglass-half" aria-hidden="true"></i>  &nbsp; Dead line inscription
+                </div>
+                <div class="col-sm-2"><i class="fa fa-calendar" aria-hidden="true"></i>  &nbsp; Date de la sortie
+                </div>
+                <div class="col-sm-2">
+                    <i class="fa fa-location-arrow" aria-hidden="true"></i> &nbsp;Destination
+                </div>
+                <div class="col-sm-2">
+                    <div class="disponible-carre">
+                         <i class="fa fa-square-o" aria-hidden="true"></i><span id="span-check">&nbsp;&nbsp;Disponible</span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="margin-p col-sm-8 col-sm-offset-4">
+                    <p>
+                        <b> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                            mus.
+                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</b>
+                    </p>
+                    <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                        In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis
+                        pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+                        tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,
+                        dapibus in, viverra quis, feugiat a,</p>
+                <input type="submit" name="submit" value="S'inscrire à la sortie"  class="submit" /><br>
+                    {% image '@AppBundle/Resources/public/images/mapresponsive.jpg' output='compiled/images/voyage.png' %} 
+                         <img src="{{ asset_url }}" alt="voyage" class=" img-bot"/>
+                    {% endimage %}
+                    {% image '@AppBundle/Resources/public/images/crane.jpg' output='compiled/images/voyage.png' %} 
+                         <img src="{{ asset_url }}" alt="voyage" class=" img-bot"/>
+                    {% endimage %}
+                    {% image '@AppBundle/Resources/public/images/croix.jpg' output='compiled/images/voyage.png' %} 
+                         <img src="{{ asset_url }}" alt="voyage" class=" img-bot"/>
+                    {% endimage %}
+                <div class="responsive-rs">
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> &nbsp;  &nbsp;
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> &nbsp;  &nbsp;
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div><br>
+                </div>
+            </div>
+        </div>
 {% endblock %}
