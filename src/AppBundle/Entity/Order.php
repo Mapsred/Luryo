@@ -29,22 +29,37 @@ class Order
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Travel")
+     * @var Travel $travel
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Travel", inversedBy="orders")
      * @ORM\JoinColumn(name="travel", referencedColumnName="id")
      */
     private $travel;
 
-    /** @ORM\Column(name="amount", type="float", nullable=true) */
+    /**
+     * @var $amount
+     * @ORM\Column(name="amount", type="float", nullable=true)
+     */
     private $amount;
 
     /**
-     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @var User $user
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="orders")
      * @ORM\JoinColumn(name="user", referencedColumnName="id")
      */
     private $user;
 
-    /** @ORM\Column(name="uuid", type="string", nullable=true) */
+    /**
+     * @var $uuid
+     * @ORM\Column(name="uuid", type="string", nullable=true)
+     */
     private $uuid;
+
+
+    /**
+     * @var $done
+     * @ORM\Column(type="boolean", name="done")
+     */
+    private $done = false;
 
     /**
      * Get id
@@ -150,5 +165,29 @@ class Order
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set done
+     *
+     * @param boolean $done
+     *
+     * @return Order
+     */
+    public function setDone($done)
+    {
+        $this->done = $done;
+
+        return $this;
+    }
+
+    /**
+     * Get done
+     *
+     * @return boolean
+     */
+    public function getDone()
+    {
+        return $this->done;
     }
 }

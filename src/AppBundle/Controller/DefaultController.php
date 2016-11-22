@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Order;
 use AppBundle\Entity\Travel;
 use Pagerfanta\Exception\NotValidCurrentPageException;
 use Pagerfanta\Pagerfanta;
@@ -35,7 +36,10 @@ class DefaultController extends Controller
     public function detailAction(Travel $travel, Request $request)
     {
         if ($request->request->has("joining")) {
-            $travel->addUser($this->getUser());
+            $order = new Order();
+            $order->setTravel($travel)->setUser($this->getUser())->setAmount($travel->getPrice())->setDone(false);
+            $this->getDoctrine()->getManager()->persist($order);
+            $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute("detail_page", ['id' => $travel->getId()]);
         }

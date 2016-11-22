@@ -98,9 +98,10 @@ class PaymentController extends Controller
             $transaction = $payment->getTransactions()[0];
             $item = $transaction->getItemList()->getItems()[0];
             $travel = $this->getDoctrine()->getRepository("AppBundle:Travel")->findOneBy(['id' => $item->getSku()]);
-            $order = new Order();
-            $order->setUser($this->getUser())->setTravel($travel)->setUuid($paymentId);
 
+            $order = $this->getDoctrine()->getRepository("AppBundle:Order")
+                ->findOneBy(['user' => $this->getUser(), 'travel' => $travel]);
+            $order->setUuid($paymentId)->setDone(true);
 
             $execution = new PaymentExecution();
             $execution->setPayerId($request->query->get("PayerID"));
@@ -129,6 +130,4 @@ class PaymentController extends Controller
             exit;
         }
     }
-
-
 }

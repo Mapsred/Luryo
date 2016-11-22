@@ -4,6 +4,7 @@ namespace UserBundle\Entity;
 
 use AppBundle\Entity\County;
 use AppBundle\Entity\Interest;
+use AppBundle\Entity\Order;
 use AppBundle\Entity\Travel;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
@@ -44,6 +45,7 @@ class User extends BaseUser
     private $sexe;
 
     /**
+     * @var ArrayCollection
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\County", inversedBy="user", cascade={"persist"})
      * @ORM\JoinColumn(name="county", referencedColumnName="id")
      */
@@ -51,21 +53,22 @@ class User extends BaseUser
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Travel", cascade={"persist"}, mappedBy="users")
-     */
-    protected $travels;
-
-    /**
-     * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Favorite", mappedBy="user")
      */
     private $favorites;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Order", mappedBy="user", cascade={"persist"})
+     */
+    private $orders;
+
 
     public function __construct()
     {
         parent::__construct();
         $this->interests = new ArrayCollection();
-        $this->travels = new ArrayCollection();
+        $this->orders = new ArrayCollection();
         $this->favorites = new ArrayCollection();
     }
 
@@ -176,40 +179,6 @@ class User extends BaseUser
     }
 
     /**
-     * Add travel
-     *
-     * @param Travel $travel
-     *
-     * @return User
-     */
-    public function addTravel(Travel $travel)
-    {
-        $this->travels[] = $travel;
-
-        return $this;
-    }
-
-    /**
-     * Remove travel
-     *
-     * @param Travel $travel
-     */
-    public function removeTravel(Travel $travel)
-    {
-        $this->travels->removeElement($travel);
-    }
-
-    /**
-     * Get travels
-     *
-     * @return ArrayCollection
-     */
-    public function getTravels()
-    {
-        return $this->travels;
-    }
-
-    /**
      * Add favorite
      *
      * @param Favorite $favorite
@@ -241,5 +210,39 @@ class User extends BaseUser
     public function getFavorites()
     {
         return $this->favorites;
+    }
+
+    /**
+     * Add order
+     *
+     * @param Order $order
+     *
+     * @return User
+     */
+    public function addOrder(Order $order)
+    {
+        $this->orders[] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Remove order
+     *
+     * @param Order $order
+     */
+    public function removeOrder(Order $order)
+    {
+        $this->orders->removeElement($order);
+    }
+
+    /**
+     * Get orders
+     *
+     * @return ArrayCollection|Order[]
+     */
+    public function getOrders()
+    {
+        return $this->orders;
     }
 }
