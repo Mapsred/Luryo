@@ -13,6 +13,7 @@
     <div class="col-sm-12">
 
         <div class="first col-sm-12">
+            <h1>REJOINS UNE EXPÉRIENCE UNIQUE</h1>
             <p>
                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
                     Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
@@ -21,13 +22,13 @@
             </p>
 
             <a href="http://www.google.com/">
-                <button type="submit">S'INSCRIRE</button>
+                <button type="submit" class="button">S'INSCRIRE</button>
             </a>
         </div>
 
-        <div class="col-sm-12 icone1">
-            <i class="fa fa-globe" aria-hidden="true"></i>
-            <h2>CONCEPT</h2>
+        <div class="col-sm-12 second ">
+            <i class="fa fa-globe fa-3x symbole" aria-hidden="true"></i>
+            <h1 class="h1">CONCEPT</h1>
         </div>
 
         </div>
@@ -54,7 +55,7 @@
         <div class="col-sm-12 second">
             <div class="col-sm-4">
                 {% image '@AppBundle/Resources/public/images/Avion.png' output='compiled/images/Avion.png' %} 
-                <img src="{{ asset_url }}" alt="avion" class=" avion img-responsive"/> 
+                <img src="{{ asset_url }}" alt="avion" class=" avion img-responsive concept"/> 
                 {% endimage %}
                 <p>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
@@ -65,7 +66,7 @@
             </div>
                 <div class="col-sm-4">
                     {% image '@AppBundle/Resources/public/images/Ami.png' output='compiled/images/Ami.png' %} 
-                    <img src="{{ asset_url }}" alt="ami" class=" Ami img-responsive"/> 
+                    <img src="{{ asset_url }}" alt="ami" class=" Ami img-responsive concept"/> 
                     {% endimage %}
                     <p>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
@@ -76,7 +77,7 @@
                 </div>
                     <div class="col-sm-4">
                         {% image '@AppBundle/Resources/public/images/Pantheon.png' output='compiled/images/Pantheon.png' %} 
-                        <img src="{{ asset_url }}" alt="Pantheon" class="pantheon img-responsive"/> 
+                        <img src="{{ asset_url }}" alt="Pantheon" class="pantheon img-responsive concept"/> 
                         {% endimage %}
                         <p>
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
@@ -88,14 +89,23 @@
         </div>
 
 
+        <div class="col-sm-12 video">
+            <i class="fa fa-ticket fa-4x ticket" aria-hidden="true"></i>
+                <h1 class="h1-video">VIDEO CONCEPT</h1>
+            {% image '@AppBundle/Resources/public/images/video.png' output='compiled/images/video.png' %} 
+            <img src="{{ asset_url }}" alt="oeil" class=" img-responsive video-concept"/> 
+            {% endimage %}
+
+        </div>
 
 
-                    <div class="col-sm-12">
-                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                        <h2>AVIS UTILISATEURS</h2>
+                    <div class="col-sm-12 avis">
+                        <i class="fa fa-thumbs-o-up fa-4x symbole" aria-hidden="true"></i>
+                        <h1 class="h1">AVIS UTILISATEURS</h1>
                     </div>
 
                     <div class="col-sm-12 quatrieme">
+                        <div class="col-sm-4">
                         {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
                         <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
                         {% endimage %}
@@ -105,6 +115,29 @@
                             mus.
 
                         </p>
+                        </div>
+                        <div class="col-sm-4">
+                            {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
+                            <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
+                            {% endimage %}
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
+                                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                                mus.
+
+                            </p>
+                        </div>
+                        <div class="col-sm-4">
+                            {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
+                            <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
+                            {% endimage %}
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
+                                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                                mus.
+
+                            </p>
+                        </div>
                     </div>
 
         </div>

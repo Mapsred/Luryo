@@ -2,15 +2,16 @@
     background-image: url("../images/image_page_accueil.jpg ");
     max-width: 100%;
     min-height: 700px;
-    text-align: center;
+    text-align: left;
     padding-top: 10%;
     color: white;
+    margin-top :-20px;
 
 
 }
 
 .second{
-    background-color: white;
+    background-color: #e0dfd5;
     max-width: 100%;
 
 
@@ -23,9 +24,8 @@
 }
 
 .quatrieme{
-    background-image: url("../images/avis.jpg ");
+    background-color: #e8e9eb;
     max-width: 100%;
-    color: white;
     text-align: center;
 }
 
@@ -34,9 +34,7 @@
     width: 20px;
 }
 
-.oeil{
-    margin-left: 25%;
-}
+
 
 .pantheon{
     width: 200px;
@@ -52,4 +50,50 @@
     width: 200px;
     height: 200px;
     padding-left: 10%;
+}
+
+.h1{
+    text-align: center;
+    color: #e6735c;
+}
+
+.concept{
+    margin-left: 150px;
+}
+
+.button{
+    margin-top: 5%;
+    background-color: #e6735c;
+    color: white;
+    margin-left: 50%;
+}
+
+.avis{
+    background-color: #e8e9eb;
+}
+
+.video{
+    background-color: #0f7173;
+}
+
+.video-concept{
+    width: 800px;
+    height: 400px;
+    margin-left: 400px;
+}
+
+.symbole{
+    color: #e6735c;
+    margin-left: 49%;
+
+}
+
+.ticket{
+    color: white;
+    margin-left: 49%;
+}
+
+.h1-video{
+    text-align: center;
+    color: white;
 }

@@ -3,6 +3,11 @@
 
 }
 
+.form{
+    width: 500px;
+    margin-left:28%;
+}
+
 body{
     background-image: url("../images/inscription.jpg");
 
@@ -22,5 +27,9 @@ body{
 
 .button{
     width: 100%;
-    background-color: black;
+    background-image: linear-gradient(to bottom,orange);
+
+.compte{
+    color : white;
+    padding-top: 1%;
 }
