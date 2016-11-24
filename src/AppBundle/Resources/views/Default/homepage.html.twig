@@ -8,62 +8,34 @@
 {% endblock %}
 
 {% block body %}
-
-<div class="row">
-    <div class="col-sm-12">
-
-        <div class="first col-sm-12">
-            <h1>REJOINS UNE EXPÉRIENCE UNIQUE</h1>
-            <p>
-                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
-                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                    mus.<br>
-                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            </p>
-
-            <a href="http://www.google.com/">
-                <button type="submit" class="button">S'INSCRIRE</button>
-            </a>
-        </div>
-
-        <div class="col-sm-12 second ">
-            <i class="fa fa-globe fa-3x symbole" aria-hidden="true"></i>
-            <h1 class="h1">CONCEPT</h1>
-        </div>
-
-        </div>
-    </div>
-
-
     <div class="row">
-        <div class="col-sm-4">
-            {% image '@AppBundle/Resources/public/images/avion.png' output='compiled/images/avion.png' %} 
-            <img src="{{ asset_url }}" alt="logo" class=" img-responsive"/> 
-            {% endimage %}
-
-        </div>
-        <div class="col-sm-4">
-            {% image '@AppBundle/Resources/public/images/avion.png' output='compiled/images/avion.png' %} 
-            <img src="{{ asset_url }}" alt="logo" class=" img-responsive"/> 
-            {% endimage %}
-
-        </div>
-        <div class="col-sm-4">
-            {% image '@AppBundle/Resources/public/images/avion.png' output='compiled/images/avion.png' %} 
-            <img src="{{ asset_url }}" alt="logo" class=" img-responsive"/> 
-            {% endimage %}
-        <div class="col-sm-12 second">
-            <div class="col-sm-4">
-                {% image '@AppBundle/Resources/public/images/Avion.png' output='compiled/images/Avion.png' %} 
-                <img src="{{ asset_url }}" alt="avion" class=" avion img-responsive concept"/> 
-                {% endimage %}
+        <div class="container-fluid">
+            <div class="first col-sm-12">
+                <h1 class="text-uppercase">Rejoins une expérience unique</h1>
                 <p>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
                     Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                    mus.
-
+                    mus.<br> Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
                 </p>
+                <a href="http://www.google.com/" class="btn btn-warning text-uppercase button">S'incrire</a>
             </div>
+
+            <div class="second col-sm-12">
+                <i class="fa fa-globe fa-3x symbole" aria-hidden="true"></i>
+                <h1 class="text-uppercase">Concept</h1>
+            </div>
+
+            <div class="second col-sm-12">
+                <div class="col-sm-4">
+                    {% image '@AppBundle/Resources/public/images/avion.png' output='compiled/images/avion.png' %} 
+                    <img src="{{ asset_url }}" alt="avion" class=" avion img-responsive concept"/> 
+                    {% endimage %}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                        mus.
+                    </p>
+                </div>
                 <div class="col-sm-4">
                     {% image '@AppBundle/Resources/public/images/Ami.png' output='compiled/images/Ami.png' %} 
                     <img src="{{ asset_url }}" alt="ami" class=" Ami img-responsive concept"/> 
@@ -72,83 +44,66 @@
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
                         mus.
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    {% image '@AppBundle/Resources/public/images/Pantheon.png' output='compiled/images/Pantheon.png' %} 
+                    <img src="{{ asset_url }}" alt="Pantheon" class="pantheon img-responsive concept"/> 
+                    {% endimage %}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                        mus.
 
                     </p>
                 </div>
-                    <div class="col-sm-4">
-                        {% image '@AppBundle/Resources/public/images/Pantheon.png' output='compiled/images/Pantheon.png' %} 
-                        <img src="{{ asset_url }}" alt="Pantheon" class="pantheon img-responsive concept"/> 
-                        {% endimage %}
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                            mus.
+            </div>
 
-                        </p>
-                    </div>
-        </div>
-
-
-        <div class="col-sm-12 video">
-            <i class="fa fa-ticket fa-4x ticket" aria-hidden="true"></i>
+            <div class="video col-sm-12">
+                <i class="fa fa-ticket fa-4x ticket" aria-hidden="true"></i>
                 <h1 class="h1-video">VIDEO CONCEPT</h1>
-            {% image '@AppBundle/Resources/public/images/video.png' output='compiled/images/video.png' %} 
-            <img src="{{ asset_url }}" alt="oeil" class=" img-responsive video-concept"/> 
-            {% endimage %}
+                {% image '@AppBundle/Resources/public/images/video.png' output='compiled/images/video.png' %} 
+                <img src="{{ asset_url }}" alt="oeil" class=" img-responsive video-concept"/> 
+                {% endimage %}
+            </div>
 
-        </div>
+            <div class="avis col-sm-12">
+                <i class="fa fa-thumbs-o-up fa-4x symbole" aria-hidden="true"></i>
+                <h1 class="h1">Avis utilisateurs</h1>
+            </div>
 
-
-                    <div class="col-sm-12 avis">
-                        <i class="fa fa-thumbs-o-up fa-4x symbole" aria-hidden="true"></i>
-                        <h1 class="h1">AVIS UTILISATEURS</h1>
-                    </div>
-
-                    <div class="col-sm-12 quatrieme">
-                        <div class="col-sm-4">
-                        {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
-                        <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
-                        {% endimage %}
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                            mus.
-
-                        </p>
-                        </div>
-                        <div class="col-sm-4">
-                            {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
-                            <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
-                            {% endimage %}
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
-                                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                mus.
-
-                            </p>
-                        </div>
-                        <div class="col-sm-4">
-                            {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
-                            <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
-                            {% endimage %}
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
-                                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                mus.
-
-                            </p>
-                        </div>
-                    </div>
-
+            <div class="quatrieme col-sm-12">
+                <div class="col-sm-4">
+                    {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
+                    <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
+                    {% endimage %}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                        mus.
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
+                    <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
+                    {% endimage %}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                        mus.
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
+                    <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
+                    {% endimage %}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                        mus.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
 {% endblock %}
