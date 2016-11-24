@@ -25,10 +25,10 @@ body{
     color: deepskyblue;
 }
 
-.button{
-    width: 100%;
-    background-image: linear-gradient(to bottom,orange);
-
+.button {
+    width            : 100%;
+    background-color : orange;
+}
 .compte{
     color : white;
     padding-top: 1%;
