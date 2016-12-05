@@ -38,6 +38,7 @@ class TravelAdmin extends AbstractAdmin
             ->with("Contenu", ['class' => "col-md-7"])
             ->add('title', 'text', ['label' => 'Titre'])
             ->add('places', 'integer', ['label' => 'Nombre de places'])
+            ->add('price', 'number', ['label' => 'Prix'])
             ->add('description', 'textarea', ['label' => 'Description'])
             ->add("interests", null, ['label' => 'Intérêts'])
             ->end()
