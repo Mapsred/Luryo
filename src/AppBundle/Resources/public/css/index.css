@@ -55,6 +55,7 @@
 .h1{
     text-align: center;
     color: #e6735c;
+
 }
 
 .concept{
@@ -96,4 +97,12 @@
 .h1-video{
     text-align: center;
     color: white;
+}
+
+.txt-intro{
+    50%;
+}
+
+i{
+    margin-top: 30px;
 }
