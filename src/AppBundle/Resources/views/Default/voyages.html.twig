@@ -27,35 +27,31 @@
         <div class="bloc-right">
             <div class="decalage">
                 <div class="col-sm-2">
-                    <i class="fa fa-dot-circle-o" aria-hidden="true"></i>  &nbsp; Prix moyen
+                    <i class="fa fa-dot-circle-o" aria-hidden="true"></i>  &nbsp; {{ travel.price}} €
                 </div>
                 <div class="col-sm-2">
-                    <i class="fa fa-hourglass-half" aria-hidden="true"></i>  &nbsp; Dead line inscription
+                    <i class="fa fa-hourglass-half" aria-hidden="true"></i>  &nbsp; {{ travel.updatedAt | date("d/m/Y") }}  
+                   <!-- TO DO A ajouter le bon format de date ! -->
                 </div>
-                <div class="col-sm-2"><i class="fa fa-calendar" aria-hidden="true"></i>  &nbsp; Date de la sortie
+                <div class="col-sm-2"><i class="fa fa-calendar" aria-hidden="true"></i>  &nbsp; {{ travel.createdAt | date("d/m/Y") }}
                 </div>
                 <div class="col-sm-2">
-                    <i class="fa fa-location-arrow" aria-hidden="true"></i> &nbsp;Destination
+                    <i class="fa fa-location-arrow" aria-hidden="true"></i> &nbsp;Destination <!-- TO DO AJOUTER LES DESTINATIONS ! -->
                 </div>
                 <div class="col-sm-2">
                     <div class="disponible-carre">
-                         <i class="fa fa-square-o" aria-hidden="true"></i><span id="span-check">&nbsp;&nbsp;Disponible</span>
+                         <i class="fa fa-square-o" aria-hidden="true"></i><span id="span-check">&nbsp;&nbsp;
+                         {% if travel.places|length > travel.places  %}
+                            <span>Dispo</span>
+                        {% else %}
+                             <span>pas dispo</span>
+                         {% endif %}
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="margin-p col-sm-8 col-sm-offset-4">
-                    <p>
-                        <b> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                            mus.
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</b>
-                    </p>
-                    <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                        In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis
-                        pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
-                        tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,
-                        dapibus in, viverra quis, feugiat a,</p>
+                    <p>{{travel.description|nl2br }}</p>
                 <input type="submit" name="submit" value="S'inscrire à la sortie"  class="submit" /><br>
                  <iframe class="google-map-responsive" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.2718789676023!2d2.3305988964536684!3d48.83395253659682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671b9d2da3de9%3A0x3494d132bb3ba63c!2s1+Avenue+du+Colonel+Henri+Rol-Tanguy%2C+75014+Paris!5e0!3m2!1sfr!2sfr!4v1479997992629" width="450" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
                     {% image '@AppBundle/Resources/public/images/mapresponsive.jpg' output='compiled/images/voyage.png' %} 
