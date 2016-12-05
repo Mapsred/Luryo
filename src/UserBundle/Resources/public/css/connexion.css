@@ -1,7 +1,48 @@
 body{
-    background-image: url("../images/inscription.jpg");
+    background-image: url("../images/connexion.jpg");
+
 
 }
 .form{
     text-align: center;
+    margin-top: 5%;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    margin-top: 5%;
+}
+
+
+
+.connect{
+    width: 25%;
+    height :50px;
+    border-radius: 10px;
+    background-color: coral;
+    margin-top: 1%;
+}
+
+.mdp{
+    width: 25%;
+    height :50px;
+    border-radius: 10px;
+}
+
+.pseudo{
+    width: 25%;
+    height :50px;
+    border-radius: 10px;
+    margin-bottom: 1%;
+}
+
+.compte{
+    color: white;
+    margin-left: 38%;
+}
+
+.inscri{
+    margin-left: 11%;
+    color: white;
 }
