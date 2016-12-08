@@ -2,15 +2,19 @@
 
 {% block title %}Page d'accueil{% endblock %}
 {% block head %}
+    <link rel="stylesheet" href="{{ asset('assets/custom/jquery.bxslider.css') }}">
+    <script src="{{ asset('assets/bower/bxslider-4/src/js/jquery.bxslider.js') }}"></script>
     {% stylesheets 'bundles/app/css/index.css' output='compiled/css/index.css' filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet">
     {% endstylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/bower/bxslider-4/src/css/jquery.bxslider.css') }}">
-    <script src="{{ asset('assets/bower/bxslider-4/src/js/jquery.bxslider.js') }}"></script>
+    {% javascripts '@AppBundle/Resources/public/js/main.js' output='compiled/js/main.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
 {% block body %}
 
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="row">
             <div class="first col-sm-12 ">
                 <h1 class="text-uppercase firsth1 ">Rejoins une expérience unique</h1>
                 <p>
@@ -77,38 +81,22 @@
                 <h1 class="h1">Avis utilisateurs</h1>
             </div>
 
-                <div class="slider2">
             <div class="quatrieme col-sm-12">
-                <div class="col-sm-4 slide">
-                    {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
-                    <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
-                    {% endimage %}
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
-                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                        mus.
-                    </p>
-                </div>
-                <div class="col-sm-4 slide">
-                    {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
-                    <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
-                    {% endimage %}
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
-                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                        mus.
-                    </p>
-                </div>
-                <div class="col-sm-4 slide">
-                    {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
-                    <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
-                    {% endimage %}
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
-                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                        mus.
-                    </p>
-                    </div>
+                <div class="slider2">
+                    {% for i in 1..6 %}
+                        <div class="col-sm-4 slide">
+                            {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
+                            <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
+                            {% endimage %}
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                                dolor.<br>
+                                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                                ridiculus
+                                mus.
+                            </p>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

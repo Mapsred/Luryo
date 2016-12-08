@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
     $('.slider2').bxSlider({
-        slideWidth: 100%,
+        slideWidth: 1920,
         minSlides: 3,
         maxSlides: 3,
         slideMargin: 10
