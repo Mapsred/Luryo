@@ -3,12 +3,12 @@
 {% endstylesheets %}
 
 <nav class="navbar navbar-default" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
           <ul class="navbar-brand">
                 <li>
-                    {% image '@AppBundle/Resources/public/images/logo.png' output='compiled/images/logo.png' %} 
+                    <a href="/">{% image '@AppBundle/Resources/public/images/logo.png' output='compiled/images/logo.png' %} 
                     <img src="{{ asset_url }}" alt="logo" class="logo-nav img-responsive hidden-xs"/> 
-                    {% endimage %}
+                    {% endimage %}</a>
                 </li>
             </ul>
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -20,18 +20,20 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-brand-centered">
             <ul class="nav navbar-nav">
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-            </ul>       
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/list">Liste des sorties</a></li>
+                <li><a href="#">Concept</a></li>
+                <li><a href="#">Nous rejoindre</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>      
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-brand-left">
+            <ul class="list-item">
+                <li class="li-item"><a class="a-item" href="/inscription">Inscription</a></li>
+                <li class="li-item"><a class="a-item" href="/connexion">Connexion</a></li>
+            </ul>      
         </div>
          <!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
