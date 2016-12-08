@@ -1,0 +1,21 @@
+{
+  "name": "luryo",
+  "homepage": "https://github.com/Mapsred/Luryo",
+  "authors": [
+    "maps_red <maps_red@yahoo.fr>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/bower/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bxslider-4": "^4.2.5"
+  }
+}

@@ -5,20 +5,12 @@
     {% stylesheets 'bundles/app/css/index.css' output='compiled/css/index.css' filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet">
     {% endstylesheets %}
-
-    {% stylesheets 'bundles/app/css/jquery.bxslider.css' output='compiled/css/jquery.bxslider.css' filter='cssrewrite' %}
-    <link href="{{ asset_url }}" rel="stylesheet">
-    {% endstylesheets %}
-
-    {% javascripts '@AppBundle/Resources/public/js/main.js' '@AppBundle/Resources/public/js/jquery.bxslider.min.js' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <link rel="stylesheet" href="{{ asset('assets/bower/bxslider-4/src/css/jquery.bxslider.css') }}">
+    <script src="{{ asset('assets/bower/bxslider-4/src/js/jquery.bxslider.js') }}"></script>
 {% endblock %}
-
 {% block body %}
 
         <div class="container-fluid">
-            <div class="row">
             <div class="first col-sm-12 ">
                 <h1 class="text-uppercase firsth1 ">Rejoins une expérience unique</h1>
                 <p>
@@ -96,8 +88,6 @@
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
                         mus.
                     </p>
-
-
                 </div>
                 <div class="col-sm-4 slide">
                     {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
