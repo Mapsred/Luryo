@@ -45,4 +45,9 @@ h1{
 .inscri{
     margin-left: 11%;
     color: white;
+    padding-top: 1%;
+}
+
+#footer{
+    margin-top: 20%;
 }

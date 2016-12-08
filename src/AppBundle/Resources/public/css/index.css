@@ -6,6 +6,7 @@
     padding-top: 10%;
     color: white;
     margin-top :-20px;
+    font-size: 25px;
 
 
 }
@@ -37,19 +38,19 @@
 
 
 .pantheon{
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 
 .avion{
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 
 .Ami{
-    width: 200px;
-    height: 200px;
-    padding-left: 10%;
+    width: 100px;
+    height: 100px;
+
 }
 
 .h1{
@@ -59,14 +60,16 @@
 }
 
 .concept{
-    margin-left: 150px;
+    margin-left: 200px;
 }
 
 .button{
     margin-top: 5%;
     background-color: #e6735c;
     color: white;
-    margin-left: 50%;
+    margin-left: 40%;
+    width: 300Px;
+    margin-bottom: 30px;
 }
 
 .avis{
@@ -101,4 +104,9 @@
 
 i{
     margin-top: 30px;
+}
+
+.firsth1{
+    width: 60%;
+    margin-bottom: 50px;
 }

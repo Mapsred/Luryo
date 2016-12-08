@@ -5,13 +5,22 @@
     {% stylesheets 'bundles/app/css/index.css' output='compiled/css/index.css' filter='cssrewrite' %}
     <link href="{{ asset_url }}" rel="stylesheet">
     {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/css/jquery.bxslider.css' output='compiled/css/jquery.bxslider.css' filter='cssrewrite' %}
+    <link href="{{ asset_url }}" rel="stylesheet">
+    {% endstylesheets %}
+
+    {% javascripts '@AppBundle/Resources/public/js/main.js' '@AppBundle/Resources/public/js/jquery.bxslider.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
 
 {% block body %}
-    <div class="row">
+
         <div class="container-fluid">
+            <div class="row">
             <div class="first col-sm-12 ">
-                <h1 class="text-uppercase ">Rejoins une expérience unique</h1>
+                <h1 class="text-uppercase firsth1 ">Rejoins une expérience unique</h1>
                 <p>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
                     Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
@@ -59,6 +68,8 @@
 
                     </p>
                 </div>
+                <a href="{{ path("fos_user_registration_register") }}"
+                   class="btn btn-warning text-uppercase button">S'incrire</a>
             </div>
 
             <div class="video col-sm-12">
@@ -74,8 +85,21 @@
                 <h1 class="h1">Avis utilisateurs</h1>
             </div>
 
+                <div class="slider2">
             <div class="quatrieme col-sm-12">
-                <div class="col-sm-4">
+                <div class="col-sm-4 slide">
+                    {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
+                    <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
+                    {% endimage %}
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                        mus.
+                    </p>
+
+
+                </div>
+                <div class="col-sm-4 slide">
                     {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
                     <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
                     {% endimage %}
@@ -85,7 +109,7 @@
                         mus.
                     </p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 slide">
                     {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
                     <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
                     {% endimage %}
@@ -94,16 +118,7 @@
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
                         mus.
                     </p>
-                </div>
-                <div class="col-sm-4">
-                    {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
-                    <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
-                    {% endimage %}
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
-                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                        mus.
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>
