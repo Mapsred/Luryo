@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMbehaviors;
+use UserBundle\Entity\Favorite;
 
 /**
  * Travel
@@ -73,11 +74,20 @@ class Travel
      */
     private $orders;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="UserBundle\Entity\Favorite", mappedBy="travel", cascade={"all"})
+     * @ORM\JoinTable("user_favorites")
+     */
+    private $favorites;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->interests = new ArrayCollection();
         $this->orders = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     /**
@@ -305,5 +315,39 @@ class Travel
     public function getOrders()
     {
         return $this->orders;
+    }
+
+    /**
+     * Add favorite
+     *
+     * @param Favorite $favorite
+     *
+     * @return Travel
+     */
+    public function addFavorite(Favorite $favorite)
+    {
+        $this->favorites[] = $favorite;
+
+        return $this;
+    }
+
+    /**
+     * Remove favorite
+     *
+     * @param Favorite $favorite
+     */
+    public function removeFavorite(Favorite $favorite)
+    {
+        $this->favorites->removeElement($favorite);
+    }
+
+    /**
+     * Get favorite
+     *
+     * @return ArrayCollection|Favorite[]
+     */
+    public function getFavorite()
+    {
+        return $this->favorites;
     }
 }

@@ -13,8 +13,9 @@
 <h1 class="text-uppercase text-center">rejoins nos équipes de folies</h1>
 
 <form action="{{ path("fos_user_security_check") }}" method="post" class="form">
-
-
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
 
     <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="pseudo" class="pseudo" />
     <br>
