@@ -1,112 +1,111 @@
-.first{
-    background-image: url("../images/image_page_accueil.jpg ");
-    max-width: 100%;
-    min-height: 700px;
-    text-align: left;
-    padding-top: 10%;
-    color: white;
-    margin-top :-20px;
-    font-size: 25px;
-
-
+.first {
+    background-image : url("../images/image_page_accueil.jpg ");
+    max-width        : 100%;
+    min-height       : 700px;
+    text-align       : left;
+    padding-top      : 10%;
+    color            : white;
+    margin-top       : -20px;
+    font-size        : 25px;
 }
 
-.second{
-    background-color: #e0dfd5;
-    max-width: 100%;
-
-
+.second {
+    background-color : #E0DFD5;
+    max-width        : 100%;
 }
 
-.troisieme{
-    background-image: url("../images/motifs_video.jpg ");
-    max-width: 100%;
-    min-height:800px;
+.troisieme {
+    background-image : url("../images/motifs_video.jpg ");
+    max-width        : 100%;
+    min-height       : 800px;
 }
 
-.quatrieme{
-    background-color: #e8e9eb;
-    max-width: 100%;
-    text-align: center;
+.quatrieme {
+    background-color : #E8E9EB;
+    max-width        : 100%;
+    text-align       : center;
 }
 
-.icone1{
-    padding-left: 50%;
-    width: 20px;
+.quatrieme .bx-wrapper {
+    background         : #E8E9EB;
+    border             : 5px solid #E8E9EB;
+    -webkit-box-shadow : 0 0;
+    -moz-box-shadow    : 0 0;
+    box-shadow         : 0 0;
 }
 
-
-
-.pantheon{
-    width: 100px;
-    height: 100px;
+.icone1 {
+    padding-left : 50%;
+    width        : 20px;
 }
 
-.avion{
-    width: 100px;
-    height: 100px;
+.pantheon {
+    width  : 100px;
+    height : 100px;
 }
 
-.Ami{
-    width: 100px;
-    height: 100px;
-
+.avion {
+    width  : 100px;
+    height : 100px;
 }
 
-.h1{
-    text-align: center;
-    color: #e6735c;
-
+.Ami {
+    width  : 100px;
+    height : 100px;
 }
 
-.concept{
-    margin-left: 200px;
+.h1 {
+    text-align : center;
+    color      : #E6735C;
 }
 
-.button{
-    margin-top: 5%;
-    background-color: #e6735c;
-    color: white;
-    margin-left: 40%;
-    width: 300Px;
-    margin-bottom: 30px;
+.concept {
+    margin-left : 200px;
 }
 
-.avis{
-    background-color: #e8e9eb;
+.button {
+    margin-top       : 5%;
+    background-color : #E6735C;
+    color            : white;
+    margin-left      : 40%;
+    width            : 300Px;
+    margin-bottom    : 30px;
 }
 
-.video{
-    background-color: #0f7173;
+.avis {
+    background-color : #E8E9EB;
 }
 
-.video-concept{
-    width: 800px;
-    height: 400px;
-    margin-left: 400px;
+.video {
+    background-color : #0F7173;
 }
 
-.symbole{
-    color: #e6735c;
-    margin-left: 49%;
-
+.video-concept {
+    width       : 800px;
+    height      : 400px;
+    margin-left : 400px;
 }
 
-.ticket{
-    color: white;
-    margin-left: 49%;
+.symbole {
+    color       : #E6735C;
+    margin-left : 49%;
 }
 
-.h1-video{
-    text-align: center;
-    color: white;
+.ticket {
+    color       : white;
+    margin-left : 49%;
 }
 
-i{
-    margin-top: 30px;
+.h1-video {
+    text-align : center;
+    color      : white;
 }
 
-.firsth1{
-    width: 60%;
-    margin-bottom: 50px;
+i {
+    margin-top : 30px;
+}
+
+.firsth1 {
+    width         : 60%;
+    margin-bottom : 50px;
 }
