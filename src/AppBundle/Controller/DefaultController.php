@@ -43,7 +43,7 @@ class DefaultController extends Controller
         }
 
         // replace this example code with whatever you need
-        return $this->render('AppBundle:Default:voyages.html.twig', ['travel' => $travel]);
+        return $this->render('AppBundle:Default:detail.html.twig', ['travel' => $travel]);
     }
 
     /**
