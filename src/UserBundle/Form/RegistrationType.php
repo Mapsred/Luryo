@@ -8,6 +8,7 @@
 namespace UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
@@ -27,7 +28,8 @@ class RegistrationType extends AbstractType
                 'years' => range(date('Y'), date('Y') - 90),
                 'label' => "Date de naissance",
             ]
-        );
+        )->add("sexe", ChoiceType::class, ['label' => "Sexe", "choices" => ["Homme" => "M", "Femme" => "F"]])
+        ;
 
     }
 
