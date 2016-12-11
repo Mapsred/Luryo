@@ -32,11 +32,19 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-brand-left">
             <ul class="list-item">
-                <li class="li-item"><a class="a-item"
-                                       href="{{ path("fos_user_registration_register") }}">Inscription</a></li>
-                <li class="li-item"><a class="a-item" href="{{ path("fos_user_security_login") }}">Connexion</a></li>
+                {% if app.user %}
+                    <li class="li-item">
+                        <a class="a-item" href="{{ path("fos_user_security_logout") }}">Se déconnecter</a>
+                    </li>
+                {% else %}
+                    <li class="li-item">
+                        <a class="a-item" href="{{ path("fos_user_registration_register") }}">Inscription</a>
+                    </li>
+                    <li class="li-item">
+                        <a class="a-item" href="{{ path("fos_user_security_login") }}">Connexion</a>
+                    </li>
+                {% endif %}
             </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+        </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
