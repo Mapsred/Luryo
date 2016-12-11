@@ -7,95 +7,30 @@
 {% endblock %}
 
 {% block body %}
-	<i class="fa fa-globe" aria-hidden="true"></i>
-	<h2>Les offres voyages</h2>
-<div class="container-fluid">
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-    <div class="overlay">
-      <a href="/detail/1">{% image '@AppBundle/Resources/public/images/catacombes.jpg' output='compiled/images/catacombes.jpg' %} 
-            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="do-hover"/>
-             <div id="deux">Voir plus</div>
-        {% endimage %}</a>
-     </div>
-      <div class="caption">
-        <h3>Visite des catacombes</h3>
-        <p style="text-align:center;">Descente dans l’ossuaire bicentenaire des Catacombes. Vous y serez éclairés par les Lumières de Guillaume, guide et cataphile d’expérience... </p>
-      </div>
+    <i class="fa fa-globe" aria-hidden="true"></i>
+    <h2>Les offres voyages</h2>
+    <div class="container-fluid">
+        <div class="row">
+            {% for travel in travels %}
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <div class="overlay">
+                            <a href="{{ path("detail_page", {'id': travel.id}) }}">
+                                {% set img = "uploads/images/"~ travel.images.get(0).file.filename %}
+                                <div class="cover col-md-12"></div>
+                                <img class="profile-pic" src="{{ asset(img) }}" alt="{{ travel.title }}">
+                                <div id="deux">Voir plus</div>
+                                {#<div id="{{ "travel-"~travel.id }}">Voir plus</div>#}
+                            </a>
+                        </div>
+                        <div class="caption">
+                            <h3><a href="{{ path("detail_page", {'id': travel.id}) }}">{{ travel.title }}</a></h3>
+                            <p class="text-center">{{ travel.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-    	<div class="overlay">
-      <a href="/detail/1">{% image '@AppBundle/Resources/public/images/louvre.jpg' output='compiled/images/louvre.jpg' %} 
-            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="do-hover"/>
-             <div id="deux">Voir plus</div>
-        {% endimage %}</a>
-       </div>
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. consequuntur magni </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-    <div class="overlay">
-      <a href="/detail/1">{% image '@AppBundle/Resources/public/images/arc.jpg' output='compiled/images/arc.jpg' %} 
-            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="do-hover"/>
-             <div id="deux">Voir plus</div>
-        {% endimage %}</a>
-       </div>
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. consequuntur magni </p>
-
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-    	<div class="overlay">
-      <a href="/detail/1">{% image '@AppBundle/Resources/public/images/eiffel.jpg' output='compiled/images/eiffel.jpg' %} 
-            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="do-hover"/>
-             <div id="deux">Voir plus</div>
-        {% endimage %}</a>
-    </div>
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. consequuntur magni </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-    <div class="overlay">
-      <a href="/detail/1">{% image '@AppBundle/Resources/public/images/pompidou.jpg' output='compiled/images/pompidou.jpg' %} 
-            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="do-hover"/>
-            <div id="deux">Voir plus</div>
-        {% endimage %}</a>
-    </div>
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. consequuntur magni </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-  <div class="overlay">
-    <div class="thumbnail">
-      <a href="/detail/1">{% image '@AppBundle/Resources/public/images/notre-dame.jpg' output='compiled/images/notre-dame.jpg' %} 
-            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="do-hover"/>
-             <div id="deux">Voir plus</div>
-        {% endimage %}</a>
-    </div>
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. consequuntur magni </p>
-    </div>
-  </div>
-</div>
-</div>
 {% endblock %}
 
