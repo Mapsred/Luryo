@@ -1,111 +1,167 @@
-.first {
-    background-image : url("../images/image_page_accueil.jpg ");
-    max-width        : 100%;
-    min-height       : 700px;
-    text-align       : left;
-    padding-top      : 10%;
-    color            : white;
-    margin-top       : -20px;
-    font-size        : 25px;
+@font-face {
+    font-family: Aileron;
+    src: url(../fonts/Ailerons.ttf);
 }
 
-.second {
-    background-color : #E0DFD5;
-    max-width        : 100%;
+
+.first{
+    background-image: url("../images/image_page_accueil.jpg ");
+    max-width: 100%;
+    min-height: 700px;
+    text-align: left;
+    padding-top: 7%;
+    color: white;
+    margin-top :-20px;
+    font-size: 25px;
+
+
 }
 
-.troisieme {
-    background-image : url("../images/motifs_video.jpg ");
-    max-width        : 100%;
-    min-height       : 800px;
+.second{
+    background-color: #e0dfd5;
+    max-width: 100%;
+
+
 }
 
-.quatrieme {
-    background-color : #E8E9EB;
-    max-width        : 100%;
-    text-align       : center;
+.troisieme{
+    background-image: url("../images/motifs_video.jpg ");
+    max-width: 100%;
+    min-height:800px;
 }
 
-.quatrieme .bx-wrapper {
-    background         : #E8E9EB;
-    border             : 5px solid #E8E9EB;
-    -webkit-box-shadow : 0 0;
-    -moz-box-shadow    : 0 0;
-    box-shadow         : 0 0;
+.quatrieme{
+    background-color: #e8e9eb;
+    max-width: 100%;
+    text-align: center;
 }
 
-.icone1 {
-    padding-left : 50%;
-    width        : 20px;
+.icone1{
+    padding-left: 50%;
+    width: 20px;
 }
 
-.pantheon {
-    width  : 100px;
-    height : 100px;
+.bx-wrapper {
+    background: #e8e9eb;
+    border: none;
 }
 
-.avion {
-    width  : 100px;
-    height : 100px;
+.pantheon{
+    width: 100px;
+    height: 100px;
 }
 
-.Ami {
-    width  : 100px;
-    height : 100px;
+.avion{
+    width: 100px;
+    height: 100px;
 }
 
+.Ami{
+    width: 100px;
+    height: 100px;
+
+}
 .h1 {
-    text-align : center;
-    color      : #E6735C;
+    text-align: center;
+    color: #e6735c;
+    font-family: Aileron;
+    font-size: 43px;
 }
 
-.concept {
-    margin-left : 200px;
+.concept{
+    margin-left: 230px;
+}
+
+.btn-warning {
+    background-image: none;
 }
 
 .button {
-    margin-top       : 5%;
-    background-color : #E6735C;
-    color            : white;
-    margin-left      : 40%;
-    width            : 300Px;
-    margin-bottom    : 30px;
+    margin-top: 5%;
+    background-color: #e6735c;
+    color: white;
+    margin-left: 44%;
+    width: 200px;
+    margin-bottom: 30px;
+    height: 40px;
+    border: none;
+    padding-top: 10px;
+    font-size: 15px;
 }
 
-.avis {
-    background-color : #E8E9EB;
+.avis{
+    background-color: #e8e9eb;
 }
 
-.video {
-    background-color : #0F7173;
+.video{
+    background-color: #0f7173;
 }
 
-.video-concept {
-    width       : 800px;
-    height      : 400px;
-    margin-left : 400px;
+.video-concept{
+    width: 800px;
+    height: 400px;
+    margin-left: 400px;
 }
 
-.symbole {
-    color       : #E6735C;
-    margin-left : 49%;
+.symbole{
+    color: #e6735c;
+    margin-left: 49%;
+
 }
 
-.ticket {
-    color       : white;
-    margin-left : 49%;
+.ticket{
+    color: white;
+    margin-left: 49%;
+    font-size: 49px;
 }
 
-.h1-video {
-    text-align : center;
-    color      : white;
+.h1-video{
+    text-align: center;
+    color: white;
+    font-size: 43px;
+    font-family: Aileron;
 }
 
-i {
-    margin-top : 30px;
+i{
+    margin-top: 30px;
 }
 
-.firsth1 {
-    width         : 60%;
-    margin-bottom : 50px;
+.firsth1{
+    width: 60%;
+    margin-bottom: 50px;
+    font-size: 74px;
+}
+
+.videoWrapper {
+position: relative;
+padding-bottom: 27.25%;
+padding-top: 25px;
+height: 0;
+}
+.videoWrapper iframe {
+position: absolute;
+top: 0;
+left: 28%;
+}
+@media screen and (min-width: 801px) and (max-width: 1240px) { 
+   .videoWrapper {
+    padding-bottom: 40.25%; /* 16:9 */
+    }
+    .videoWrapper iframe {
+    left: 15%;
+    }
+}
+@media screen and (min-width: 1241px) and (max-width: 1600px) { 
+   .videoWrapper {
+    padding-bottom: 28.25%;
+    }
+}
+@media screen and (max-width:800px) { 
+   .videoWrapper {
+        padding-bottom: 55.25%;
+    }
+    .videoWrapper iframe {
+    width: 700px;
+    left: 0%;
+    }
 }
