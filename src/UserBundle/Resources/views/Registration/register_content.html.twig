@@ -1,8 +1,5 @@
 {% trans_default_domain 'FOSUserBundle' %}
-    {% stylesheets 'bundles/user/css/register.css' output='compiled/css/register.css' filter='cssrewrite' %}
-<link href="{{ asset_url }}" rel="stylesheet">
-
-{% endstylesheets %}
+<link href="{{ asset("assets/user/css/register.css") }}" rel="stylesheet">
 
 {% block body %}
 <div class="container">
