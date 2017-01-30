@@ -1,15 +1,12 @@
-{% stylesheets '@AppBundle/Resources/public/css/basic.css' output='compiled/css/main.css' filter='cssrewrite' %}
-<link href="{{ asset_url }}" rel="stylesheet">
-{% endstylesheets %}
+<link href="{{ asset("assets/app/css/basic.css") }}" rel="stylesheet">
 
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <ul class="navbar-brand">
             <li>
                 <a href="{{ path("homepage") }}">
-                    {% image '@AppBundle/Resources/public/images/logo.png' output='compiled/images/logo.png' %} 
-                    <img src="{{ asset_url }}" alt="logo" class="logo-nav img-responsive hidden-xs"/> 
-                    {% endimage %}</a>
+                    <img src="{{ asset("assets/app/images/logo.png") }}" alt="logo" class="logo-nav img-responsive hidden-xs"/> 
+                </a>
             </li>
         </ul>
         <!-- Brand and toggle get grouped for better mobile display -->

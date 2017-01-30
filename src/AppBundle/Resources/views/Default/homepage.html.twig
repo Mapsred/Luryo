@@ -3,13 +3,9 @@
 {% block title %}Page d'accueil{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{ asset('assets/custom/jquery.bxslider.css') }}">
+    <link href="{{ asset("assets/app/css/index.css") }}" rel="stylesheet">
     <script src="{{ asset('assets/bower/bxslider-4/src/js/jquery.bxslider.js') }}"></script>
-    {% stylesheets 'bundles/app/css/index.css' output='compiled/css/index.css' filter='cssrewrite' %}
-    <link href="{{ asset_url }}" rel="stylesheet">
-    {% endstylesheets %}
-    {% javascripts '@AppBundle/Resources/public/js/main.js' output='compiled/js/main.js' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script src="{{ asset("assets/app/js/main.js") }}"></script>
 {% endblock %}
 {% block body %}
 
@@ -34,9 +30,7 @@
 
             <div class="second col-sm-12">
                 <div class="col-sm-4">
-                    {% image '@AppBundle/Resources/public/images/avion.png' output='compiled/images/avion.png' %} 
-                    <img src="{{ asset_url }}" alt="avion" class=" avion img-responsive concept"/> 
-                    {% endimage %}
+                    <img src="{{ asset("assets/app/images/video.png") }}" alt="avion" class=" avion img-responsive concept"/> 
                     <p>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
@@ -44,9 +38,7 @@
                     </p>
                 </div>
                 <div class="col-sm-4">
-                    {% image '@AppBundle/Resources/public/images/Ami.png' output='compiled/images/Ami.png' %} 
-                    <img src="{{ asset_url }}" alt="ami" class=" Ami img-responsive concept"/> 
-                    {% endimage %}
+                    <img src="{{ asset("assets/app/images/Ami.png") }}" alt="ami" class=" Ami img-responsive concept"/> 
                     <p>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
@@ -54,9 +46,7 @@
                     </p>
                 </div>
                 <div class="col-sm-4">
-                    {% image '@AppBundle/Resources/public/images/Pantheon.png' output='compiled/images/Pantheon.png' %} 
-                    <img src="{{ asset_url }}" alt="Pantheon" class="pantheon img-responsive concept"/> 
-                    {% endimage %}
+                    <img src="{{ asset("assets/app/images/Pantheon.png") }}" alt="Pantheon" class="pantheon img-responsive concept"/> 
                     <p>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
@@ -84,10 +74,8 @@
             <div class="quatrieme col-sm-12">
                 <div class="slider2">
                     {% for i in 1..6 %}
-                        <div class="col-sm-4 slide">
-                            {% image '@AppBundle/Resources/public/images/oeil.png' output='compiled/images/oeil.png' %} 
-                            <img src="{{ asset_url }}" alt="oeil" class=" img-responsive oeil"/> 
-                            {% endimage %}
+                        <div class="col-sm-12 col-md-4 slide">
+                            <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
                             <p>
                                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
                                 dolor.<br>

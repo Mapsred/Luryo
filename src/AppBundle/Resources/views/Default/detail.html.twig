@@ -2,9 +2,7 @@
 
 {% block title %}{{ travel.title }}{% endblock %}
 {% block head %}
-    {% stylesheets 'bundles/app/css/voyage.css' output='compiled/css/voyage.css' filter='cssrewrite' %}
-    <link href="{{ asset_url }}" rel="stylesheet">
-    {% endstylesheets %}
+    <link href="{{ asset("assets/app/css/voyage.css") }}" rel="stylesheet">
 {% endblock %}
 {% block body %}
     <div class="col-sm-12">
@@ -15,15 +13,9 @@
             <iframe class="google-map"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.2718789676023!2d2.3305988964536684!3d48.83395253659682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671b9d2da3de9%3A0x3494d132bb3ba63c!2s1+Avenue+du+Colonel+Henri+Rol-Tanguy%2C+75014+Paris!5e0!3m2!1sfr!2sfr!4v1479997992629"
                     width="600" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
-            {% image '@AppBundle/Resources/public/images/crane.jpg' output='compiled/images/voyage.png' %} 
-            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="img-second-tablet"/>
-            {% endimage %}
-            {% image '@AppBundle/Resources/public/images/croix.jpg' output='compiled/images/voyage.png' %} 
-            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive yop" id="lala"/>
-            {% endimage %}
-            {% image '@AppBundle/Resources/public/images/jeunes.jpg' output='compiled/images/voyage.png' %} 
-            <img src="{{ asset_url }}" alt="voyage" class=" img-responsive" id="img-second-tablet"/>
-            {% endimage %}
+            <img src="{{ asset("assets/app/images/crane.jpg") }}" alt="voyage" class=" img-responsive" id="img-second-tablet"/>
+            <img src="{{ asset("assets/app/images/croix.jpg") }}" alt="voyage" class=" img-responsive yop" id="lala"/>
+            <img src="{{ asset("assets/app/images/jeunes.jpg") }}" alt="voyage" class=" img-responsive" id="img-second-tablet"/>
         </div>
     </div>
     <div class="bloc-right">
@@ -60,15 +52,9 @@
                 <iframe class="google-map-responsive"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.2718789676023!2d2.3305988964536684!3d48.83395253659682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671b9d2da3de9%3A0x3494d132bb3ba63c!2s1+Avenue+du+Colonel+Henri+Rol-Tanguy%2C+75014+Paris!5e0!3m2!1sfr!2sfr!4v1479997992629"
                         width="450" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
-                {% image '@AppBundle/Resources/public/images/mapresponsive.jpg' output='compiled/images/voyage.png' %} 
-                <img src="{{ asset_url }}" alt="voyage" class=" img-bot" id="map-none"/>
-                {% endimage %}
-                {% image '@AppBundle/Resources/public/images/crane.jpg' output='compiled/images/voyage.png' %} 
-                <img src="{{ asset_url }}" alt="voyage" class=" img-bot"/>
-                {% endimage %}
-                {% image '@AppBundle/Resources/public/images/croix.jpg' output='compiled/images/voyage.png' %} 
-                <img src="{{ asset_url }}" alt="voyage" class=" img-bot"/>
-                {% endimage %}
+                <img src="{{ asset("assets/app/images/mapresponsive.jpg") }}" alt="voyage" class=" img-bot" id="map-none"/>
+                <img src="{{ asset("assets/app/images/crane.jpg") }}" alt="voyage" class=" img-bot"/>
+                <img src="{{ asset("assets/app/images/croix.jpg") }}" alt="voyage" class=" img-bot"/>
                 <div class="responsive-rs">
                     <a href="#"><i class="fa fa-facebook social" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>

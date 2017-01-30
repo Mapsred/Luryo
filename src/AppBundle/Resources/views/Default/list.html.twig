@@ -1,9 +1,7 @@
 {% extends 'AppBundle:Default:index.html.twig' %}
 {% block title %}Liste de voyages {% endblock %}
 {% block head %}
-    {% stylesheets 'bundles/app/css/liste.css' output='compiled/css/liste.css' filter='cssrewrite' %}
-    <link href="{{ asset_url }}" rel="stylesheet">
-    {% endstylesheets %}
+    <link href="{{ asset("assets/app/css/liste.css") }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
