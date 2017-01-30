@@ -11,19 +11,18 @@
         <div class="row">
             {% for travel in travels %}
                 <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <div class="overlay">
-                            <a href="{{ path("detail_page", {'id': travel.id}) }}">
-                                {% set img = "uploads/images/"~ travel.images.get(0).file.filename %}
-                                <div class="cover col-md-12"></div>
-                                <img class="profile-pic" src="{{ asset(img) }}" alt="{{ travel.title }}">
-                                <div id="deux">Voir plus</div>
-                            </a>
+                    <div class="overlay">
+                        {% set img = "uploads/images/"~ travel.images.get(0).file.filename %}
+                        <img class="img-responsive center-block" src="{{ asset(img) }}" alt="{{ travel.title }}">
+                        <div class="img_desc">
+                            <a href="{{ path("detail_page", {'id': travel.id}) }}">{{ travel.title }}</a>
+                            <hr>
+                            <a href="{{ path("detail_page", {'id': travel.id}) }}">Voir plus</a>
                         </div>
-                        <div class="caption">
-                            <h3><a href="{{ path("detail_page", {'id': travel.id}) }}">{{ travel.title }}</a></h3>
-                            <p class="text-center">{{ travel.description }}</p>
-                        </div>
+                    </div>
+                    <div class="caption">
+                        <h3><a href="{{ path("detail_page", {'id': travel.id}) }}">{{ travel.title }}</a></h3>
+                        <p class="text-center">{{ travel.description }}</p>
                     </div>
                 </div>
             {% endfor %}

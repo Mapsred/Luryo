@@ -68,6 +68,7 @@ class DefaultController extends Controller
 
         try {
             $pagerfanta = new Pagerfanta($adapter);
+            /** @var Travel[] $travels */
             $travels = $pagerfanta->setMaxPerPage(20)->setCurrentPage($page)->getCurrentPageResults();
         } catch (NotValidCurrentPageException $e) {
             return $this->redirectToRoute("travel_list", ['page' => 1, 'sort' => $sort, 'order' => $order]);
