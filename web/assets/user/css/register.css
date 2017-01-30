@@ -1,35 +1,29 @@
-.container{
-    color: white;
+body { background : url("../images/inscription.png") no-repeat center center fixed; }
 
+h1 {
+    text-align : center;
+    color      : white;
+    margin-top : 5%;
 }
 
-.form{
-    width: 500px;
-    margin-left:28%;
+.container, .container a { color : white; }
+
+.form {
+    width       : 500px;
+    margin-left : 28%;
 }
 
-body{
-    background-image: url("../images/inscription.jpg");
+.tinder { color : deepskyblue; }
 
-}
-
-.center{
-    padding-top: 20%;
+.login_form_control {
+    height        : 50px;
+    border-radius : 10px;
 }
 
-.color-button{
-    background-color: #4c5c8a;
+.login_form_control.connect {
+    background-color : coral;
+    border           : 0;
+    color            : white;
 }
 
-.tinder{
-    color: deepskyblue;
-}
-
-.button {
-    width            : 100%;
-    background-color : orange;
-}
-.compte{
-    color : white;
-    padding-top: 1%;
-}
+input[type=submit] { text-transform : uppercase; }

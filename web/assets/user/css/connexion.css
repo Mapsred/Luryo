@@ -1,8 +1,5 @@
-body{
-    background-image: url("../images/connexion.jpg");
+body{ background: url("../images/connexion.jpg") no-repeat center center fixed; }
 
-
-}
 .form{
     text-align: center;
     margin-top: 5%;
@@ -14,40 +11,16 @@ h1{
     margin-top: 5%;
 }
 
-
-
-.connect{
-    width: 25%;
+.login_form_control{
     height :50px;
     border-radius: 10px;
+}
+
+.login_form_control.connect{
     background-color: coral;
-    margin-top: 1%;
+    border : 0;
 }
 
-.mdp{
-    width: 25%;
-    height :50px;
-    border-radius: 10px;
-}
+.login_link{ color: white; }
 
-.pseudo{
-    width: 25%;
-    height :50px;
-    border-radius: 10px;
-    margin-bottom: 1%;
-}
-
-.compte{
-    color: white;
-    margin-left: 38%;
-}
-
-.inscri{
-    margin-left: 11%;
-    color: white;
-    padding-top: 1%;
-}
-
-#footer{
-    margin-top: 20%;
-}
+#footer{ margin-top: 20%; }

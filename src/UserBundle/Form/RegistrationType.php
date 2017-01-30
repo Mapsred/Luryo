@@ -9,6 +9,10 @@ namespace UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
@@ -20,17 +24,31 @@ class RegistrationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add(
-            'birthday',
-            DateType::class,
-            [
-                'format' => \IntlDateFormatter::LONG,
-                'years' => range(date('Y'), date('Y') - 90),
-                'label' => "Date de naissance",
-            ]
-        )->add("sexe", ChoiceType::class, ['label' => "Sexe", "choices" => ["Homme" => "M", "Femme" => "F"]])
-        ;
+        $fields = ['email' => EmailType::class, 'username' => TextType::class, "plainPassword" => null];
+        $placeholders = ['email' => "Email", "username" => "Pseudo", "plainPassword" => "Mot de passe"];
+        $params = ['attr' => ['class' => "login_form_control"], "label_attr" => ['class' => "hidden"], 'translation_domain' => 'FOSUserBundle'];
+        foreach ($fields as $field => $type) {
+            $params['attr']['placeholder'] = $placeholders[$field];
+            if ($field == "plainPassword") {
+                $builder->add('plainPassword', RepeatedType::class, $this->getPasswordOptions());
+            } else {
+                $builder->add($field, $type, $params);
+            }
+        }
+    }
 
+    /**
+     * @return array
+     */
+    private function getPasswordOptions()
+    {
+        return [
+            'type' => PasswordType::class,
+            'options' => ['translation_domain' => 'FOSUserBundle', "label_attr" => ['class' => "hidden"]],
+            'first_options' => ['attr' => ['placeholder' => 'Mot de passe', 'class' => "login_form_control"]],
+            'second_options' => ['attr' => ['placeholder' => 'Confirmer le mot de passe', 'class' => "login_form_control"]],
+            'invalid_message' => 'fos_user.password.mismatch',
+        ];
     }
 
     public function getParent()
