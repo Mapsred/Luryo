@@ -21,12 +21,11 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        // replace this example code with whatever you need
         return $this->render('AppBundle:Default:homepage.html.twig');
     }
 
     /**
-     * @Route("/detail/{id}", name="detail_page")
+     * @Route("/detail/{slug}", name="detail_page")
      * @param Travel $travel
      * @param Request $request
      * @return Response
@@ -39,7 +38,7 @@ class DefaultController extends Controller
             $this->getDoctrine()->getManager()->persist($order);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute("detail_page", ['id' => $travel->getId()]);
+            return $this->redirectToRoute("detail_page", ['slug' => $travel->getSlug()]);
         }
 
         // replace this example code with whatever you need

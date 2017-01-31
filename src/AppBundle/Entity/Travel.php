@@ -16,6 +16,7 @@ use UserBundle\Entity\Favorite;
 class Travel
 {
     use ORMbehaviors\Timestampable\Timestampable;
+    use ORMbehaviors\Sluggable\Sluggable;
 
     /**
      * @var int
@@ -349,5 +350,15 @@ class Travel
     public function getFavorite()
     {
         return $this->favorites;
+    }
+
+    /**
+     * Returns an array of the fields used to generate the slug.
+     *
+     * @return array
+     */
+    public function getSluggableFields()
+    {
+        return [$this->title];
     }
 }

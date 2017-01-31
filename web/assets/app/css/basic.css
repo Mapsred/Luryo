@@ -152,3 +152,9 @@ a.a-item:hover {
     text-decoration: none;
     color:#e6735c;
 }
+
+.vertical-center {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
