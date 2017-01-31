@@ -32,3 +32,10 @@ services:
         arguments: [~, AppBundle\Entity\Image, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Image, group: "Default" }
+
+  app.twig_extension:
+          class: AppBundle\Twig\Extension\ImageExtension
+          public: false
+          arguments: ["%web_dir%"]
+          tags:
+              - { name: twig.extension }
