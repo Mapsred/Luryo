@@ -19,13 +19,38 @@
                 {#TODO afficher carte google maps#}
             </div>
             <div class="col-md-offset-1 col-md-7">
-                <h1>Réserver la sortie</h1>
-                <div class="description">
-                    Vous pouvez dès maintenant régler le montant de votre réservation via PayPal. <br>
-                    Si vous ne possédez pas de compte PayPal il vous sera possible de régler en carte bancaire une fois
-                    sur leur site. <br>
-                    <img src="{{ asset("assets/app/images/paypal.png") }}" alt="paypal">
-                </div>
+                {% if result is defined %}
+                    {% if result.0 == "success" %}
+                        <h1>Paiement Réussi</h1>
+                        <div class="description">
+                            Votre paiement a bien été reçu, vous êtes maintenant inscrit à la sortie et receverez un
+                            email vous confirmant le paiement et les informations relatives à la sortie sous peu.
+                        </div>
+                    {% elseif result.0 == "danger" %}
+                        <h1>Paiement déjà effectué</h1>
+                        <div class="description">
+                            Votre paiement a déjà été effectué.
+                        </div>
+                    {% else %}
+                        <h1>Paiement Échoué</h1>
+                        <div class="description">
+                            Votre paiement a échoué, nous vous conseillons de vérifier votre compte paypal et de
+                            <a href="{{ path("checkout", {'slug' : app.request.attributes.get("slug")}) }}">rééssayer</a>
+                            plus tard.
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <h1>Réserver la sortie</h1>
+                    <div class="description">
+                        Vous pouvez dès maintenant régler le montant de votre réservation via PayPal. <br>
+                        Si vous ne possédez pas de compte PayPal il vous sera possible de régler en carte bancaire une
+                        fois
+                        sur leur site. <br>
+                        <a href="{{ paypalLink }}">
+                            <img src="{{ asset("assets/app/images/paypal.png") }}" alt="paypal">
+                        </a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

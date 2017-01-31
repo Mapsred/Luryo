@@ -39,3 +39,6 @@ services:
           arguments: ["%web_dir%"]
           tags:
               - { name: twig.extension }
+  app.paypal:
+          class: AppBundle\Utils\Paypal
+          arguments: ["@service_container"]

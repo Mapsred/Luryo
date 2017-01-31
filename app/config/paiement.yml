@@ -1,5 +1,5 @@
 kmj_pay_pal_bridge:
-    environment: sandbox                      #The environment to make the calls to
+    environment: "%paypal_environment%"  #The environment to make the calls to
     sandbox:
         clientId: "%sandbox_client_id%"  #Client Id provided from developer.paypal.com
         secret: "%sandbox_secret%"    #Client Secret provided from developer.paypal.com
