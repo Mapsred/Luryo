@@ -95,6 +95,9 @@ class DefaultController extends Controller
      */
     public function checkoutAction(Travel $travel, Request $request)
     {
+        if ($travel->getStatus() == "closed") {
+            $this->createNotFoundException();
+        }
 
         return $this->render('AppBundle:Default:checkout.html.twig', ['travel' => $travel]);
     }

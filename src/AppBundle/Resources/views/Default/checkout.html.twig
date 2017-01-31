@@ -1,0 +1,32 @@
+{% extends "AppBundle:Default:index.html.twig" %}
+
+{% block title %}Réservation {{ travel.title }}{% endblock %}
+{% block head %}
+    <link href="{{ asset("assets/app/css/checkout.css") }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Récapitulatif de la sortie <i>{{ travel.title }}</i> :</h2>
+                <ul class="list-group">
+                    <li class="list-group-item active">{{ travel.title }}</li>
+                    <li class="list-group-item">Prix : {{ travel.price }} €</li>
+                    <li class="list-group-item">Date : {{ travel.updatedAt | date("d/m/Y") }}</li>
+                    <li class="list-group-item">Destination : TODO</li>
+                </ul>
+
+                {#TODO afficher carte google maps#}
+            </div>
+            <div class="col-md-offset-1 col-md-7">
+                <h1>Réserver la sortie</h1>
+                <div class="description">
+                    Vous pouvez dès maintenant régler le montant de votre réservation via PayPal. <br>
+                    Si vous ne possédez pas de compte PayPal il vous sera possible de régler en carte bancaire une fois
+                    sur leur site. <br>
+                    <img src="{{ asset("assets/app/images/paypal.png") }}" alt="paypal">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
