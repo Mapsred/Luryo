@@ -2,6 +2,7 @@
 {% block title %}Liste de voyages {% endblock %}
 {% block head %}
     <link href="{{ asset("assets/app/css/liste.css") }}" rel="stylesheet">
+    <script src="{{ asset("assets/app/js/list.js") }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -9,6 +10,27 @@
     <h2>Les offres voyages</h2>
     <div class="container-fluid">
         <div class="row">
+            <form class="form-inline margin-bottom20" id="orderForm">
+                <div class="form-group">
+                    <label for="sort">Trier par</label>
+                    <select name="sort" id="sort" class="form-control">
+                        {% for critera, key in criteras %}
+                            {% set selected = key == app.request.attributes.get('sort') ? "selected" : "" %}
+                            <option value="{{ key }}" {{ selected }}>{{ critera }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="order">Ordre</label>
+                    <select name="order" id="order" class="form-control">
+                        <option value="desc" {{ "desc" == app.request.attributes.get('order') ? "selected" : "" }}>
+                            Desc
+                        </option>
+                        <option value="asc" {{ "asc" == app.request.attributes.get('order') ? "selected" : "" }}>Asc
+                        </option>
+                    </select>
+                    <button type="submit" class="btn btn-default">Valider</button>
+
+                </div>
+            </form>
             {% for travel in travels %}
                 <div class="col-sm-6 col-md-4">
                     <div class="overlay">
@@ -26,6 +48,15 @@
                     </div>
                 </div>
             {% endfor %}
+
+            {% if pager is defined and pager.haveToPaginate %}
+                <div class="pagerfanta col-center-block col-md-12 text-center">
+                    {{ pagerfanta(pager , 'twitter_bootstrap3_translated',
+                    {'routeName': "travel_list", 'routeParams':
+                        {'sort': app.request.attributes.get('sort'), 'order':app.request.attributes.get('order')}
+                    }) }}
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

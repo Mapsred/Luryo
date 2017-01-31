@@ -47,7 +47,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/list/{page}/{sort}/{order}", defaults={"page" = 1, "sort" = "id", "order" = "desc"}
-     *     , name="travel_list", requirements={ "sort": "id|title|places|interests", "order": "asc|desc"})
+     *     , name="travel_list", requirements={ "sort": "id|title|places|interests", "order": "asc|desc"}, options={"expose"=true})
      * @ParamConverter("adapter", class="AppBundle:Travel", options={
      *     "repository_method" = "paginator",
      *     "mapping"={"sort": "sort", "order": "order"},
@@ -61,26 +61,24 @@ class DefaultController extends Controller
      */
     public function listAction($page, $sort, $order, AdapterInterface $adapter)
     {
-        $order = strtolower($order);
-        $opposit = ["desc" => "asc", "asc" => "desc"];
-        $criteras = ['id', 'title', 'places', "interests"];
-
         try {
             $pagerfanta = new Pagerfanta($adapter);
             /** @var Travel[] $travels */
             $travels = $pagerfanta->setMaxPerPage(20)->setCurrentPage($page)->getCurrentPageResults();
         } catch (NotValidCurrentPageException $e) {
-            return $this->redirectToRoute("travel_list", ['page' => 1, 'sort' => $sort, 'order' => $order]);
+            return $this->redirectToRoute("travel_list", ['page' => 1, 'sort' => $sort, 'order' => strtolower($order)]);
         }
 
-        $twigArray = ['travels' => $travels, 'pager' => $pagerfanta];
-        $twigArray['parameters'] = ['page' => $page, 'sort' => $sort, 'order' => $order];
-
-        foreach ($criteras as $critera) {
-            $order = $sort == $critera ? $opposit[$order] : "desc";
-            $params = ["page" => $page, "sort" => $critera, "order" => $order];
-            $twigArray['routes'][$critera] = $this->generateUrl("travel_list", $params);
-        }
+        $twigArray = [
+            'travels' => $travels,
+            'pager' => $pagerfanta,
+            'criteras' => [
+                "Date de création" => 'id',
+                "Titre" => 'title',
+                "Nombre de places" => 'places',
+                "Centres d'intérêts" => "interests",
+            ],
+        ];
 
         return $this->render("AppBundle:Default:list.html.twig", $twigArray);
     }

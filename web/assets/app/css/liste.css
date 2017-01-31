@@ -43,6 +43,7 @@ i.fa.fa-globe {
 .overlay {
     position   : relative;
     text-align : center;
+    height     : 200px;
 }
 
 .overlay:hover {
@@ -69,3 +70,9 @@ i.fa.fa-globe {
 .img_desc a, .img_desc a:hover {
     color : #FFFFFF;
 }
+
+.overlay .img-responsive {
+    max-height : 200px;
+}
+
+
