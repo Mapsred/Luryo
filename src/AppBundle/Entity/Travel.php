@@ -83,6 +83,13 @@ class Travel
      */
     private $favorites;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255)
+     */
+    private $status;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -360,5 +367,47 @@ class Travel
     public function getSluggableFields()
     {
         return [$this->title];
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Travel
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Get favorites
+     *
+     * @return ArrayCollection|Favorite[]
+     */
+    public function getFavorites()
+    {
+        return $this->favorites;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAvailablePlaces()
+    {
+        return $this->getPlaces() - count($this->getOrders());
     }
 }

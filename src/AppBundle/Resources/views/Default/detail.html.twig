@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-12">
                 <div class="text-description">{{ travel.description|nl2br }}</div>
-                <form action="#">
+                <form action="{{ path("checkout", {'slug': travel.slug}) }}">
                     <input type="submit" name="submit" value="S'inscrire à la sortie" class="submit"/><br>
                 </form>
             </div>

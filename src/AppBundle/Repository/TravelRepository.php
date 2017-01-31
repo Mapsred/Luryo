@@ -20,11 +20,11 @@ class TravelRepository extends EntityRepository
      */
     public function paginator($sort, $order)
     {
-        $queryBuilder = $this->createQueryBuilder('q');
+        $queryBuilder = $this->createQueryBuilder('q')->where("q.status != :status")->setParameter("status", "closed");
         if ($sort == "category") {
             $queryBuilder->leftJoin("q.interests", "interests")->orderBy("interests.name", $order);
         }else {
-            $queryBuilder = $this->createQueryBuilder('q')->orderBy("q.$sort", $order);
+            $queryBuilder->orderBy("q.$sort", $order);
         }
 
         return $adapter = new DoctrineORMAdapter($queryBuilder->getQuery());

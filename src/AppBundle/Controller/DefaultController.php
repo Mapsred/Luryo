@@ -32,6 +32,10 @@ class DefaultController extends Controller
      */
     public function detailAction(Travel $travel, Request $request)
     {
+        if ($travel->getStatus() == "closed") {
+            $this->createNotFoundException();
+        }
+
         if ($request->request->has("joining")) {
             $order = new Order();
             $order->setTravel($travel)->setUser($this->getUser())->setAmount($travel->getPrice())->setDone(false);
@@ -81,5 +85,17 @@ class DefaultController extends Controller
         ];
 
         return $this->render("AppBundle:Default:list.html.twig", $twigArray);
+    }
+
+    /**
+     * @Route("/checkout/{slug}", name="checkout")
+     * @param Travel $travel
+     * @param Request $request
+     * @return Response
+     */
+    public function checkoutAction(Travel $travel, Request $request)
+    {
+
+        return $this->render('AppBundle:Default:checkout.html.twig', ['travel' => $travel]);
     }
 }
