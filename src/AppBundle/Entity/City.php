@@ -20,6 +20,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 class City
 {
     use ORMBehaviors\Sluggable\Sluggable;
+
     /**
      * @var int
      *
@@ -28,24 +29,26 @@ class City
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
     /**
      * @var string
      *
      * @ORM\Column(name="zipcode", type="string", length=255)
      */
     private $zipcode;
+
     /**
      * @var County $county
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\County", inversedBy="cities")
      * @ORM\JoinColumn(name="county_id", referencedColumnName="id")
-     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     private $county;
     /**
