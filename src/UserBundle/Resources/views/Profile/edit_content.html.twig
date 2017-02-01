@@ -1,0 +1,87 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block head %}
+    {% javascripts 'assets/bower/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'
+    'assets/bower/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr.min.js'
+    'assets/bower/select2/dist/js/select2.full.min.js'
+    'assets/bower/select2/dist/js/i18n/fr.js'
+    'assets/user/js/profile.js' output='compiled/js/bootstrap-datepicker.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% stylesheets 'assets/user/css/profile.css'
+    'assets/bower/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css'
+    'assets/bower/select2/dist/css/select2.min.css' output='compiled/css/bootstrap-datepicker3.min.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+<div class="container">
+    <div class="row">
+        <div class="container-header">
+            <p class="text-uppercase">
+                {{ user.username }} {{ user.firstname ? "/"~user.firstname: "" }} {{ user.lastname ?: "" }}
+            </p>
+            {% if user.birthday is not null %}
+                <span>{{ user.birthday|date("d/m/Y") }}</span>
+            {% endif %}
+        </div>
+
+        {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+        <h2 class="h2-title">Niveau d'études</h2>
+
+        {#{{ form_label(form.interests, null, {'label_attr': {'class': 'col-md-2 control-label'}}) }}#}
+        <div class="col-md-12 margin-bottom20">
+            <h2 class="h2-title">Centres d'intérets</h2>
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3">
+                    {{ form_widget(form.interests) }}
+                    {{ form_errors(form.interests) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 margin-bottom20">
+            <h2 class="h2-title">Coordonnées</h2>
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3">
+                    {{ form_widget(form.address) }}
+                    {{ form_errors(form.address) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 margin-bottom20">
+            <h2 class="h2-title">Informations personelles</h2>
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3">
+                    {{ form_widget(form.email) }}
+                    {{ form_errors(form.email) }}
+                </div>
+                <div class="col-md-3 col-md-offset-3 margin-top20">
+                    {{ form_widget(form.firstname) }}
+                    {{ form_errors(form.firstname) }}
+                </div>
+                <div class="col-md-3 margin-top20">
+                    {{ form_widget(form.lastname) }}
+                    {{ form_errors(form.lastname) }}
+                </div>
+                <div class="col-md-3 col-md-offset-3 margin-top20">
+                    {{ form_widget(form.sexe) }}
+                    {{ form_errors(form.sexe) }}
+                </div>
+                <div class="col-md-3 margin-top20">
+                    {{ form_widget(form.birthday) }}
+                    {{ form_errors(form.birthday) }}
+                </div>
+                <div class="col-md-6 col-md-offset-3 margin-top20">
+                    <input type="submit" value="{{ 'profile.edit.submit'|trans }}" class="form-control"/>
+                </div>
+            </div>
+        </div>
+
+
+        {{ form_end(form) }}
+    </div>
+</div>

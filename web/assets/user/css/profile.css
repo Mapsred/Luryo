@@ -1,0 +1,18 @@
+body { background : url("../images/profile.png") no-repeat center center fixed; }
+
+div.container {
+    background-color : #FFFFFF;
+    margin-top       : -20px;
+}
+
+div.container div.container-header {
+    background-color : #067274;
+    color            : #FFFFFF;
+    padding          : 70px;
+    text-align       : center;
+}
+
+.h2-title {
+    text-transform : uppercase;
+    text-align     : center;
+}
