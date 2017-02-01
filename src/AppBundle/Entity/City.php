@@ -51,17 +51,30 @@ class City
      * @ORM\JoinColumn(name="county_id", referencedColumnName="id")
      */
     private $county;
+
+
+    public function getSluggableFields()
+    {
+        return ['name'];
+    }
+
+    public function __toString()
+    {
+        return (string)$this->name." (".$this->zipcode.")";
+    }
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
+
     /**
-     * Set city
+     * Set name
      *
      * @param string $name
      *
@@ -70,8 +83,10 @@ class City
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
      * Get name
      *
@@ -81,6 +96,7 @@ class City
     {
         return $this->name;
     }
+
     /**
      * Set zipcode
      *
@@ -91,8 +107,10 @@ class City
     public function setZipcode($zipcode)
     {
         $this->zipcode = $zipcode;
+
         return $this;
     }
+
     /**
      * Get zipcode
      *
@@ -102,6 +120,7 @@ class City
     {
         return $this->zipcode;
     }
+
     /**
      * Set county
      *
@@ -109,11 +128,13 @@ class City
      *
      * @return City
      */
-    public function setCounty($county)
+    public function setCounty(County $county = null)
     {
         $this->county = $county;
+
         return $this;
     }
+
     /**
      * Get county
      *
@@ -122,12 +143,5 @@ class City
     public function getCounty()
     {
         return $this->county;
-    }
-    public function getSluggableFields()
-    {
-        return [ 'name' ];
-    }
-    public function __toString() {
-        return (string) $this->name. " (". $this->zipcode.")";
     }
 }

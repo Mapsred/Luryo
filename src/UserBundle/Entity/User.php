@@ -2,6 +2,7 @@
 
 namespace UserBundle\Entity;
 
+use AppBundle\Entity\Address;
 use AppBundle\Entity\County;
 use AppBundle\Entity\Interest;
 use AppBundle\Entity\Order;
@@ -33,7 +34,7 @@ class User extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthday", type="date")
+     * @ORM\Column(name="birthday", type="date", nullable=true)
      */
     private $birthday;
 
@@ -43,13 +44,6 @@ class User extends BaseUser
      * @ORM\Column(name="sexe", type="string", length=255)
      */
     private $sexe;
-
-    /**
-     * @var ArrayCollection
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\County", inversedBy="user", cascade={"persist"})
-     * @ORM\JoinColumn(name="county", referencedColumnName="id")
-     */
-    private $county;
 
     /**
      * @var ArrayCollection
@@ -63,6 +57,24 @@ class User extends BaseUser
      */
     private $orders;
 
+    /**
+     * @var Address $address
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Address")
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
+     */
+    private $firstname;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
+     */
+    private $lastname;
 
     public function __construct()
     {
@@ -99,7 +111,7 @@ class User extends BaseUser
     /**
      * Get interests
      *
-     * @return ArrayCollection
+     * @return ArrayCollection|Interest[]
      */
     public function getInterests()
     {
@@ -152,30 +164,6 @@ class User extends BaseUser
     public function getSexe()
     {
         return $this->sexe;
-    }
-
-    /**
-     * Get county
-     *
-     * @return ArrayCollection
-     */
-    public function getCounty()
-    {
-        return $this->county;
-    }
-
-    /**
-     * Set county
-     *
-     * @param County $county
-     *
-     * @return User
-     */
-    public function setCounty(County $county = null)
-    {
-        $this->county = $county;
-
-        return $this;
     }
 
     /**
@@ -244,5 +232,77 @@ class User extends BaseUser
     public function getOrders()
     {
         return $this->orders;
+    }
+
+    /**
+     * Set address
+     *
+     * @param Address $address
+     *
+     * @return User
+     */
+    public function setAddress(Address $address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return Address
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return User
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+     * @return User
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
     }
 }

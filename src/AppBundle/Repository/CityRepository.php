@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\City;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -12,4 +13,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class CityRepository extends EntityRepository
 {
+    /**
+     * @param $city
+     * @return array
+     */
+    public function findLike($city)
+    {
+        $cities = [];
+        $results = $this->createQueryBuilder('q')
+            ->where('q.name LIKE :city')
+            ->setParameter('city', $city."%")
+            ->getQuery()->getResult();
+
+        /** @var City $result */
+        foreach ($results as $result) {
+            $cities[] = ["id" => (string)$result->getId(), "text" => $result->__toString()];
+        }
+
+        return $cities;
+    }
 }
