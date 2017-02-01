@@ -16,6 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "bxslider-4": "^4.2.5"
+    "bxslider-4": "^4.2.5",
+    "select2": "^4.0.3",
+    "bootstrap-datepicker": "^1.6.4"
   }
 }
