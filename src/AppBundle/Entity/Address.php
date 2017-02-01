@@ -125,4 +125,9 @@ class Address
     {
         return $this->city;
     }
+
+    public function __toString()
+    {
+        return (string) $this->address." ".$this->city->__toString();
+    }
 }

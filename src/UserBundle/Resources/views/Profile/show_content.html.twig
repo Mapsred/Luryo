@@ -22,11 +22,14 @@
                 {% endfor %}
             </div>
             <h2 class="h2-title">Coordonnées</h2>
-            {% if user.address is defined %}
-                <p>Votre adresse est : {#TODO#}</p>
+            {% if user.address is not null %}
+                <p>Votre adresse est : {{ user.address.__toString }}</p>
             {% endif %}
-            <p>Votre email est : {{ user.email }}</p>
-            <p>Votre pseudo est : {{ user.username }}</p>
+            <div class="text-center">
+                <p>Votre email est : {{ user.email }}</p>
+                <p>Votre pseudo est : {{ user.username }}</p>
+
+            </div>
 
             <a href="{{ path("fos_user_profile_edit") }}">Modifier votre profil</a>
         </div>
