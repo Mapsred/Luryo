@@ -50,11 +50,6 @@ class County
     private $cities;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserBundle\Entity\User", mappedBy="county", cascade={"persist"})
-     */
-    private $user;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -172,29 +167,5 @@ class County
     public function removeCity(City $city)
     {
         $this->cities->removeElement($city);
-    }
-
-    /**
-     * Set user
-     *
-     * @param User $user
-     *
-     * @return County
-     */
-    public function setUser(User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return User
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

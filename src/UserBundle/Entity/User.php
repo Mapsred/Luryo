@@ -59,7 +59,7 @@ class User extends BaseUser
 
     /**
      * @var Address $address
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Address")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Address", cascade={"persist"})
      */
     private $address;
 

@@ -18,7 +18,9 @@ class AddressType extends AbstractType
     {
         $builder
             ->add('address', TextType::class, ['label' => "Adresse (ex: 10 rue de Paris)"])
-            ->add('city', ChoiceType::class, ['mapped' => false, 'label' => "Ville"]);
+            ->add('city', ChoiceType::class, ['mapped' => false, 'label' => "Ville"])
+            ->get('city')->resetViewTransformers();
+
     }
 
     /**

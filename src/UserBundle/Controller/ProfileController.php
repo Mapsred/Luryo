@@ -8,16 +8,9 @@
 
 namespace UserBundle\Controller;
 
-use FOS\UserBundle\Event\FilterUserResponseEvent;
-use FOS\UserBundle\Event\FormEvent;
-use FOS\UserBundle\Event\GetResponseUserEvent;
-use FOS\UserBundle\FOSUserEvents;
-use FOS\UserBundle\Model\UserInterface;
-use FOS\UserBundle\Model\UserManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,71 +28,47 @@ class ProfileController extends Controller
     /**
      * Edit the user.
      *
+     * @Security("has_role('ROLE_USER')")
      * @param Request $request
      * @return RedirectResponse|Response
      */
     public function editAction(Request $request)
     {
-        $user = $this->getUser();
-        if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('This user does not have access to this section.');
-        }
 
-        /** @var $dispatcher EventDispatcherInterface */
-        $dispatcher = $this->get('event_dispatcher');
-
-        $event = new GetResponseUserEvent($user, $request);
-        $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_INITIALIZE, $event);
-
-        if (null !== $event->getResponse()) {
-            return $event->getResponse();
-        }
-
-        $form = $this->createForm(ProfileForm::class, $user);
-
+        $form = $this->createForm(ProfileForm::class, $this->getUser());
         $form->handleRequest($request);
+        $parameters = ['form' => $form->createView(), 'user' => $this->getUser()];
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var $userManager UserManagerInterface */
-            $userManager = $this->get('fos_user.user_manager');
+            $city = $request->request->get('profile_form')['address']['city'];
+            $birthday = $request->request->get('profile_form')['birthday'];
 
-            $event = new FormEvent($form, $request);
-            $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
+            $city = $this->getDoctrine()->getRepository("AppBundle:City")->findOneBy(["id" => $city]);
+            $this->getUser()->setBirthday(new \DateTime($birthday))->getAddress()->setCity($city);
 
-            $userManager->updateUser($user);
+            $this->getDoctrine()->getManager()->persist($this->getUser());
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash("success", "Votre profil a bien été mis à jour");
 
-            if (null === $response = $event->getResponse()) {
-                $response = new RedirectResponse($this->generateUrl('fos_user_profile_show'));
-            }
-
-            $event = new FilterUserResponseEvent($user, $request, $response);
-            $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_COMPLETED, $event);
-
-            return $response;
+            return $this->redirectToRoute("fos_user_profile_show");
         }
 
-        return $this->render(
-            'FOSUserBundle:Profile:edit.html.twig',
-            ['form' => $form->createView(), 'user' => $this->getUser()]
-        );
+        return $this->render('FOSUserBundle:Profile:edit.html.twig', $parameters);
     }
 
     /**
      * Show the user.
+     * @Security("has_role('ROLE_USER')")
      * @return Response
      */
     public function showAction()
     {
-        $user = $this->getUser();
-        if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('This user does not have access to this section.');
-        }
-
-        return $this->render('FOSUserBundle:Profile:show.html.twig', ['user' => $user]);
+        return $this->render('FOSUserBundle:Profile:show.html.twig', ['user' => $this->getUser()]);
     }
 
     /**
      * @Route("/cities", name="ajax_cities", options={"expose"=true})
+     * @Security("has_role('ROLE_USER')")
      * @param Request $request
      * @return JsonResponse
      */
