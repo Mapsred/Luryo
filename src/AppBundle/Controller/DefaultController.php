@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Pagerfanta\Adapter\AdapterInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
@@ -107,5 +108,43 @@ class DefaultController extends Controller
         }
 
         return $this->render('AppBundle:Default:checkout.html.twig', $parameters);
+    }
+
+    /**
+     * @Route("/search", name="search", options={"expose"=true})
+     * @param Request $request
+     * @return Response|NotFoundHttpException
+     */
+    public function searchAction(Request $request)
+    {
+        $keys = $request->query->keys();
+        if (isset($keys[0]) && in_array($keys[0], ["date", "city", "price", "search"])) {
+            try {
+                $adapter = $this->getDoctrine()->getRepository("AppBundle:Travel")->searchPaginator($request);
+                $page = $request->query->get("page", 1);
+                $pagerfanta = new Pagerfanta($adapter);
+                /** @var Travel[] $travels */
+                $travels = $pagerfanta->setMaxPerPage(1)->setCurrentPage($page)->getCurrentPageResults();
+            } catch (NotValidCurrentPageException $e) {
+                return $this->createNotFoundException($e->getMessage());
+            }
+
+            $twigArray = [
+                'travels' => $travels,
+                'pager' => $pagerfanta,
+                'criteras' => [
+                    "Date de création" => 'id',
+                    "Titre" => 'title',
+                    "Nombre de places" => 'places',
+                    "Centres d'intérêts" => "interests",
+                ],
+            ];
+
+            return $this->render("AppBundle:Default:list.html.twig", $twigArray);
+        }
+
+        $travels = $this->getDoctrine()->getRepository("AppBundle:Travel")->findRand(5);
+
+        return $this->render('AppBundle:Default:search.html.twig', ["travels" => $travels]);
     }
 }

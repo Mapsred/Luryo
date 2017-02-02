@@ -2,10 +2,15 @@
 {% block title %}Liste de voyages {% endblock %}
 {% block head %}
     <link href="{{ asset("assets/app/css/liste.css") }}" rel="stylesheet">
-    <script src="{{ asset("assets/app/js/list.js") }}"></script>
+    {% if app.request.attributes.get('_route') == "search" %}
+        <script src="{{ asset("assets/app/js/search.js") }}"></script>
+    {% else %}
+        <script src="{{ asset("assets/app/js/list.js") }}"></script>
+    {% endif %}
 {% endblock %}
 
 {% block body %}
+    {% set is_search = app.request.attributes.get('_route') == "search" %}
     <i class="fa fa-globe" aria-hidden="true"></i>
     <h2>Les offres voyages</h2>
     <div class="container-fluid">
@@ -28,7 +33,9 @@
                         </option>
                     </select>
                     <button type="submit" class="btn btn-default">Valider</button>
-
+                    {% if is_search %}
+                        <a href="{{ path("search") }}">Retourner à la recherche</a>
+                    {% endif %}
                 </div>
             </form>
             {% for travel in travels %}
@@ -54,10 +61,13 @@
 
             {% if pager is defined and pager.haveToPaginate %}
                 <div class="pagerfanta col-center-block col-md-12 text-center">
+                    {% if is_search %}
+                        {% set routeParams = app.request.query.all %}
+                    {% else %}
+                        {% set routeParams = {'sort': app.request.attributes.get('sort'), 'order':app.request.attributes.get('order')} %}
+                    {% endif %}
                     {{ pagerfanta(pager , 'twitter_bootstrap3_translated',
-                    {'routeName': "travel_list", 'routeParams':
-                        {'sort': app.request.attributes.get('sort'), 'order':app.request.attributes.get('order')}
-                    }) }}
+                    {'routeName': app.request.attributes.get('_route'), 'routeParams': routeParams}) }}
                 </div>
             {% endif %}
         </div>

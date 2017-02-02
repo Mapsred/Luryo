@@ -2,8 +2,10 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Travel;
 use Doctrine\ORM\EntityRepository;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * TravelRepository
@@ -23,10 +25,64 @@ class TravelRepository extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('q')->where("q.status != :status")->setParameter("status", "closed");
         if ($sort == "category") {
             $queryBuilder->leftJoin("q.interests", "interests")->orderBy("interests.name", $order);
-        }else {
+        } else {
             $queryBuilder->orderBy("q.$sort", $order);
         }
 
         return $adapter = new DoctrineORMAdapter($queryBuilder->getQuery());
     }
+
+    /**
+     * @param Request $request
+     * @return DoctrineORMAdapter
+     */
+    public function searchPaginator(Request $request)
+    {
+        $queryBuilder = $this->createQueryBuilder('q')->where("q.status != :status")->setParameter("status", "closed");
+        if ($request->query->has("date") && $request->query->get("date")) {
+            $queryBuilder->andWhere("q.date BETWEEN :now AND :next")
+                ->setParameter('now', new \DateTime())
+                ->setParameter('next', new \DateTime($request->query->get("date")));
+        }
+        if ($request->query->has("city") && $request->query->get("city")) {
+                $queryBuilder->leftJoin("q.address", "address")->leftJoin("address.city", "city")
+                    ->andWhere("city.id = :city")->setParameter("city", $request->query->get("city"));
+        }
+        if ($request->query->has("price") && $request->query->get("price")) {
+            $queryBuilder->andWhere("q.price = :price")->setParameter("price", $request->query->get("price"));
+        }
+        if ($request->query->has("search") && $request->query->get("search")) {
+            $queryBuilder->andWhere("q.title LIKE :search")->setParameter("search", "%".$request->query->get("search")."%");
+        }
+
+        $queryBuilder->orderBy("q.".$request->query->get("sort", "date"), $request->query->get("order", "asc"));
+
+        return $adapter = new DoctrineORMAdapter($queryBuilder->getQuery());
+    }
+
+    /**
+     * @param $number
+     * @return array|Travel[]
+     */
+    public function findRand($number)
+    {
+        $travels = $this->findAll();
+
+        return array_rand($travels, $number <= count($travels) ? $number : count($travels));
+    }
+
+    /**
+     * @param bool $all
+     * @return array|Travel[]
+     */
+    public function findAll($all = false)
+    {
+        if ($all) {
+            return parent::findAll();
+        } else {
+            return $this->createQueryBuilder("q")->where("q.status != :status")->setParameter("status", "closed")
+                ->getQuery()->getResult();
+        }
+    }
+
 }

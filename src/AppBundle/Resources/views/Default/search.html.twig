@@ -1,0 +1,52 @@
+{% extends 'AppBundle:Default:index.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+{% block head %}
+    {% javascripts 'assets/bower/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'
+    'assets/bower/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr.min.js'
+    'assets/bower/select2/dist/js/select2.full.min.js'
+    'assets/bower/select2/dist/js/i18n/fr.js'
+    'assets/app/js/search.js' output='compiled/js/bootstrap-datepicker.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% stylesheets 'assets/app/css/search.css'
+    'assets/bower/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css'
+    'assets/bower/select2/dist/css/select2.min.css' output='compiled/css/bootstrap-datepicker3.min.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row search-bar">
+            <form action="{{ path('search') }}" method="GET" id="search_form">
+                <div class="col-md-offset-2">
+                    <div class="col-md-3">
+                        <select id="search_form_city" name="city" class="form-control">
+                            <option value="">Ou ?</option>
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="text" id="search_form_date" name="date" placeholder="Quand ?" class="form-control">
+                    </div>
+                    <div class="col-md-1">
+                        <input type="text" id="search_form_price" name="price" placeholder="Prix ?" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" id="search_form_search" name="search" placeholder="Votre choix ?"
+                               class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" value="C'est parti !" class="form-control">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

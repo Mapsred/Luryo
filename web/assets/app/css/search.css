@@ -1,0 +1,26 @@
+body { background : url("../images/search.png") no-repeat center center fixed; }
+
+.search-bar {
+    margin-top       : 15%;
+    background-color : rgba(0, 0, 0, 0.5);
+    min-height       : 70px;
+    padding          : 20px;
+}
+
+.search-bar .col-md-2, .search-bar .col-md-1, .search-bar .col-md-3 { padding : 0; }
+
+.search-bar .form-control, input[type=submit] { border-radius : 0; }
+
+input[type=submit] {
+    background : #067274 none;
+    border     : 0;
+    color      : #FFFFFF;
+}
+
+.search-bar .select2-container--default .select2-selection--single {
+    border-radius : 0;
+    height        : 34px;
+    border        : 0;
+}
+
+.search-bar .select2-container--default .select2-selection--single .select2-selection__rendered { color : #555555; }
