@@ -90,6 +90,19 @@ class Travel
      */
     private $status;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * @var Address $address
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Address", cascade={"persist"})
+     */
+    private $address;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -409,5 +422,53 @@ class Travel
     public function getAvailablePlaces()
     {
         return $this->getPlaces() - count($this->getOrders());
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Travel
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set address
+     *
+     * @param Address $address
+     *
+     * @return Travel
+     */
+    public function setAddress(Address $address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return Address
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }
