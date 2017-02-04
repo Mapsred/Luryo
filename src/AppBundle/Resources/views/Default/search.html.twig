@@ -32,7 +32,8 @@
                         <input type="text" id="search_form_date" name="date" placeholder="Quand ?" class="form-control">
                     </div>
                     <div class="col-md-1">
-                        <input type="text" id="search_form_price" name="price" placeholder="Prix ?" class="form-control">
+                        <input type="text" id="search_form_price" name="price" placeholder="Prix ?"
+                               class="form-control">
                     </div>
                     <div class="col-md-2">
                         <input type="text" id="search_form_search" name="search" placeholder="Votre choix ?"
@@ -44,6 +45,25 @@
                 </div>
             </form>
 
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                {#TODO ADD MAP#}
+            </div>
+            <div class="col-md-4">
+                {% for i in 0..3 %}
+                    <div class="col-md-6 min-travel">
+                        {% if travels[i] is defined %}
+                            <a href="{{ path("detail_page", {"slug": travels[i].slug}) }}">
+                                {% set pull_class= i % 2 == 0 ? "pull-right" : "pull-lefy" %}
+                                <img src="{{ travels[i].images.get(0)|image }}" alt="voyage"
+                                     class="img-responsive {{ pull_class }}"/>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4"></div>
         </div>
 
     </div>
