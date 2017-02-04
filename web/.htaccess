@@ -55,6 +55,14 @@ DirectoryIndex app.php
 
     # Rewrite all other queries to the front controller.
     RewriteRule ^ %{ENV:BASE}/app.php [L]
+
+    #Rewrite for user and password protection
+    AuthType Basic
+    AuthName "Luryo - Secured Access"
+    AuthUserFile "/var/www/sites/cours/Luryo/web/.htpasswd"
+    require valid-user
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
 </IfModule>
 
 <IfModule !mod_rewrite.c>
