@@ -133,6 +133,6 @@ sonata_admin:
             - bundles/sonataadmin/css/tree.css
             - bundles/sonataadmin/css/colors.css
             #Extra CSS
-            - bundles/app/admin/css/sonata.css
+            - assets/app/admin/css/sonata.css
   title: Luryo
-  title_logo: bundles/app/images/logo.png
+  title_logo: assets/app/images/logo.png

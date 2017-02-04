@@ -35,19 +35,19 @@ class UserAdmin extends AbstractAdmin
             ->tab('Utilisateur')
             ->with("Profil", ['class' => "col-md-6"])
             ->add('username', 'text', ['label' => 'Nom d\'utilisateur'])
+            ->add('firstname', 'text', ['label' => 'Prénom'])
+            ->add('lastname', 'text', ['label' => 'Nom de famille'])
             ->add("interests", null, ['label' => 'Intérêts'])
             ->end()
             ->with("Général", ['class' => "col-md-6"])
             ->add('email', 'email')
             ->add('birthday', 'date', ['label' => 'Date de naissance'])
             ->add('sexe', 'choice', ['multiple' => false, 'choices' => ['Homme' => "Homme", 'Femme' => "Femme"]])
-            ->add('county', null, ['label' => 'Code Postal'])
+            ->add('address', null, ['label' => 'Adresse'])
             ->end()
             ->end()
             ->tab('Sécurité')
             ->with("Statut", ['class' => "col-md-6"])
-            ->add('locked', 'checkbox',['label' => 'Bloqué'])
-            ->add('expired', 'checkbox', ['label' => 'Expiré'])
             ->add('enabled', 'checkbox', ['label' => 'Activé'])
             ->end()
             ->with("Rôles", ['class' => "col-md-6"])
@@ -73,9 +73,7 @@ class UserAdmin extends AbstractAdmin
             ->addIdentifier('username', null, ['label' => 'Nom d\'utilisateur'])
             ->add('email')
             ->add('enabled', null, ['label' => 'Activé'])
-            ->add('locked', null, ['label' => 'Bloqué'])
             ->add('created_at', 'datetime', ['label' => 'Créé le'])
-
         ;
     }
 
