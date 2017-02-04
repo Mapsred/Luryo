@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+if (basename(getcwd()) !== "Luryo") {
+    exit("Error ! Please run this script from the base of the project\n");
+}
+
+
+shell_exec("git checkout web/.htaccess");
+shell_exec("git pull --rebase");
+shell_exec("cp web/.htaccess.dist web/.htaccess");
