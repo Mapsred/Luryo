@@ -3,13 +3,12 @@
 namespace UserBundle\Entity;
 
 use AppBundle\Entity\Address;
-use AppBundle\Entity\County;
 use AppBundle\Entity\Interest;
 use AppBundle\Entity\Order;
-use AppBundle\Entity\Travel;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * @ORM\Entity
@@ -18,6 +17,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+    use ORMBehaviors\Timestampable\Timestampable;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -41,7 +42,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="sexe", type="string", length=255)
+     * @ORM\Column(name="sexe", type="string", length=255, nullable=true)
      */
     private $sexe;
 

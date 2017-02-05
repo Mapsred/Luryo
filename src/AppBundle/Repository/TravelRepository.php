@@ -67,8 +67,14 @@ class TravelRepository extends EntityRepository
     public function findRand($number)
     {
         $travels = $this->findAll();
+        $number = $number <= count($travels) ? $number : count($travels);
+        $keys = array_rand($travels, $number <= count($travels) ? $number : count($travels));
+        $out = [];
+        foreach ($keys as $key) {
+            $out[] = $travels[$key];
+        }
 
-        return array_rand($travels, $number <= count($travels) ? $number : count($travels));
+        return $out;
     }
 
     /**

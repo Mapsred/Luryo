@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+if (basename(getcwd()) !== "Luryo") {
+    exit("Error ! Please run this script from the base of the project\n");
+}
+
+$commands = [
+    "--update" => "php bin/console doctrine:schema:update --dump-sql",
+    "--force" => "php bin/console doctrine:schema:update --force",
+];
+
+echo shell_exec("git checkout web/.htaccess");
+echo shell_exec("git pull --rebase");
+echo shell_exec("cp web/.htaccess.dist web/.htaccess");
+
+foreach ($commands as $flag => $command) {
+    if (in_array($flag, $argv)) {
+        echo shell_exec($command);
+    }
+}
