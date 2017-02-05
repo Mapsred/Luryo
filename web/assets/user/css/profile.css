@@ -1,4 +1,8 @@
 body { background : url("../images/profile.png") no-repeat center center fixed; }
+@font-face {
+    font-family: Aileron;
+    src: url(../fonts/Ailerons.ttf);
+}
 
 
 div.container {
@@ -21,7 +25,8 @@ div.container div.container-header {
     font-size: 37px;
 }
 .date-element {
-    font-size: 21px;
+    font-size: 24px;
+    font-family: Aileron;
 }
 .trait-left {
     border-bottom: 6px solid #fff;
@@ -58,12 +63,14 @@ div.container div.container-header {
 .niveau-etude-circleleft {
     background-color: black;
     margin-left: 351px;
+    margin-top: 37px;
 }
 
 .niveau-etude-traitleft {
     border-bottom: 6px solid black;
     margin-left: 0px;
     width: 340px;
+    margin-top: 43px;
 }
 
 .niveau-etude-traitright {
@@ -83,14 +90,15 @@ i.fa.fa-cogs {
     font-size: 30px;
     color: #fff;
     float: right;
-    margin-top: -50px;
-    margin-left: 51px;
+    margin-top: 12px;
+    margin-left: -34px !important;
 }
 .size-colonne {
-	height: 500px;
+	height: 600px;
 }
 .element-profil {
     font-size: 37px;
+    font-family: Aileron;
 }
 .info-personnelles-traitleft {
     border-bottom: 6px solid black;
@@ -100,10 +108,12 @@ i.fa.fa-cogs {
 .info-personnelles-circleleft {
     background-color: black;
     margin-left: 295px;
+    margin-top: 40px;
 }
 .info-personnelles-traitright {
     background-color: black;
     margin-left: 830px;
+    margin-top: 45px;
 }
 
 .info-personnelles-circleright {
@@ -159,4 +169,8 @@ input#profile_form_birthday {
     font-size: 20px;
     color: #fff;
     text-transform: uppercase;
+}
+.change-font {
+    font-family: Aileron;
+    font-size: 42px;
 }

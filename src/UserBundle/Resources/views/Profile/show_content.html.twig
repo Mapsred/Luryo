@@ -16,12 +16,12 @@
         <div class="col-md-12 size-colonne">
             <div class="trait-left niveau-etude-traitleft"></div>
             <div class="circle-left niveau-etude-circleleft"></div>
-            <h2 class="h2-title">Niveau d'études</h2>
+            <h2 class="h2-title change-font">Niveau d'études</h2>
             <div class="circle-right niveau-etude-traitright"></div>
             <div class="trait-right niveau-etude-circleright"></div>
             <div class="trait-left niveau-etude-traitleft"></div>
             <div class="circle-left niveau-etude-circleleft"></div>
-            <h2 class="h2-title decalage-top">Centres d'intérets</h2>
+            <h2 class="h2-title decalage-top change-font">Centres d'intérets</h2>
              <div class="circle-right niveau-etude-traitright"></div>
             <div class="trait-right niveau-etude-circleright"></div>
             <div class="interests">
@@ -34,7 +34,11 @@
                     </p>
                 {% endfor %}
             </div>
-            <h2 class="h2-title">Coordonnées</h2>
+            <div class="trait-left niveau-etude-traitleft"></div>
+            <div class="circle-left niveau-etude-circleleft"></div>
+            <h2 class="h2-title change-font">Coordonnées</h2>
+             <div class="circle-right niveau-etude-traitright"></div>
+            <div class="trait-right niveau-etude-circleright"></div>
             {% if user.address is not null %}
                 <p>Votre adresse est : {{ user.address.__toString }}</p>
             {% endif %}

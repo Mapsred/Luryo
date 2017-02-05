@@ -11,7 +11,8 @@
 
     .navbar > .container .navbar-brand-centered,
     .navbar > .container-fluid .navbar-brand-centered {
-        background-color : #272C3B;
+        background-color : red;
+        position: fixed;
     }
 
     .logo-nav {
