@@ -3,14 +3,27 @@
 <div class="container">
     <div class="row">
         <div class="container-header">
-            <p class="text-uppercase">{{ user.username }}</p>
+            <a href="{{ path("fos_user_profile_edit") }}"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+            <div class="trait-left"></div>
+            <div class="circle-left"></div>
+            <p class="text-uppercase element-profil">{{ user.username }}</p>
+            <div class="circle-right"></div>
+            <div class="trait-right"></div>
             {% if user.birthday is defined %}
-                <span>{{ user.birthday|date("d/m/Y") }}</span>
+                <span class="date-element">{{ user.birthday|date("d/m/Y") }}</span>
             {% endif %}
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 size-colonne">
+            <div class="trait-left niveau-etude-traitleft"></div>
+            <div class="circle-left niveau-etude-circleleft"></div>
             <h2 class="h2-title">Niveau d'études</h2>
-            <h2 class="h2-title">Centres d'intérets</h2>
+            <div class="circle-right niveau-etude-traitright"></div>
+            <div class="trait-right niveau-etude-circleright"></div>
+            <div class="trait-left niveau-etude-traitleft"></div>
+            <div class="circle-left niveau-etude-circleleft"></div>
+            <h2 class="h2-title decalage-top">Centres d'intérets</h2>
+             <div class="circle-right niveau-etude-traitright"></div>
+            <div class="trait-right niveau-etude-circleright"></div>
             <div class="interests">
                 {% for interest in user.interests if not user.interests.empty %}
                     <p class="interest">{{ interest.name }}</p>
@@ -30,8 +43,6 @@
                 <p>Votre pseudo est : {{ user.username }}</p>
 
             </div>
-
-            <a href="{{ path("fos_user_profile_edit") }}">Modifier votre profil</a>
         </div>
     </div>
 </div>
