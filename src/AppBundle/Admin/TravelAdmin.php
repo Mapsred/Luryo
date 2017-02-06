@@ -40,7 +40,7 @@ class TravelAdmin extends AbstractAdmin
             ->add('places', 'integer', ['label' => 'Nombre de places'])
             ->add('price', 'number', ['label' => 'Prix'])
             ->add('description', 'textarea', ['label' => 'Description'])
-            ->add("date", 'sonata_type_datetime_picker', ['label' => "Date du voyage"])
+            ->add("date", 'sonata_type_datetime_picker', ['label' => "Date du voyage", 'format' => 'dd.MM.yyyy, HH:mm', 'date_format' => 'dd.MM.yyyy, HH:mm' ])
             ->add("interests", null, ['label' => 'Intérêts'])
             ->end()
             ->with("Image", ['class' => "col-md-5"])
