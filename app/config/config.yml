@@ -45,6 +45,7 @@ twig:
         admin_skin: skin-blue
     form_themes:
         - bootstrap_3_layout.html.twig
+        - 'SonataCoreBundle:Form:datepicker.html.twig'
 
 # Doctrine Configuration
 doctrine:

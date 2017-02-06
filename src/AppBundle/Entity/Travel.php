@@ -88,7 +88,7 @@ class Travel
      *
      * @ORM\Column(name="status", type="string", length=255)
      */
-    private $status;
+    private $status = "open";
 
     /**
      * @var \DateTime
@@ -379,7 +379,7 @@ class Travel
      */
     public function getSluggableFields()
     {
-        return [$this->title];
+        return ["title"];
     }
 
     /**
