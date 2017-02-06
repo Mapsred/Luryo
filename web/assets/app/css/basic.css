@@ -45,6 +45,10 @@
     margin-left : 70px;
 }
 
+#navbar-brand-left .navbar-nav > li > a {
+    margin-left : 0;
+}
+
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover {
     background : #272C3B none;

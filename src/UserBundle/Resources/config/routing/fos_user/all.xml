@@ -8,7 +8,7 @@
         resource="@UserBundle/Resources/config/routing/fos_user/security.xml" />
     <import
         resource="@UserBundle/Resources/config/routing/fos_user/profile.xml"
-        prefix="/compte" />
+        prefix="/profil" />
     <import
         resource="@UserBundle/Resources/config/routing/fos_user/registration.xml"
         prefix="/inscription" />

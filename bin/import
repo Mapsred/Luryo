@@ -8,7 +8,8 @@ $commands = [
     "--update" => "php bin/console doctrine:schema:update --dump-sql",
     "--force" => "php bin/console doctrine:schema:update --force",
     "composer install",
-    "php bin/console cache:clear --env=prod"
+    "php bin/console assetic:dump --env=prod",
+    "php bin/console cache:clear --env=prod",
 ];
 
 echo shell_exec("git checkout web/.htaccess");

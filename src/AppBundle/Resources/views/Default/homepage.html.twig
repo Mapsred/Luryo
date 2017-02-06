@@ -18,8 +18,15 @@
                     Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
                     mus.<br> Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
                 </p>
-                <a href="{{ path("fos_user_registration_register") }}"
-                   class="btn btn-warning text-uppercase button">S'incrire</a>
+                <div class="text-center">
+                    {% if not is_granted("ROLE_USER") %}
+                        <a href="{{ path("fos_user_registration_register") }}"
+                           class="btn btn-warning text-uppercase button">S'incrire</a>
+                    {% elseif app.user.birthday is null %}
+                        <a href="{{ path("fos_user_profile_edit") }}"
+                           class="btn btn-warning text-uppercase button">Compléter mon profil</a>
+                    {% endif %}
+                </div>
             </div>
 
             <div class="second col-sm-12">
@@ -54,8 +61,6 @@
 
                     </p>
                 </div>
-                <a href="{{ path("fos_user_registration_register") }}"
-                   class="btn btn-warning text-uppercase button">S'incrire</a>
             </div>
 
             <div class="video col-sm-12">
