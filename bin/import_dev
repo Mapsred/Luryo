@@ -31,7 +31,7 @@ foreach ($commands as $flag => $command) {
             foreach ($command as $cmd) {
                 echo shell_exec($cmd);
             }
-        }else {
+        } else {
             echo shell_exec($command);
         }
     }

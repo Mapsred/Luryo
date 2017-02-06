@@ -10,6 +10,7 @@ $commands = [
     "composer install",
     "php bin/console assetic:dump --env=prod",
     "php bin/console cache:clear --env=prod",
+    "--full" => "php bin/import_dev --full",
 ];
 
 echo shell_exec("git checkout web/.htaccess");
