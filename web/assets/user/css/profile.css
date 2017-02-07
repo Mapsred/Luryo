@@ -104,6 +104,7 @@ i.fa.fa-cogs {
     border-bottom: 6px solid black;
     width: 282px;
     margin-left: 0px;
+    margin-top: 45px;
 }
 .info-personnelles-circleleft {
     background-color: black;
@@ -113,7 +114,6 @@ i.fa.fa-cogs {
 .info-personnelles-traitright {
     background-color: black;
     margin-left: 830px;
-    margin-top: 45px;
 }
 
 .info-personnelles-circleright {

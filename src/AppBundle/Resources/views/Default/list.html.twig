@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block body %}
+    <div class="block-list">
     {% set is_search = app.request.attributes.get('_route') == "search" %}
     <i class="fa fa-globe" aria-hidden="true"></i>
     <h2>Les offres voyages</h2>
@@ -18,21 +19,21 @@
             <form class="form-inline margin-bottom20" id="orderForm">
                 <div class="form-group">
                     <label for="sort">Trier par</label>
-                    <select name="sort" id="sort" class="form-control">
+                    <select name="sort" id="sort" class="form-control option-border">
                         {% for critera, key in criteras %}
                             {% set selected = key == app.request.attributes.get('sort') ? "selected" : "" %}
                             <option value="{{ key }}" {{ selected }}>{{ critera }}</option>
                         {% endfor %}
                     </select>
                     <label for="order">Ordre</label>
-                    <select name="order" id="order" class="form-control">
-                        <option value="desc" {{ "desc" == app.request.attributes.get('order') ? "selected" : "" }}>
+                    <select name="order" id="order" class="form-control option-border">
+                        <option  value="desc" {{ "desc" == app.request.attributes.get('order') ? "selected" : "" }}>
                             Desc
                         </option>
                         <option value="asc" {{ "asc" == app.request.attributes.get('order') ? "selected" : "" }}>Asc
                         </option>
                     </select>
-                    <button type="submit" class="btn btn-default">Valider</button>
+                    <button type="submit" class="btn btn-default btn-valider">Valider</button>
                     {% if is_search %}
                         <a href="{{ path("search") }}">Retourner à la recherche</a>
                     {% endif %}
@@ -72,5 +73,6 @@
             {% endif %}
         </div>
     </div>
+</div>
 {% endblock %}
 
