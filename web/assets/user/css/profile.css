@@ -174,3 +174,18 @@ input#profile_form_birthday {
     font-family: Aileron;
     font-size: 42px;
 }
+.btn-cancel {
+    color: #067274;
+    background: #fff;
+    text-transform: uppercase;
+}
+
+.btn-cancel:hover {
+    color: #067274;
+    background: #fff;
+    text-transform: uppercase;
+}
+
+.btn-cancel a {
+    text-decoration: none;
+}
