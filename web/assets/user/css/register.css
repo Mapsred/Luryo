@@ -6,7 +6,8 @@ h1 {
     margin-top : 5%;
 }
 
-.container, .container a { color : white; }
+.container, .container a { color : white;
+margin-bottom: 140px;}
 
 .form {
     width       : 500px;
