@@ -46,6 +46,14 @@
     border: none;
 }
 
+.quatrieme .bx-wrapper {
+     background         : #E8E9EB;
+     border             : 5px solid #E8E9EB;
+     -webkit-box-shadow : 0 0;
+     -moz-box-shadow    : 0 0;
+     box-shadow         : 0 0;
+ }
+
 .pantheon{
     width: 100px;
     height: 100px;
