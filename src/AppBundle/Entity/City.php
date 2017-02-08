@@ -20,7 +20,6 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 class City
 {
     use ORMBehaviors\Sluggable\Sluggable;
-
     /**
      * @var int
      *
@@ -29,52 +28,36 @@ class City
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
-     * @var string
-     *
+      *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
-
     /**
      * @var string
      *
      * @ORM\Column(name="zipcode", type="string", length=255)
      */
     private $zipcode;
-
     /**
      * @var County $county
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\County", inversedBy="cities")
      * @ORM\JoinColumn(name="county_id", referencedColumnName="id")
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     private $county;
-
-
-    public function getSluggableFields()
-    {
-        return ['name'];
-    }
-
-    public function __toString()
-    {
-        return (string)$this->name." (".$this->zipcode.")";
-    }
-
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
         return $this->id;
     }
-
     /**
-     * Set name
+     * Set city
      *
      * @param string $name
      *
@@ -83,10 +66,8 @@ class City
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
-
     /**
      * Get name
      *
@@ -96,7 +77,6 @@ class City
     {
         return $this->name;
     }
-
     /**
      * Set zipcode
      *
@@ -107,10 +87,8 @@ class City
     public function setZipcode($zipcode)
     {
         $this->zipcode = $zipcode;
-
         return $this;
     }
-
     /**
      * Get zipcode
      *
@@ -120,7 +98,6 @@ class City
     {
         return $this->zipcode;
     }
-
     /**
      * Set county
      *
@@ -128,13 +105,11 @@ class City
      *
      * @return City
      */
-    public function setCounty(County $county = null)
+    public function setCounty($county)
     {
         $this->county = $county;
-
         return $this;
     }
-
     /**
      * Get county
      *
@@ -143,5 +118,12 @@ class City
     public function getCounty()
     {
         return $this->county;
+    }
+    public function getSluggableFields()
+    {
+        return [ 'name' ];
+    }
+    public function __toString() {
+        return (string) $this->name. " (". $this->zipcode.")";
     }
 }

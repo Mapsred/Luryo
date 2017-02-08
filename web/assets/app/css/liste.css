@@ -29,24 +29,12 @@ i.fa.fa-globe {
     padding-top  : 9px;
 }
 
-.img_desc {
-    position   : absolute;
-    top        : 30%;
-    bottom     : 0;
-    left       : 0;
-    right      : 0;
-    color      : #FFFFFF;
-    visibility : hidden;
-    opacity    : 0;
-}
-
 .overlay {
-    position   : relative;
     text-align : center;
     height     : 200px;
 }
 
-.overlay:hover {
+.overlay:hover .img-responsive {
     /** Chrome **/
     -webkit-transition : -webkit-filter 500ms linear;
     -webkit-filter     : brightness(0.25);
@@ -58,38 +46,59 @@ i.fa.fa-globe {
     /** Opera **/
     -o-transition      : -o-filter 500ms linear;
     -o-filter          : brightness(0.25);
+    background-color   : rgba(0, 0, 0, 0.5);
 }
 
-.overlay:hover .img_desc {
+.overlay:hover .text-content {
     visibility : visible;
-    opacity    : 1;
 }
 
-.img_desc hr { width : 250px; }
+.text-content hr { width : 250px; }
 
-.img_desc a, .img_desc a:hover {
+.text-content a, .text-content a:hover {
     color : #FFFFFF;
+}
+
+span.text-content {
+    color      : #FFFFFF;
+    cursor     : pointer;
+    display    : table;
+    position   : absolute;
+    left       : 0;
+    right      : 0;
+    top        : 60px;
+    width      : 100%;
+    height     : inherit;
+    visibility : hidden;
+}
+
+span.text-content span {
+    text-align     : center;
+    vertical-align : middle;
 }
 
 .overlay .img-responsive {
     max-height : 200px;
 }
 
-.block-list {
-    margin-top: 60px;
-}
 .option-border {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    border-bottom: 1px solid #292929;
-    border-radius: 0px;
+    background    : transparent;
+    border        : none;
+    box-shadow    : none;
+    border-bottom : 1px solid #292929;
+    border-radius : 0px;
 }
+
 .btn-valider {
-    background: #067274;
-    color: #fff;
-    width: 110px;
-    text-transform: uppercase;
-    border-radius: 0px;
-    margin-left: 20px;
+    background     : #067274;
+    color          : #FFFFFF;
+    width          : 110px;
+    text-transform : uppercase;
+    border-radius  : 0px;
+    margin-left    : 20px;
+}
+
+.nb-places {
+    position : absolute;
+    right    : 30px;
 }

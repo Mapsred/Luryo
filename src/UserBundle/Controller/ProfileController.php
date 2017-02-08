@@ -34,17 +34,21 @@ class ProfileController extends Controller
      */
     public function editAction(Request $request)
     {
-
         $form = $this->createForm(ProfileForm::class, $this->getUser());
         $form->handleRequest($request);
         $parameters = ['form' => $form->createView(), 'user' => $this->getUser()];
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $city = $request->request->get('profile_form')['address']['city'];
-            $birthday = $request->request->get('profile_form')['birthday'];
-
-            $city = $this->getDoctrine()->getRepository("AppBundle:City")->findOneBy(["id" => $city]);
-            $this->getUser()->setBirthday(new \DateTime($birthday))->getAddress()->setCity($city);
+            $formContent = $request->request->get('profile_form');
+            if (isset($formContent['address']) && isset($formContent['address']['city'])) {
+                $city = $formContent['address']['city'];
+                $city = $this->getDoctrine()->getRepository("AppBundle:City")->findOneBy(["id" => $city]);
+                $this->getUser()->getAddress()->setCity($city);
+            }
+            if (isset($formContent['birthday'])) {
+                $birthday = $formContent['birthday'];
+                $this->getUser()->setBirthday(new \DateTime($birthday));
+            }
 
             $this->getDoctrine()->getManager()->persist($this->getUser());
             $this->getDoctrine()->getManager()->flush();
