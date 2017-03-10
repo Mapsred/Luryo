@@ -54,7 +54,6 @@ class DefaultController extends Controller
             return $this->redirectToRoute("detail_page", ['slug' => $travel->getSlug()]);
         }
 
-        // replace this example code with whatever you need
         return $this->render('AppBundle:Default:detail.html.twig', ['travel' => $travel]);
     }
 

@@ -49,14 +49,14 @@ class User extends BaseUser
 
     /**
      * @var ArrayCollection $favorites
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Travel")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Travel", cascade={"persist"})
      * @ORM\JoinTable(name="favorites")
      */
     private $favorites;
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Order", mappedBy="user", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Order", mappedBy="user", cascade={"persist", "merge"})
      */
     private $orders;
 
