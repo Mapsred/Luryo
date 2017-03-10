@@ -5,6 +5,7 @@ namespace UserBundle\Entity;
 use AppBundle\Entity\Address;
 use AppBundle\Entity\Interest;
 use AppBundle\Entity\Order;
+use AppBundle\Entity\Travel;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -47,8 +48,9 @@ class User extends BaseUser
     private $sexe;
 
     /**
-     * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Favorite", mappedBy="user")
+     * @var ArrayCollection $favorites
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Travel")
+     * @ORM\JoinTable(name="favorites")
      */
     private $favorites;
 
@@ -168,40 +170,6 @@ class User extends BaseUser
     }
 
     /**
-     * Add favorite
-     *
-     * @param Favorite $favorite
-     *
-     * @return User
-     */
-    public function addFavorite(Favorite $favorite)
-    {
-        $this->favorites[] = $favorite;
-
-        return $this;
-    }
-
-    /**
-     * Remove favorite
-     *
-     * @param Favorite $favorite
-     */
-    public function removeFavorite(Favorite $favorite)
-    {
-        $this->favorites->removeElement($favorite);
-    }
-
-    /**
-     * Get favorites
-     *
-     * @return ArrayCollection
-     */
-    public function getFavorites()
-    {
-        return $this->favorites;
-    }
-
-    /**
      * Add order
      *
      * @param Order $order
@@ -305,5 +273,48 @@ class User extends BaseUser
     public function getLastname()
     {
         return $this->lastname;
+    }
+
+    /**
+     * Add favorite
+     *
+     * @param Travel $favorite
+     *
+     * @return User
+     */
+    public function addFavorite(Travel $favorite)
+    {
+        $this->favorites[] = $favorite;
+
+        return $this;
+    }
+
+    /**
+     * Remove favorite
+     *
+     * @param Travel $favorite
+     */
+    public function removeFavorite(Travel $favorite)
+    {
+        $this->favorites->removeElement($favorite);
+    }
+
+    /**
+     * Get favorites
+     *
+     * @return ArrayCollection|Travel[]
+     */
+    public function getFavorites()
+    {
+        return $this->favorites;
+    }
+
+    /**
+     * @param Travel $travel
+     * @return bool
+     */
+    public function hasFavorite(Travel $travel)
+    {
+        return in_array($travel, $this->getFavorites()->toArray());
     }
 }

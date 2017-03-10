@@ -44,6 +44,19 @@
                     <i class="fa fa-location-arrow" aria-hidden="true"></i>
                     Destination {# TODO AJOUTER LES DESTINATIONS #}
                 </div>
+                {% if app.user %}
+                    <div class="col-md-2 col-xs-6">
+                        {% if app.user.hasFavorite(travel) %}
+                            <i class="fa fa-heart-o" aria-hidden="true" id="favorite" data-id="{{ travel.id }}"
+                               data-action="add"></i>
+                            Ajouter aux favoris
+                        {% else %}
+                            <i class="fa fa-heart" aria-hidden="true" id="favorite" data-id="{{ travel.id }}"
+                               data-action="remove"></i>
+                            Retirer des favoris
+                        {% endif %}
+                    </div>
+                {% endif %}
             </div>
             <div class="col-md-12">
                 <div class="text-description">{{ travel.description|nl2br }}</div>
