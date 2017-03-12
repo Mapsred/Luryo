@@ -3,6 +3,7 @@
 {% block title %}{{ travel.title }}{% endblock %}
 {% block head %}
     <link href="{{ asset("assets/app/css/detail.css") }}" rel="stylesheet">
+    <script src="{{ asset('assets/app/js/favorites.js') }}"></script>
 {% endblock %}
 {% block body %}
     {% set images = travel.images.toArray %}
@@ -44,6 +45,21 @@
                     <i class="fa fa-location-arrow" aria-hidden="true"></i>
                     Destination {# TODO AJOUTER LES DESTINATIONS #}
                 </div>
+                {% if app.user %}
+                    <div class="col-md-2 col-xs-6">
+                        {% if app.user.hasFavorite(travel) %}
+                            <a id="favorite" data-id="{{ travel.id }}" data-action="remove" class="favorite-link">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                Retirer des favoris
+                            </a>
+                        {% else %}
+                            <a id="favorite" data-id="{{ travel.id }}" data-action="add" class="favorite-link">
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                Ajouter aux favoris
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
             </div>
             <div class="col-md-12">
                 <div class="text-description">{{ travel.description|nl2br }}</div>

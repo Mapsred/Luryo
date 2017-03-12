@@ -14,7 +14,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Pagerfanta\Adapter\AdapterInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use UserBundle\Entity\Favorite;
+use UserBundle\Entity\User;
 
+/**
+ * Class DefaultController
+ * @package AppBundle\Controller
+ * @method User getUser()
+ */
 class DefaultController extends Controller
 {
     /**
@@ -47,7 +54,6 @@ class DefaultController extends Controller
             return $this->redirectToRoute("detail_page", ['slug' => $travel->getSlug()]);
         }
 
-        // replace this example code with whatever you need
         return $this->render('AppBundle:Default:detail.html.twig', ['travel' => $travel]);
     }
 

@@ -59,7 +59,7 @@ DirectoryIndex app.php
     #Rewrite for user and password protection
     AuthType Basic
     AuthName "Luryo - Secured Access"
-    AuthUserFile "/var/www/sites/cours/Luryo/web/.htpasswd"
+    AuthUserFile "/var/www/sites/projets/Luryo/web/.htpasswd"
     require valid-user
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 

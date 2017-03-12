@@ -5,7 +5,6 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMbehaviors;
-use UserBundle\Entity\Favorite;
 
 /**
  * Travel
@@ -76,14 +75,6 @@ class Travel
     private $orders;
 
     /**
-     * @var ArrayCollection
-     *
-     * @ORM\OneToMany(targetEntity="UserBundle\Entity\Favorite", mappedBy="travel", cascade={"all"})
-     * @ORM\JoinTable("user_favorites")
-     */
-    private $favorites;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=255)
@@ -108,7 +99,6 @@ class Travel
         $this->images = new ArrayCollection();
         $this->interests = new ArrayCollection();
         $this->orders = new ArrayCollection();
-        $this->favorites = new ArrayCollection();
     }
 
     /**
@@ -339,40 +329,6 @@ class Travel
     }
 
     /**
-     * Add favorite
-     *
-     * @param Favorite $favorite
-     *
-     * @return Travel
-     */
-    public function addFavorite(Favorite $favorite)
-    {
-        $this->favorites[] = $favorite;
-
-        return $this;
-    }
-
-    /**
-     * Remove favorite
-     *
-     * @param Favorite $favorite
-     */
-    public function removeFavorite(Favorite $favorite)
-    {
-        $this->favorites->removeElement($favorite);
-    }
-
-    /**
-     * Get favorite
-     *
-     * @return ArrayCollection|Favorite[]
-     */
-    public function getFavorite()
-    {
-        return $this->favorites;
-    }
-
-    /**
      * Returns an array of the fields used to generate the slug.
      *
      * @return array
@@ -406,15 +362,6 @@ class Travel
         return $this->status;
     }
 
-    /**
-     * Get favorites
-     *
-     * @return ArrayCollection|Favorite[]
-     */
-    public function getFavorites()
-    {
-        return $this->favorites;
-    }
 
     /**
      * @return int
