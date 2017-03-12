@@ -1,0 +1,22 @@
+body { background : url("../images/construction.jpg") no-repeat center center fixed; }
+
+
+img.centree {
+    margin: 0 auto;
+    margin-top: 400px;
+}
+img.machette {
+    margin-top: -107px;
+    -ms-transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    transform: rotate(-57deg);
+    width: 30px;
+    margin-left: 53%;
+}
+p.text-construction {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+    color: #fff;
+    font-family: kalinga,sans-serif;
+}

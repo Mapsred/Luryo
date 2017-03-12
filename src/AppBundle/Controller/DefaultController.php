@@ -147,4 +147,34 @@ class DefaultController extends Controller
 
         return $this->render('AppBundle:Default:search.html.twig', ["travels" => $travels]);
     }
+    /**
+     * @Route("/concept", name="concept", options={"expose"=true})
+     */
+    public function conceptAction()
+    {
+
+
+        return $this->render('AppBundle:Default:concept.html.twig');
+    }
+
+    /**
+     * @Route("/nousrejoindre", name="nousrejoindre", options={"expose"=true})
+     */
+    public function nousrejoindreAction()
+    {
+
+
+        return $this->render('AppBundle:Default:nousrejoindre.html.twig');
+    }
+
+     /**
+     * @Route("/contact", name="contact", options={"expose"=true})
+     */
+    public function contactAction()
+    {
+
+
+        return $this->render('AppBundle:Default:nousrejoindre.html.twig');
+    }
+
 }

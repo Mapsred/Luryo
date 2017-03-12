@@ -36,9 +36,9 @@ body {
 }
 
 .navbar.navbar-default {
-    background    : #272C3B none;
-    border-radius : 0;
-    border-color  : #272C3B;
+    background: #e7bb41;
+    border-radius: 0;
+    border-color: #e7bb41;
 }
 
 .navbar-default .container, .navbar-default {
@@ -166,4 +166,13 @@ a.a-item:hover {
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+@media (min-width: 768px;) and (max-width: 868px;){
+    .navbar-nav {
+        float: left;
+        margin: 0;
+    }
+    body {
+        background-color: red;
+    }
 }

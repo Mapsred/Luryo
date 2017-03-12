@@ -1,0 +1,19 @@
+{% extends 'AppBundle:Default:index.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+{% block head %}
+    {% stylesheets 'assets/app/css/construction.css'
+    'assets/bower/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css'
+    'assets/bower/select2/dist/css/select2.min.css' output='compiled/css/bootstrap-datepicker3.min.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <img src="{{ asset("assets/app/images/picto-construction.png") }}" alt="avion" class="img-responsive centree"/> 
+     <img src="{{ asset("assets/app/images/machette.png") }}" alt="avion" class="img-responsive centree machette"/> <br>
+     <p class="text-construction">Page actuellement <br>en cours de création </p>
+{% endblock %}
+
+{% block footer %}{% endblock %}
