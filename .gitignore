@@ -24,3 +24,5 @@ npm-debug.log
 /web/uploads/
 /web/assets/bower/
 src/*Bundle/Entity/*.php~
+/web/assets/.sass-cache/
+/web/assets/config.rb
