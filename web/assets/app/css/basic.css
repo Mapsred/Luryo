@@ -68,11 +68,14 @@
 
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > li > a:hover {
-    color : #FFFFFF;
+    color: black;
+    font-size: 17px;
+    font-family: Kalinga,sans-serif;
+    font-weight: bolder;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-   color:#e6735c;
+   color:#fff;
 }
 .navbar-log {
     float: left;
@@ -93,10 +96,9 @@ a.link-log {
     text-decoration: none;
 }
 #footer {
-  height: 200px;
-  background-color: #242b33;
+    height: 200px;
+    background-color: #e7bb41;
 }
-
 
 .containerfooter {
   width: auto;
@@ -114,9 +116,9 @@ a.link-log {
     left: -4%;
     text-transform: uppercase;
     font-size: 20px;
-    color: #fff;
+    color: black;
     margin-top: 105px;
-    margin-left: 40%;
+    margin-left: 43%;
 
 }
 .list-inline {
@@ -129,7 +131,7 @@ a.link-log {
 .fa-instagram
  {
     font-size: 30px;
-    color : #fff;
+    color : black;
 }
 .fa-facebook:hover {
     color: #3b5998;
