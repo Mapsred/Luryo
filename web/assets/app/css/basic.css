@@ -1,6 +1,9 @@
-body {
-    padding-top: 50px;
+@font-face {
+    font-family: Aileron;
+    src: url(../fonts/Ailerons.ttf);
 }
+
+
 
 @media screen and (min-width : 768px) {
     .navbar-brand-centered {

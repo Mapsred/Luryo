@@ -1,4 +1,11 @@
-body { background-color : #E7E3E0; }
+@font-face {
+    font-family: Aileron;
+    src: url(../fonts/Ailerons.ttf);
+}
+
+body { background-color : #E7E3E0;
+        font-family: Aileron;
+}
 
 h3 {
     color      : #4D5D8A;

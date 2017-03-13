@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="first col-sm-12 ">
-                <h1 class="text-uppercase firsth1 ">Rejoins une expérience unique</h1>
+                <h1 class="text-uppercase firsth1 ">Rejoinds une expérience <br>unique</h1>
                 {# <p>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
                     Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
@@ -22,7 +22,7 @@
                     {% if not is_granted("ROLE_USER") %}
                         <a href="{{ path("fos_user_registration_register") }}"
                            class="btn btn-warning text-uppercase button">S'incrire</a>
-                    {% elseif app.user.birthday is null %}
+                    {% else  %}
                         <a href="{{ path("fos_user_profile_edit") }}"
                            class="btn btn-warning btn-completer-profil text-uppercase button">Compléter mon profil</a>
                     {% endif %}
@@ -33,22 +33,22 @@
                 <i class="fa fa-globe fa-3x symbole" aria-hidden="true"></i>
                 <h1 class="text-uppercase h1">Concept</h1><br><br>
 
-            </div>
 
-            <div class="second col-sm-12">
-                <div class="col-sm-4">
+
+
+                <div class="col-sm-4 picto">
                     <img src="{{ asset("assets/app/images/video.png") }}" alt="avion" class=" avion img-responsive concept"/> 
                     <p>
                         Transmettez votre savoir ou faites vous accompagner tout au long de la visite à laquelle vous participerez grâce à notre plateforme 
                     </p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 picto">
                     <img src="{{ asset("assets/app/images/Ami.png") }}" alt="ami" class=" Ami img-responsive concept"/> 
                     <p>
                         Un moyen simple de rencontrer des acteurs du milieu artistique, tout en partageant votre passion en groupe 
                     </p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 picto">
                     <img src="{{ asset("assets/app/images/Pantheon.png") }}" alt="Pantheon" class="pantheon img-responsive concept"/> 
                     <p>
                         Grâce à nous, visiter une expo ou sortir dans Paris ne vous aura jamais semblé aussi ludique et interactif ! 
@@ -65,12 +65,12 @@
                 </div>
             </div>
 
-            <div class="avis col-sm-12">
+            <div class="quatrieme col-sm-12">
                 <i class="fa fa-thumbs-o-up fa-4x symbole" aria-hidden="true"></i>
                 <h1 class="h1">Avis utilisateurs</h1><br><br>
-            </div>
 
-            <div class="quatrieme col-sm-12">
+
+
                 <div class="slider2">
                     <div class="col-sm-12 col-md-4 slide">
                         <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
@@ -96,6 +96,7 @@
                             D’ailleurs Mona si tu lis ça, je suis toujours chaud pour te faire un petit portrait ;)” - Léonard de Vinci
                         </p>
                     </div>
+               </div>
 
                     {% for i in 3..6 %}
                         <div class="col-sm-12 col-md-4 slide">

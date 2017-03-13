@@ -4,23 +4,25 @@
 }
 
 
+
 .first{
     background-image: url("../images/image_page_accueil.jpg ");
+    background-repeat: no-repeat;
     max-width: 100%;
-    min-height: 700px;
+
     text-align: left;
     padding-top: 7%;
     color: white;
     margin-top :-20px;
     font-size: 25px;
-
+    height: 100vh;
 
 }
 
 .second{
     background-color: #e0dfd5;
     max-width: 100%;
-
+    height: 100vh;
 
 }
 
@@ -28,12 +30,15 @@
     background-image: url("../images/motifs_video.jpg ");
     max-width: 100%;
     min-height:800px;
+
 }
 
 .quatrieme{
     background-color: #e8e9eb;
     max-width: 100%;
     text-align: center;
+    height: 100vh;
+    display:none
 }
 
 .icone1{
@@ -88,13 +93,13 @@
     margin-top: 5%;
     background-color: #e6735c;
     color: white;
-    margin-left: 44%;
     width: 200px;
     margin-bottom: 30px;
     height: 40px;
     border: none;
     padding-top: 10px;
     font-size: 15px;
+    z-index: -1;
 }
 
 .avis{
@@ -103,6 +108,7 @@
 
 .video{
     background-color: #0f7173;
+    height: 100vh;
 }
 
 .video-concept{
@@ -135,9 +141,12 @@ i{
 }
 
 .firsth1{
-    width: 60%;
+
     margin-bottom: 50px;
     font-size: 74px;
+    margin-top: 5%;
+    text-align: center;
+
 }
 
 .videoWrapper {
@@ -148,8 +157,8 @@ height: 0;
 }
 .videoWrapper iframe {
 position: absolute;
-top: 0;
-left: 28%;
+top: 25%;
+left: 24%;
 }
 @media screen and (min-width: 801px) and (max-width: 1240px) { 
    .videoWrapper {
@@ -179,4 +188,8 @@ left: 28%;
     width: 300px;
     border-radius: 0px;
     margin-top: 120px;
+}
+
+.picto{
+    margin-top: 10%;
 }

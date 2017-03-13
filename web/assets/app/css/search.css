@@ -1,4 +1,11 @@
-body { background : url("../images/search.png") no-repeat center center fixed; }
+@font-face {
+    font-family: Aileron;
+    src: url(../fonts/Ailerons.ttf);
+}
+
+body { background : url("../images/search.png") no-repeat center center fixed;
+      font-family: Aileron;
+}
 
 .search-bar {
     margin-top       : 15%;
