@@ -6,10 +6,11 @@
     <link href="{{ asset("assets/app/css/index.css") }}" rel="stylesheet">
     <script src="{{ asset('assets/bower/bxslider-4/src/js/jquery.bxslider.js') }}"></script>
     <script src="{{ asset("assets/app/js/main.js") }}"></script>
+    <script type="application/javascript" src="fullPage.js-master/dist/jquery.fullpage.min.js"></script>
 {% endblock %}
 {% block body %}
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="fullpage">
         <div class="row">
             <div class="first col-sm-12 ">
                 <h1 class="text-uppercase firsth1 ">Rejoinds une expérience <br>unique</h1>
@@ -29,7 +30,7 @@
                 </div>
             </div>
 
-            <div class="second col-sm-12">
+            <div class="second col-sm-12" id="section0">
                 <i class="fa fa-globe fa-3x symbole" aria-hidden="true"></i>
                 <h1 class="text-uppercase h1">Concept</h1><br><br>
 
@@ -57,7 +58,7 @@
                 </div>
             </div>
 
-            <div class="video col-sm-12">
+            <div class="video col-sm-12" id="section1">
                 <i class="fa fa-ticket fa-4x ticket" aria-hidden="true"></i>
                 <h1 class="h1-video">VIDEO CONCEPT</h1><br><br>
                  <div class="videoWrapper">
