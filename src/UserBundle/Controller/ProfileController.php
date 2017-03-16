@@ -46,7 +46,7 @@ class ProfileController extends Controller
                 $this->getUser()->getAddress()->setCity($city);
             }
             if (isset($formContent['birthday'])) {
-                $birthday = $formContent['birthday'];
+                $birthday = str_replace("/", "-", $formContent['birthday']);
                 $this->getUser()->setBirthday(new \DateTime($birthday));
             }
 
