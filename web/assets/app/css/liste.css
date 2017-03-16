@@ -3,8 +3,9 @@
     src: url(../fonts/Ailerons.ttf);
 }
 
-body { background-color : #E7E3E0;
-        font-family: Aileron;
+body {
+    background-color : #E7E3E0;
+    font-family         : Aileron, serif;
 }
 
 h3 {
