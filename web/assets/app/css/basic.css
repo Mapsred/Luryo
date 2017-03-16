@@ -179,7 +179,18 @@ a.a-item:hover {
         float: left;
         margin: 0;
     }
-    body {
-        background-color: red;
+}
+@media (max-width: 1300px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav>li {
+        float: none;
     }
 }
