@@ -6,16 +6,15 @@
 
 
 .first{
-    background-image: url("../images/image_page_accueil.jpg ");
-    background-repeat: no-repeat;
-    max-width: 100%;
+    background  : url("../images/image_page_accueil.jpg ") no-repeat;
+    max-width   : 100%;
 
-    text-align: left;
-    padding-top: 7%;
-    color: white;
-    margin-top :-20px;
-    font-size: 25px;
-    height: 77vh;
+    text-align  : left;
+    padding-top : 7%;
+    color       : white;
+    margin-top  :-20px;
+    font-size   : 25px;
+    height      : 77vh;
 
 }
 
@@ -75,14 +74,10 @@
 
 }
 .h1 {
-    text-align: center;
-    color: #878289;
-    font-family: Aileron;
-    font-size: 43px;
-}
-
-.concept{
-    margin-left: 230px;
+    text-align  : center;
+    color       : #878289;
+    font-family : Aileron, serif;
+    font-size   : 43px;
 }
 
 .btn-warning {
@@ -130,10 +125,10 @@
 }
 
 .h1-video{
-    text-align: center;
-    color: white;
-    font-size: 43px;
-    font-family: Aileron;
+    text-align  : center;
+    color       : white;
+    font-size   : 43px;
+    font-family : Aileron, serif;
 }
 
 i{
@@ -181,14 +176,14 @@ height: 0;
     }
     .videoWrapper iframe {
     width: 700px;
-    left: 0%;
+    left: 0;
     }
 }
 
 .btn-completer-profil {
-    margin-left: 0px;
+    margin-left: 0;
     width: 300px;
-    border-radius: 0px;
+    border-radius: 0;
     margin-top: 120px;
 }
 
