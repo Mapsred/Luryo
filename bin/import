@@ -29,8 +29,6 @@ $commands["--prod"] = [
     "--pull" => "git pull",
     "--assetic-prod" => "php bin/console assetic:dump --env=prod",
     "--clear-cache-prod" => "php bin/console cache:clear --env=prod",
-    "--clear-htaccess" => "git checkout web/.htaccess",
-    "--replace-htaccess" => "cp web/.htaccess.dist web/.htaccess"
 ];
 
 $commands['--full-prod'] = array_merge($commands["--prod"], $commands["--full"]);
