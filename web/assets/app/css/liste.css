@@ -94,7 +94,7 @@ span.text-content span {
     border        : none;
     box-shadow    : none;
     border-bottom : 1px solid #292929;
-    border-radius : 0px;
+    border-radius : 0;
 }
 
 .btn-valider {
@@ -102,22 +102,20 @@ span.text-content span {
     color          : #FFFFFF;
     width          : 110px;
     text-transform : uppercase;
-    border-radius  : 0px;
+    border-radius  : 0;
     margin-left    : 20px;
 }
 
-.nb-places {
-    position : absolute;
+.nb-places { position : absolute; }
 
+.block-list {
+    margin-top: 10%;
+    margin-left: 3%;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
     .block-list {
-    margin-top: 10% !important;
+        margin-top: 5%;
     }
 }
 
-.block-list {
-    margin-top: 5%;
-    margin-left: 3%;
-}
