@@ -42,7 +42,7 @@
 
                     </p>
                 </div>
-                <div class="text-center">
+                <div class="col-sm-12 text-center">
                     {% if not is_granted("ROLE_USER") %}
                         <a href="{{ path("fos_user_registration_register") }}"
                            class="btn btn-warning text-uppercase button">S'incrire</a>
@@ -53,46 +53,48 @@
                 </div>
             </div>
 
+   <div class="row">
             <div class="video col-sm-12" id="section1">
                 <i class="fa fa-ticket fa-4x ticket" aria-hidden="true"></i>
                 <h1 class="h1-video">Quelques sorties</h1><br><br>
-                 <div class="videoWrapper">
-                    <iframe width="860" height="400" src="https://www.youtube.com/embed/K6KniRMNS_A" frameborder="0" allowfullscreen></iframe>
+
+                    <iframe class="relou"  width="860" height="400" src="https://www.youtube.com/embed/K6KniRMNS_A" frameborder="0" allowfullscreen></iframe>
                 </div>
+
             </div>
+</div>
 
             <div class="quatrieme col-sm-12">
-                <i class="fa fa-thumbs-o-up fa-4x symbole"></i>
-                <h1 class="h1">Avis utilisateurs</h1><br><br>
+                    <i class="fa fa-thumbs-o-up fa-4x symbole"></i>
+                    <h1 class="h1">Avis utilisateurs</h1><br><br>
 
 
+                    <div class="slider2">
+                        <div class="col-sm-12 col-md-4 slide">
+                            <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
+                            <p>
+                                “J’ai beaucoup appris grâce à Luryo. J’ai d’ailleurs eu une idée de projet dans un de leurs ateliers, <br>
+                                des petites animations pour le cinéma ! Il faut encore que je vois pour les personnages, peut être une souris… On verra” - Walt Disney
+                            </p>
+                        </div>
 
-                <div class="slider2">
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            “J’ai beaucoup appris grâce à Luryo. J’ai d’ailleurs eu une idée de projet dans un de leurs ateliers, <br>
-                            des petites animations pour le cinéma ! Il faut encore que je vois pour les personnages, peut être une souris… On verra” - Walt Disney
-                        </p>
+                        <div class="col-sm-12 col-md-4 slide">
+                            <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
+                            <p>
+                                “On était un peu à sec avec mon prof de peinture, Henri. Du coup on est passé par Luryo pour essayer de voir si il y avait des bon plans.<br>
+                                On a pu aller à la nouvelle expo “Cubisme” pour trois fois rien, on avait même un guide !” - Pablo Picasso
+                            </p>
+                        </div>
+
+                        <div class="col-sm-12 col-md-4 slide">
+                            <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
+                            <p>
+                                “Etre artiste c’est pas tous les jours facile. Il y avait des mois où j’avais un peu de mal à joindre les deux bouts. Du coup j’ai organisé des petits cours dans mon atelier.
+                                Je touche un peu à tout donc il y avait de quoi faire. Et ça m’a permis de faire des rencontres inoubliables !
+                                D’ailleurs Mona si tu lis ça, je suis toujours chaud pour te faire un petit portrait ;)” - Léonard de Vinci
+                            </p>
+                        </div>
                     </div>
-
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            “On était un peu à sec avec mon prof de peinture, Henri. Du coup on est passé par Luryo pour essayer de voir si il y avait des bon plans.<br>
-                            On a pu aller à la nouvelle expo “Cubisme” pour trois fois rien, on avait même un guide !” - Pablo Picasso
-                        </p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            “Etre artiste c’est pas tous les jours facile. Il y avait des mois où j’avais un peu de mal à joindre les deux bouts. Du coup j’ai organisé des petits cours dans mon atelier.
-                            Je touche un peu à tout donc il y avait de quoi faire. Et ça m’a permis de faire des rencontres inoubliables !
-                            D’ailleurs Mona si tu lis ça, je suis toujours chaud pour te faire un petit portrait ;)” - Léonard de Vinci
-                        </p>
-                    </div>
-               </div>
 
                     {% for i in 3..6 %}
                         <div class="col-sm-12 col-md-4 slide">

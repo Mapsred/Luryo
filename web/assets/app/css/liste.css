@@ -3,9 +3,8 @@
     src: url(../fonts/Ailerons.ttf);
 }
 
-body {
-    background-color : #E7E3E0;
-    font-family         : Aileron, serif;
+body { background-color : #E7E3E0;
+        font-family: Aileron;
 }
 
 h3 {
@@ -94,7 +93,7 @@ span.text-content span {
     border        : none;
     box-shadow    : none;
     border-bottom : 1px solid #292929;
-    border-radius : 0;
+    border-radius : 0px;
 }
 
 .btn-valider {
@@ -102,20 +101,17 @@ span.text-content span {
     color          : #FFFFFF;
     width          : 110px;
     text-transform : uppercase;
-    border-radius  : 0;
+    border-radius  : 0px;
     margin-left    : 20px;
 }
 
-.nb-places { position : absolute; }
+.nb-places {
+    position : absolute;
 
-.block-list {
-    margin-top: 10%;
-    margin-left: 3%;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1200px) {
     .block-list {
-        margin-top: 5%;
+    margin-top: 100px;
     }
 }
-

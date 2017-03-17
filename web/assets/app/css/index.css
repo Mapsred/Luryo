@@ -104,6 +104,7 @@
 .video {
     background-color: #f02d54;
     height: 100vh;
+
 }
 
 .video-concept{
@@ -145,19 +146,15 @@ i{
 }
 
 .videoWrapper {
-position: relative;
-padding-bottom: 27.25%;
-padding-top: 25px;
-height: 0;
+    display: block;
+    margin: 0 auto;
 }
 .videoWrapper iframe {
-    position: absolute;
-    top: 25%;
-    left: 27%;
+
 }
 
 
-@media screen and (min-width: 801px) and (max-width: 1240px) { 
+@media screen and (min-width: 801px) and (max-width: 1240px) {
    .videoWrapper {
     padding-bottom: 40.25%; /* 16:9 */
     }
@@ -165,12 +162,12 @@ height: 0;
     left: 15%;
     }
 }
-@media screen and (min-width: 1241px) and (max-width: 1600px) { 
+@media screen and (min-width: 1241px) and (max-width: 1600px) {
    .videoWrapper {
     padding-bottom: 28.25%;
     }
 }
-@media screen and (max-width:800px) { 
+@media screen and (max-width:800px) {
    .videoWrapper {
         padding-bottom: 55.25%;
     }
@@ -195,4 +192,9 @@ p.p-concept {
     font-family: Kalinga,sans-serif;
     text-align: center;
     font-weight: bolder;
+}
+
+.relou{
+    display: block;
+    margin: 0 auto;
 }
