@@ -208,5 +208,14 @@ a.a-item:hover {
     .collapse.in{
         display:block !important;
     }
+    .span-footer {
+    margin-left: 32%;
+    }
+
+}
+@media(min-width: 992px) and (max-width:1480px) {
+    .span-footer {
+    margin-left: 39%;
+    }
 
 }
