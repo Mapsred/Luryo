@@ -17,7 +17,7 @@ $(document).ready(function () {
                     favorite.data("action", "add");
                     favorite.html('<i class="fa fa-heart-o" aria-hidden="true"></i> Retiré aux favoris');
                 }else {
-                    favorite.data("action", "add");
+                    favorite.data("action", "remove");
                     favorite.html('<i class="fa fa-heart" aria-hidden="true"></i> Ajouté aux favoris');
                 }
             }
