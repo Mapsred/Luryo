@@ -37,6 +37,7 @@ class Address
     private $address;
 
     /**
+     * Model : lat|lng
      * @var string
      *
      * @ORM\Column(name="coordinates", type="string", length=255, nullable=true)
@@ -131,6 +132,6 @@ class Address
      */
     public function __toString()
     {
-        return (string) $this->address. (isset($this->city) ? " - ".$this->city->__toString() : "");
+        return (string) $this->address. (isset($this->city) ? ", ".$this->city->__toString() : "");
     }
 }

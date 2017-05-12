@@ -26,7 +26,7 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Intérêts, group: "Contenu" }
   admin.address:
         class: AppBundle\Admin\AddressAdmin
-        arguments: [~, AppBundle\Entity\Address, ~]
+        arguments: [~, AppBundle\Entity\Address, ~, "@app.gmap_coordinates"]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Adresses , group: "Position" }
   admin.city:

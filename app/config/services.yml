@@ -42,3 +42,6 @@ services:
   app.paypal:
           class: AppBundle\Utils\Paypal
           arguments: ["@service_container"]
+
+  app.gmap_coordinates:
+          class: AppBundle\Utils\GMapCoordinates

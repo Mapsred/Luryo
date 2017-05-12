@@ -3,6 +3,7 @@
 namespace AppBundle\Admin;
 
 use AppBundle\Entity\Address;
+use AppBundle\Utils\GMapCoordinates;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -15,7 +16,21 @@ use Sonata\AdminBundle\Show\ShowMapper;
  */
 class AddressAdmin extends AbstractAdmin
 {
+    /** @var GMapCoordinates $GMapCoordinates */
+    private $GMapCoordinates;
 
+    /**
+     * AddressAdmin constructor.
+     * @param string $code
+     * @param string $class
+     * @param string $baseControllerName
+     * @param GMapCoordinates $GMapCoordinates
+     */
+    public function __construct($code, $class, $baseControllerName, GMapCoordinates $GMapCoordinates)
+    {
+        parent::__construct($code, $class, $baseControllerName);
+        $this->GMapCoordinates = $GMapCoordinates;
+    }
     /**
      * @param Address|mixed $object
      * @return string
@@ -51,7 +66,7 @@ class AddressAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('address', null, ['label' => "Adresse"])
-            ->add("city", 'sonata_type_model_list', ['label' => "Ville", 'btn_delete' => false]);
+            ->add("city", 'sonata_type_model_autocomplete', ['label' => "Ville", 'property' => "name"]);
     }
 
     /**
@@ -60,5 +75,31 @@ class AddressAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper->add('address', null, ['label' => "Adresse"])->add("city", null, ['label' => "Ville"]);
+    }
+
+    /**
+     * @param Address|mixed $object
+     */
+    public function prePersist($object)
+    {
+        $this->updateContent($object);
+    }
+
+    /**
+     * @param Address|mixed $object
+     */
+    public function preUpdate($object)
+    {
+        $this->updateContent($object);
+    }
+
+    /**
+     * @param Address $address
+     */
+    private function updateContent(Address $address)
+    {
+        if (null !== $coords = $this->GMapCoordinates->getCoordinates($address)) {
+            $address->setCoordinates(implode("|", $coords));
+        }
     }
 }
