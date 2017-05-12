@@ -8,22 +8,38 @@ services:
         class: AppBundle\Admin\TravelAdmin
         arguments: [~, AppBundle\Entity\Travel, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Voyage, group: "Default" }
+            - { name: sonata.admin, manager_type: orm, label: Voyage, group: "Contenu" }
   admin.image:
         class: AppBundle\Admin\ImageAdmin
         arguments: [~, AppBundle\Entity\Image, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Image, group: "Default" }
+            - { name: sonata.admin, manager_type: orm, label: Image, group: "Contenu" }
   admin.user:
         class: AppBundle\Admin\UserAdmin
         arguments: [~, UserBundle\Entity\User, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Utilisateurs, group: "Default" }
+            - { name: sonata.admin, manager_type: orm, label: Utilisateurs, group: "Utilisateur" }
   admin.interest:
         class: AppBundle\Admin\InterestAdmin
         arguments: [~, AppBundle\Entity\Interest, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Intérêts, group: "Default" }
+            - { name: sonata.admin, manager_type: orm, label: Intérêts, group: "Contenu" }
+  admin.address:
+        class: AppBundle\Admin\AddressAdmin
+        arguments: [~, AppBundle\Entity\Address, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Adresses , group: "Position" }
+  admin.city:
+        class: AppBundle\Admin\CityAdmin
+        arguments: [~, AppBundle\Entity\City, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Ville, group: "Position" }
+  admin.county:
+        class: AppBundle\Admin\CountyAdmin
+        arguments: [~, AppBundle\Entity\County, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Département, group: "Position" }
+
   app.security.handler.role:
       class: Sonata\AdminBundle\Security\Handler\RoleSecurityHandler
       arguments: ['@security.authorization_checker', ["ROLE_ADMIN"]]
