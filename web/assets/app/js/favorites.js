@@ -15,7 +15,7 @@ $(document).ready(function () {
                 var favorite = $("#favorite");
                 if (favorite.data("action") === "remove") {
                     favorite.data("action", "add");
-                    favorite.html('<i class="fa fa-heart-o" aria-hidden="true"></i> Retirer avoris');
+                    favorite.html('<i class="fa fa-heart-o" aria-hidden="true"></i> Retirer favoris');
                 }else {
                     favorite.data("action", "remove");
                     favorite.html('<i class="fa fa-heart" aria-hidden="true"></i> Ajouter favoris');
