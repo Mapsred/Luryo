@@ -6,14 +6,12 @@
     <link href="{{ asset("assets/app/css/index.css") }}" rel="stylesheet">
     <script src="{{ asset('assets/bower/bxslider-4/src/js/jquery.bxslider.js') }}"></script>
     <script src="{{ asset("assets/app/js/main.js") }}"></script>
-    <script src="{{ asset('assets/bower/fullpage.js/dist/jquery.fullpage.min.js') }}"></script>
 {% endblock %}
 {% block body %}
 
     <div class="container-fluid" id="fullpage">
         <div class="row">
             <div class="first col-sm-12 ">
-                <h1 class="text-uppercase firsth1 ">Rejoinds une expérience <br>unique</h1>
             </div>
 
             <div class="second col-sm-12" id="section0">
@@ -45,6 +43,43 @@
                 <div class="col-sm-12 text-center">
                     {% if not is_granted("ROLE_USER") %}
                         <a href="{{ path("fos_user_registration_register") }}"
+                           class="btn btn-warning text-uppercase button">S'incrire</a>
+                    {% else  %}
+                        <a href="{{ path("fos_user_profile_edit") }}"
+                           class="btn btn-warning btn-completer-profil text-uppercase button">Compléter mon profil</a>
+                    {% endif %}
+                </div>
+            </div>
+                
+                 <div class="third col-sm-12" id="section1">
+                <i class="fa fa-ticket fa-4x symbole"></i>
+                <h1 class="text-uppercase h1 h1-sorties">Quelques sorties</h1><br><br>
+
+
+
+                <div class="col-sm-4 picto">
+                    <p class="p-concept">
+                        <img src="{{ asset("assets/app/images/sage.png") }}" alt="avion" class=" avion img-responsive center-block"/> 
+                        Transmettez votre savoir ou faites vous accompagner tout au long de la visite à laquelle vous participerez grâce à notre plateforme 
+                    </p>
+                </div>
+                <div class="col-sm-4 picto">
+                    <p class="p-concept">
+                        <img src="{{ asset("assets/app/images/rencontre.png") }}" alt="ami" class=" Ami img-responsive center-block"/> 
+                        Un moyen simple de rencontrer des acteurs du milieu artistique, tout en partageant votre passion en groupe 
+                    </p>
+                </div>
+                <div class="col-sm-4 picto">
+                    <p class="p-concept">
+                        <img src="{{ asset("assets/app/images/monument.png") }}" alt="Pantheon" class="pantheon img-responsive center-block"/> 
+                        Grâce à nous, visiter une expo ou sortir dans Paris ne vous aura jamais semblé aussi ludique et interactif ! 
+
+                    </p>
+                </div>
+                <div class="col-sm-12 text-center">
+                    {% if not is_granted("ROLE_USER") %}
+                        <a href="{{ path("fos_user_registration_register") }}"
+                           class="btn btn-warning text-uppercase button">S'incrire</a>
                     {% else  %}
                         <a href="{{ path("fos_user_profile_edit") }}"
                            class="btn btn-warning btn-completer-profil text-uppercase button">Compléter mon profil</a>
@@ -52,16 +87,6 @@
                 </div>
             </div>
 
-   <div class="row">
-            <div class="video col-sm-12" id="section1">
-                <i class="fa fa-ticket fa-4x ticket" aria-hidden="true"></i>
-                <h1 class="h1-video">Concept en vidéo</h1><br><br>
-
-                    <iframe class="relou"  width="860" height="400" src="https://www.youtube.com/embed/K6KniRMNS_A" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-            </div>
-</div>
 
             <div class="quatrieme col-sm-12">
                     <i class="fa fa-thumbs-o-up fa-4x symbole"></i>

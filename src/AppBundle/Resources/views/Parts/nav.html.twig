@@ -29,8 +29,8 @@
                     <li><a href="{{ path("fos_user_profile_show") }}">Mon Profil</a></li>
                     <li><a href="{{ path("fos_user_security_logout") }}">Se déconnecter</a></li>
                 {% else %}
-                    <li><a href="{{ path("fos_user_registration_register") }}">Inscription</a></li>
-                    <li><a href="{{ path("fos_user_security_login") }}">Connexion</a></li>
+                    <li><a class="inscription"  href="{{ path("fos_user_registration_register") }}">Inscription</a></li>
+                    <li><a class="connexion" href="{{ path("fos_user_security_login") }}">Connexion</a></li>
                 {% endif %}
             </ul>
         </div><!-- /.navbar-collapse -->

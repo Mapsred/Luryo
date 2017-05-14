@@ -41,11 +41,10 @@ body {
 }
 
 .navbar.navbar-default {
-    background: #e7bb41;
+    background: #f5f5f6;
     border-radius: 0;
-    border-color: #e7bb41;
+    border-color: #ef3054;
 }
-
 .navbar-default .container, .navbar-default {
     background-color : #272C3B;
 }
@@ -66,14 +65,14 @@ body {
 
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > li > a:hover {
-    color: black;
+    color: #b2b2b2;
     font-size: 17px;
     font-family: Kalinga,sans-serif;
     font-weight: bolder;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-   color:#fff;
+   color:#ef3054;
 }
 .navbar-log {
     float: left;
@@ -94,8 +93,8 @@ a.link-log {
     text-decoration: none;
 }
 #footer {
-    height: 200px;
-    background-color: #e7bb41;
+    height: 300px;
+    background-color: #f5f5f5;
 }
 
 .containerfooter {
@@ -108,6 +107,7 @@ a.link-log {
     width: 77px;
     margin-left: 48%;
     position: absolute;
+    margin-top: 4%;
 }
 .span-footer {
     position: absolute;
@@ -115,12 +115,12 @@ a.link-log {
     text-transform: uppercase;
     font-size: 20px;
     color: black;
-    margin-top: 105px;
+    margin-top: 155px;
     margin-left: 43%;
 
 }
 .list-inline {
-    margin-top: 120px;
+    margin-top: 170px;
     position: absolute;
     margin-left: 46%;
 }
@@ -218,4 +218,21 @@ a.a-item:hover {
     margin-left: 39%;
     }
 
+}
+
+a.inscription:hover {
+    background: #ef3054;
+    color: #fff !important;
+}
+a.inscription {
+    background: #ef3054;
+    color: #fff !important;
+}
+a.connexion {
+    background: #b2b2b2;
+    color: #fff !important;
+}
+a.connexion:hover {
+    background: #b2b2b2;
+    color: #fff !important;
 }

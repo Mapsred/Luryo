@@ -59,25 +59,26 @@
  }
 
 .pantheon{
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
 }
 
 .avion{
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
 }
 
 .Ami{
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
 
 }
+
 .h1 {
-    text-align  : center;
-    color       : #878289;
-    font-family : Aileron, serif;
-    font-size   : 43px;
+    text-align: center;
+    color: #878289;
+    font-family: Aileron, serif;
+    font-size: 69px;
 }
 
 .btn-warning {
@@ -85,16 +86,20 @@
 }
 
 .button {
-    margin-top: 5%;
     background-color: #e7bb41;
     color: white;
-    width: 200px;
-    margin-bottom: 30px;
+    width: 174px;
     height: 40px;
     border: none;
     padding-top: 10px;
     font-size: 15px;
+    font-weight: bolder;
     z-index: -1;
+    margin-top: 13%;
+    border-radius: 0px;
+}
+.button:hover {
+   background-color: #e7bb41 !important; 
 }
 
 
@@ -199,4 +204,16 @@ p.p-concept {
 .relou{
     display: block;
     margin: 0 auto;
+}
+
+.third {
+    background: #ef3054;
+    padding-bottom: 50px;
+}
+.h1-sorties {
+    color: #fff !important;
+}
+
+i.fa.fa-ticket {
+    color: #fff;
 }
