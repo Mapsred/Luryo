@@ -25,7 +25,7 @@
                             <option value="{{ key }}" {{ selected }}>{{ critera }}</option>
                         {% endfor %}
                     </select>
-                    <label for="order">Ordre</label>
+                    <label for="order">&nbsp;&nbsp;&nbsp; Ordre</label>
                     <select name="order" id="order" class="form-control option-border">
                         <option  value="desc" {{ "desc" == app.request.attributes.get('order') ? "selected" : "" }}>
                             Desc
@@ -52,10 +52,10 @@
                     </a>
                     <div class="caption">
                         <h3>
-                            <a href="{{ path("detail_page", {'slug': travel.slug}) }}">{{ travel.title }}</a>
+                            <a class="lien-sortie" href="{{ path("detail_page", {'slug': travel.slug}) }}">{{ travel.title }}</a>
                             <small class="nb-places">{{ travel.availablePlaces }}/{{ travel.places }} places</small>
                         </h3>
-                        <p class="text-center">{{ travel.description }}</p>
+                        <p class="text-center text-description">{{ travel.description }}</p>
                     </div>
                 </div>
             {% endfor %}

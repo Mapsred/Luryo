@@ -65,7 +65,7 @@ body {
 
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-nav > li > a:hover {
-    color: #b2b2b2;
+    color: #878289;
     font-size: 17px;
     font-family: Kalinga,sans-serif;
     font-weight: bolder;
@@ -120,7 +120,7 @@ a.link-log {
 
 }
 .list-inline {
-    margin-top: 170px;
+    margin-top: 200px;
     position: absolute;
     margin-left: 46%;
 }
@@ -221,7 +221,7 @@ a.a-item:hover {
 }
 
 a.inscription:hover {
-    background: #ef3054;
+    background: #ef3054 !important;
     color: #fff !important;
 }
 a.inscription {
@@ -233,6 +233,6 @@ a.connexion {
     color: #fff !important;
 }
 a.connexion:hover {
-    background: #b2b2b2;
+    background: #b2b2b2 !important;
     color: #fff !important;
 }

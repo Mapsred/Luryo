@@ -95,7 +95,7 @@
     font-size: 15px;
     font-weight: bolder;
     z-index: -1;
-    margin-top: 13%;
+    margin-top: 10%;
     border-radius: 0px;
 }
 .button:hover {
@@ -120,10 +120,9 @@
     margin-left: 400px;
 }
 
-.symbole{
-    color: #e6735c;
+.symbole {
+    color: #878289;
     margin-left: 49%;
-
 }
 
 .ticket{
@@ -216,4 +215,8 @@ p.p-concept {
 
 i.fa.fa-ticket {
     color: #fff;
+}
+.btn-sortie {
+    margin-left: 10px;
+    margin-bottom: 30px;
 }

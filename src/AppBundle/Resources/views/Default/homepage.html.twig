@@ -54,36 +54,48 @@
                  <div class="third col-sm-12" id="section1">
                 <i class="fa fa-ticket fa-4x symbole"></i>
                 <h1 class="text-uppercase h1 h1-sorties">Quelques sorties</h1><br><br>
-
-
-
-                <div class="col-sm-4 picto">
-                    <p class="p-concept">
-                        <img src="{{ asset("assets/app/images/sage.png") }}" alt="avion" class=" avion img-responsive center-block"/> 
-                        Transmettez votre savoir ou faites vous accompagner tout au long de la visite à laquelle vous participerez grâce à notre plateforme 
-                    </p>
-                </div>
-                <div class="col-sm-4 picto">
-                    <p class="p-concept">
-                        <img src="{{ asset("assets/app/images/rencontre.png") }}" alt="ami" class=" Ami img-responsive center-block"/> 
-                        Un moyen simple de rencontrer des acteurs du milieu artistique, tout en partageant votre passion en groupe 
-                    </p>
-                </div>
-                <div class="col-sm-4 picto">
-                    <p class="p-concept">
-                        <img src="{{ asset("assets/app/images/monument.png") }}" alt="Pantheon" class="pantheon img-responsive center-block"/> 
-                        Grâce à nous, visiter une expo ou sortir dans Paris ne vous aura jamais semblé aussi ludique et interactif ! 
-
-                    </p>
-                </div>
-                <div class="col-sm-12 text-center">
-                    {% if not is_granted("ROLE_USER") %}
-                        <a href="{{ path("fos_user_registration_register") }}"
-                           class="btn btn-warning text-uppercase button">S'incrire</a>
-                    {% else  %}
-                        <a href="{{ path("fos_user_profile_edit") }}"
-                           class="btn btn-warning btn-completer-profil text-uppercase button">Compléter mon profil</a>
-                    {% endif %}
+                <div class="container">
+                 <div class="row">
+                      <div class="col-md-4">
+                        <div class="thumbnail">
+                          <a href="/w3images/lights.jpg">
+                            <img src="{{ asset("assets/app/images/logo.png") }}" alt="Lights" class="img-responsive" style="width:100%">
+                            <div class="caption">
+                                <h2>Lorem ipsum</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                              <a href="{{ path("fos_user_profile_edit") }}"
+                           class="btn btn-warning btn-sortie text-uppercase button">Voir la sortie</a>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="thumbnail">
+                          <a href="/w3images/lights.jpg">
+                            <img src="{{ asset("assets/app/images/logo.png") }}" alt="Lights" style="width:100%">
+                            <div class="caption">
+                                <h2>Lorem ipsum</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                             <a href="{{ path("fos_user_profile_edit") }}"
+                           class="btn btn-warning btn-sortie text-uppercase button">Voir la sortie</a>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="thumbnail">
+                          <a href="/w3images/lights.jpg">
+                            <img src="{{ asset("assets/app/images/logo.png") }}" alt="sortie" style="width:100%">
+                            <div class="caption">
+                                <h2>Lorem ipsum</h2>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                             <a href="{{ path("fos_user_profile_edit") }}"
+                           class="btn btn-warning btn-sortie text-uppercase button">Voir la sortie</a>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
 

@@ -1,3 +1,9 @@
+@font-face {
+    font-family: Aileron;
+    src: url(../fonts/Ailerons.ttf);
+}
+
+
 body { background : url("../images/inscription.png") no-repeat center center fixed; }
 
 h1 {
@@ -22,9 +28,20 @@ margin-bottom: 140px;}
 }
 
 .login_form_control.connect {
-    background-color : coral;
+    background-color : #f02d54;
     border           : 0;
     color            : white;
 }
 
 input[type=submit] { text-transform : uppercase; }
+
+ .h1-register {
+    font-family: 'Aileron', sans-serif;
+    font-size: 60px;
+}
+
+.h2-register {
+    font-family: 'Aileron', sans-serif;
+    color: #b5dedf;
+    line-height: 100px;
+}

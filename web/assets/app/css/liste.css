@@ -4,7 +4,6 @@
 }
 
 body { background-color : #E7E3E0;
-        font-family: Aileron;
 }
 
 h3 {
@@ -26,14 +25,16 @@ i.fa.fa-globe {
     font-size   : 35px;
     margin-left : 20px;
     float       : left;
-    padding-top : 4px;
+    padding-top: 20px;
+    color: #b2b2b2;
 }
 
 .h2, h2 {
-    font-size    : 26px;
-    color        : #4D5D8A;
+    font-size    : 40px;
+    color        : #f02d54;
     padding-left : 60px;
     padding-top  : 9px;
+    font-family: 'Aileron',sans-serif;
 }
 
 .overlay {
@@ -85,7 +86,7 @@ span.text-content span {
 }
 
 .overlay .img-responsive {
-    max-height : 200px;
+    max-height : 300px;
 }
 
 .option-border {
@@ -97,12 +98,16 @@ span.text-content span {
 }
 
 .btn-valider {
-    background     : #067274;
-    color          : #FFFFFF;
-    width          : 110px;
-    text-transform : uppercase;
-    border-radius  : 0px;
-    margin-left    : 20px;
+    color: #FFFFFF;
+    width: auto;
+    padding-left: 30px;
+    text-transform: uppercase;
+    border-radius: 0px;
+    margin-left: 20px;
+    background: #f02d54;
+    font-size: 16px;
+    padding-right: 30px;
+    font-family: arial;
 }
 
 .nb-places {
@@ -118,4 +123,18 @@ p.text-center{
     .block-list {
     margin-top: 100px;
     }
+}
+
+form#orderForm {
+    margin-left: 3%;
+}
+.text-description {
+    font-size: 17px !important;
+    text-align: left;
+    padding-bottom: 70px;
+}
+a.lien-sortie {
+    font-size: 30px !important;
+    color: #f02d54;
+     font-family: 'Aileron',sans-serif;
 }
