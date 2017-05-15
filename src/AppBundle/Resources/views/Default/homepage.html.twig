@@ -58,10 +58,10 @@
                          <div class="thumbnail">
                              <a href="{{ path("detail_page", {'slug': travel.slug}) }}">
                                  <img src="{{ travel.images.0|image }}" alt="{{ travel.title }}" class="img-responsive">
-                                 <div class="caption">{{ travel.description|nl2br }}</div>
-                                 <a href="{{ path("detail_page", {'slug': travel.slug}) }}"
-                                    class="btn btn-warning btn-sortie text-uppercase button">Voir la sortie</a>
+                                 <br><br><div class="caption">{{ travel.description|nl2br }}</div>
                              </a>
+                             <a href="{{ path("detail_page", {'slug': travel.slug}) }}"
+                                    class="btn btn-warning btn-sortie text-uppercase button">Voir la sortie</a>
                          </div>
                          </div>
                      {% endfor %}
