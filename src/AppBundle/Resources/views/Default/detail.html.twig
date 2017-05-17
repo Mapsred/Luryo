@@ -48,12 +48,12 @@
                 {% if app.user %}
                     <div class="col-md-2 col-xs-6">
                         {% if app.user.hasFavorite(travel) %}
-                            <a id="favorite" data-id="{{ travel.id }}" data-action="remove" class="favorite-link">
+                            <a href="#" id="favorite" data-id="{{ travel.id }}" data-action="remove" class="favorite-link">
                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                 Retirer des favoris
                             </a>
                         {% else %}
-                            <a id="favorite" data-id="{{ travel.id }}" data-action="add" class="favorite-link">
+                            <a href="#" id="favorite" data-id="{{ travel.id }}" data-action="add" class="favorite-link">
                                 <i class="fa fa-heart-o" aria-hidden="true"></i>
                                 Ajouter aux favoris
                             </a>
