@@ -50,12 +50,58 @@ class Paypal
         $this->container = $container;
     }
 
+    /* ********** GETTERS ********** */
+
     /**
-     * @param RedirectUrls $urls
-     * @param $infos
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @return ObjectManager
+     */
+    public function getManager()
+    {
+        return $this->em;
+    }
+
+    /* ********** UTILS ********** */
+
+    /**
+     * @param Travel $travel
+     * @param string $status
+     * @return string
+     */
+    public function generateCheckoutUrl(Travel $travel, $status)
+    {
+        return $this->container->get('router')->generate("checkout",
+            ['slug' => $travel->getSlug(), "status" => $status], UrlGeneratorInterface::ABSOLUTE_URL
+        );
+    }
+
+    /* ********** CORE ********** */
+    /**
+     * @param Travel $travel
      * @return null|string
      */
-    public function payment(RedirectUrls $urls, $infos)
+    public function generatePaiementURL(Travel $travel)
+    {
+        $urls = new RedirectUrls();
+        $urls->setReturnUrl($this->generateCheckoutUrl($travel, "confirmed"))
+            ->setCancelUrl($this->generateCheckoutUrl($travel, "failed"));
+
+        return $this->payment($urls, $travel);
+    }
+
+    /**
+     * @param RedirectUrls $urls
+     * @param Travel $travel
+     * @return null|string
+     */
+    public function payment(RedirectUrls $urls, Travel $travel)
     {
         $apiContext = $this->container->get("paypal")->getApiContext();
         $payer = new Payer();
@@ -63,8 +109,14 @@ class Paypal
 
         $item = new Item();
         $sku = md5($this->getUser()->getEmail());
-        $item->setName($infos['name'])->setDescription($infos['description'])->setQuantity(1)
-            ->setPrice(20)->setSku($sku)->setCurrency("EUR");
+        $item
+            ->setName($travel->getTitle())
+            ->setDescription(sprintf("Paiement de la sortie %s", $travel->getTitle()))
+            ->setQuantity(1)
+            ->setPrice($travel->getPrice())
+            ->setSku($sku)
+            ->setCurrency("EUR");
+
         $itemList = new ItemList();
         $itemList->setItems([$item]);
 
@@ -75,8 +127,8 @@ class Paypal
         $amount->setCurrency($item->getCurrency())->setTotal($details->getSubtotal());
 
         $transaction = new Transaction();
-        $transaction->setAmount($amount)->setItemList($itemList)->setDescription($infos['payment_desc'])
-            ->setInvoiceNumber(uniqid());
+        $transaction->setAmount($amount)->setItemList($itemList)
+            ->setDescription("Paiement")->setInvoiceNumber(uniqid());
 
         $payment = new Payment();
         $payment->setIntent("sale")->setPayer($payer)->setRedirectUrls($urls)->setTransactions([$transaction]);
@@ -88,18 +140,11 @@ class Paypal
     }
 
     /**
-     * @return User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
      * @param Request $request
+     * @param Travel $travel
      * @return array
      */
-    public function completing(Request $request)
+    public function completing(Request $request, Travel $travel)
     {
         $apiContext = $this->container->get("paypal")->getApiContext();
         if ($request->query->has("status") && $request->query->get("status") == 'confirmed') {
@@ -113,8 +158,11 @@ class Paypal
             }
 
             $order = new Order();
-            $order->setUser($this->getUser())->setAmount($transaction->getAmount()->getTotal())
-                ->setDone(false)->setUuid($paymentId)->setDone(true);
+            $order->setUser($this->getUser())
+                ->setAmount($transaction->getAmount()->getTotal())
+                ->setTravel($travel)
+                ->setUuid($paymentId)
+                ->setDone(true);
 
             $execution = new PaymentExecution();
             $execution->setPayerId($request->query->get("PayerID"))->addTransaction($transaction);
@@ -126,56 +174,4 @@ class Paypal
 
         return ["warning", "Paiement annulé"];
     }
-
-    /**
-     * @return ObjectManager
-     */
-    public function getManager()
-    {
-        return $this->em;
-    }
-
-    public function generatePaiementURL(Travel $travel)
-    {
-        $urls = new RedirectUrls();
-        $urls->setReturnUrl(
-            $this->generateUrl(
-                "checkout",
-                ["slug" => $travel->getSlug(), "status" => "confirmed"],
-                UrlGeneratorInterface::ABSOLUTE_URL
-            )
-        )->setCancelUrl(
-            $this->generateUrl(
-                "checkout",
-                ["slug" => $travel->getSlug(), "status" => "failed"],
-                UrlGeneratorInterface::ABSOLUTE_URL
-            )
-        );
-
-        $infos = [
-            "name" => $travel->getTitle(),
-            "description" => sprintf("Paiement de la sortie %s", $travel->getTitle()),
-            "payment_desc" => "Paiement",
-        ];
-
-        return $this->payment($urls, $infos);
-
-    }
-
-    /**
-     * Generates a URL from the given parameters.
-     *
-     * @param string $route         The name of the route
-     * @param mixed  $parameters    An array of parameters
-     * @param int    $referenceType The type of reference (one of the constants in UrlGeneratorInterface)
-     *
-     * @return string The generated URL
-     *
-     * @see UrlGeneratorInterface
-     */
-    protected function generateUrl($route, $parameters = array(), $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
-    {
-        return $this->container->get('router')->generate($route, $parameters, $referenceType);
-    }
-
 }

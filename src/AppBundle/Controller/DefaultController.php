@@ -112,7 +112,7 @@ class DefaultController extends Controller
 
         $parameters = ['travel' => $travel, "paypalLink" => $this->get("app.paypal")->generatePaiementURL($travel)];
         if ($request->query->has("status")) {
-            $parameters['result'] = $this->get("app.paypal")->completing($request);
+            $parameters['result'] = $this->get("app.paypal")->completing($request, $travel);
         }
 
         return $this->render('AppBundle:Default:checkout.html.twig', $parameters);
