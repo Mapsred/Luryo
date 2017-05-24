@@ -1,0 +1,37 @@
+{% extends "AppBundle:Default:index.html.twig" %}
+
+{% block title %}Favoris{% endblock %}
+{% block body %}
+    <link href="{{ asset("assets/user/css/profile.css") }}" rel="stylesheet">
+    {% include "UserBundle:Parts:profile_menu.html.twig" %}
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Sortie</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for favorite in favorites %}
+                <tr>
+                    <td><a href="{{ path('detail_page', {"slug": favorite.slug}) }}">{{ favorite.title }}</a></td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="{{ path('detail_page', {"slug": favorite.slug}) }}"
+                               class="btn btn-sm btn-default view_link" title="Afficher">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                Afficher
+                            </a>
+                            <a href="{{ path('favorites', {"fav": favorite.id}) }}" class="btn btn-sm btn-default delete_link" title="Supprimer">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                                Supprimer
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

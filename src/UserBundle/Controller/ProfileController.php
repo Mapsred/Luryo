@@ -8,6 +8,7 @@
 
 namespace UserBundle\Controller;
 
+use AppBundle\Entity\Travel;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,6 +26,7 @@ use UserBundle\Form\ProfileForm;
  */
 class ProfileController extends Controller
 {
+
     /**
      * Edit the user.
      *
@@ -86,5 +88,29 @@ class ProfileController extends Controller
         }
 
         return new JsonResponse();
+    }
+
+    /**
+     * @Route("/favoris", name="favorites")
+     * @Security("has_role('ROLE_USER')")
+     * @param Request $request
+     * @return Response
+     */
+    public function showFavoritesAction(Request $request)
+    {
+        if ($request->query->has("fav") && !empty($request->query->get("fav"))) {
+            $manager = $this->getDoctrine()->getManager();
+            if (null !== $fav = $manager->getRepository("AppBundle:Travel")->find($request->query->get("fav"))) {
+                $this->getUser()->removeFavorite($fav);
+                $manager->persist($this->getUser());
+                $manager->flush();
+
+                return $this->redirectToRoute("favorites");
+            }
+        }
+
+        $favorites = $this->getUser()->getFavorites();
+
+        return $this->render("UserBundle:Default:favorites.html.twig", ['favorites' => $favorites]);
     }
 }
