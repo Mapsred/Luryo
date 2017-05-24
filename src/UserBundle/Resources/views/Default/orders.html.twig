@@ -1,0 +1,31 @@
+{% extends "AppBundle:Default:index.html.twig" %}
+
+{% block title %}Commandes{% endblock %}
+{% block body %}
+    <link href="{{ asset("assets/user/css/profile.css") }}" rel="stylesheet">
+    {% include "UserBundle:Parts:profile_menu.html.twig" %}
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Sortie</th>
+                <th>Montant</th>
+                <th>ID de la commande</th>
+                <th>Type de paiement</th>
+                <th>Date de la commande</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td><a href="{{ path('detail_page', {"slug": order.travel.slug}) }}">{{ order.travel.title }}</a></td>
+                    <td>{{ order.amount }}</td>
+                    <td>{{ order.uuid }}</td>
+                    <td>Paypal</td>
+                    <td>{{ order.createdAt.format("d/m/Y h:i") }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

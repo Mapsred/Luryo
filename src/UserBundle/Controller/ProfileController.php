@@ -113,4 +113,16 @@ class ProfileController extends Controller
 
         return $this->render("UserBundle:Default:favorites.html.twig", ['favorites' => $favorites]);
     }
+
+    /**
+     * @Route("/commandes", name="orders")
+     * @Security("has_role('ROLE_USER')")
+     * @return Response
+     */
+    public function showOrdersAction()
+    {
+        $orders = $this->getUser()->getOrders();
+
+        return $this->render("UserBundle:Default:orders.html.twig", ['orders' => $orders]);
+    }
 }

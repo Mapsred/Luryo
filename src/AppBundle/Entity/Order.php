@@ -10,6 +10,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use UserBundle\Entity\User;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * Order
@@ -19,6 +20,8 @@ use UserBundle\Entity\User;
  */
 class Order
 {
+    use ORMbehaviors\Timestampable\Timestampable;
+
     /**
      * @var integer
      *
