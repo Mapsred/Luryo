@@ -13,6 +13,10 @@ $(document).ready(function () {
 
     $("#profile_form_interests").select2();
 
+    var city = $("#default-city").html().split("|");
+    $("#default-city").remove();
+
+    $("#profile_form_address_city").append("<option value='"+city[0]+"'>"+city[1]+"</option>");
     $("#profile_form_address_city").select2({
         ajax: {
             url: Routing.generate("ajax_cities"),

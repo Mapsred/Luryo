@@ -1,37 +1,38 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <link href="{{ asset("assets/user/css/profile.css") }}" rel="stylesheet">
-<ul class="liste-profile text-center">
-    <a href="#"><li>Mon profil</li></a>
-    <a href="#"><li>Mes listes de sorties</li></a>
-    <a href="#"><li>Mes favoris</li></a>
-</ul>    
+
+{% include "UserBundle:Parts:profile_menu.html.twig" %}
 <div class="container">
     <div class="row">
         <div class="container-header">
-            <a href="{{ path("fos_user_profile_edit") }}"><i class="fa fa-cogs" aria-hidden="true"></i></a>
-            <p class="text-uppercase element-profil">{{ user.username }}</p>
-            {% if user.birthday is defined %}
-                <span class="date-element">{{ user.birthday|date("d/m/Y") }}</span>
-            {% endif %}
+            <div class="user-infos">
+                <p class="text-uppercase element-profil">{{ user.username }}</p>
+                {% if user.birthday is defined %}
+                    <span class="date-element">{{ user.birthday|date("d/m/Y") }}</span>
+                {% endif %}
+            </div>
+            <a href="{{ path("fos_user_profile_edit") }}" class="edit-profile">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+            </a>
         </div>
         <div class="col-md-12 size-colonne">
-            <h2 class="h2-title change-font">Niveau d'études</h2><br><br>
-            <h2 class="h2-title decalage-top change-font">Centres d'intérets</h2><br><br>
-            <div class="interests profils-elements">
+            <h2 class="h2-title">Niveau d'études</h2><br><br>
+            <h2 class="h2-title margin-top20">Centres d'intérets</h2><br><br>
+            <div class="interests">
                 {% for interest in user.interests if not user.interests.empty %}
-                    <p class="interest profils-elements text-center">{{ interest.name }}</p>
+                    <p class="interest text-center">{{ interest.name }}</p>
                 {% else %}
-                    <p class="profils-elements">
+                    <p>
                         Vous n'avez ajouté aucun centre d'intérêts, vous pouvez modifier votre profil pour en ajouter.
                         Cela nous permettra de vous conseiller des sorties correspondantes à vos intérêts.
                     </p>
                 {% endfor %}
             </div>
-            <h2 class="h2-title change-font">Coordonnées</h2><br><br>
+            <h2 class="h2-title">Coordonnées</h2><br><br>
             {% if user.address is not null %}
-                <p class="text-center profils-elements">Votre adresse est : {{ user.address.__toString }}</p>
+                <p class="text-center">Votre adresse est : {{ user.address.__toString }}</p>
             {% endif %}
-            <div class="text-center profils-elements">
+            <div class="text-center">
                 <p>Votre email est : {{ user.email }}</p>
                 <p>Votre pseudo est : {{ user.username }}</p>
 

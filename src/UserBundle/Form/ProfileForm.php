@@ -15,12 +15,13 @@ class ProfileForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $birthday = $options['birthday'] instanceof \DateTime ? $options['birthday']->format("d/m/Y") : null;
         $builder
             ->add("sexe", ChoiceType::class, ['label' => "Sexe", "choices" => ["Homme" => "M", "Femme" => "F"]])
             ->add("interests", EntityType::class, ['class' => 'AppBundle\Entity\Interest', 'multiple' => true])
             ->add("email", EmailType::class, ['attr' => ['placeholder' => "Email"]])
             ->add("address", AddressType::class, ['label_attr' => ['class' => "hidden"]])
-            ->add("birthday", TextType::class, ['mapped' => false, 'attr' => ['placeholder' => "Date de naissance"]])
+            ->add("birthday", TextType::class, ['mapped' => false, 'attr' => ['placeholder' => "Date de naissance", "value" => $birthday]])
             ->add("firstname", TextType::class, ["attr" => ['placeholder' => "Prénom"]])
             ->add("lastname", TextType::class, ["attr" => ['placeholder' => "Nom"]]);
     }
@@ -30,7 +31,7 @@ class ProfileForm extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(['data_class' => 'UserBundle\Entity\User']);
+        $resolver->setDefaults(['data_class' => 'UserBundle\Entity\User', 'birthday' => null]);
     }
 
     public function getName()

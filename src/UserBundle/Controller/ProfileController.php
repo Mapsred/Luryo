@@ -34,7 +34,7 @@ class ProfileController extends Controller
      */
     public function editAction(Request $request)
     {
-        $form = $this->createForm(ProfileForm::class, $this->getUser());
+        $form = $this->createForm(ProfileForm::class, $this->getUser(), ['birthday' => $this->getUser()->getBirthday()]);
         $form->handleRequest($request);
         $parameters = ['form' => $form->createView(), 'user' => $this->getUser()];
 

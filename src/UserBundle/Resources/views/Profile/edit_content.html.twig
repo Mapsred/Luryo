@@ -16,28 +16,26 @@
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 {% endblock %}
-<ul class="liste-profile text-center">
-    <a href="#"><li>Mon profil</li></a>
-    <a href="#"><li>Mes listes de sorties</li></a>
-    <a href="#"><li>Mes favoris</li></a>
-</ul>
+{% include "UserBundle:Parts:profile_menu.html.twig" %}
 <div class="container">
     <div class="row">
         <div class="container-header">
-            <a href="{{ path("fos_user_profile_show") }}"><i class="fa fa-ban" aria-hidden="true"></i></a>
-            <p class="text-uppercase element-profil">
-                {{ user.username }} {{ user.firstname ? "/"~user.firstname: "" }} {{ user.lastname ?: "" }}
-            </p>
-            {% if user.birthday is not null %}
-                <span>{{ user.birthday|date("d/m/Y") }}</span>
-            {% endif %}
+            <div class="user-infos">
+                <p class="text-uppercase element-profil">{{ user.username }}</p>
+                {% if user.birthday is defined %}
+                    <span class="date-element">{{ user.birthday|date("d/m/Y") }}</span>
+                {% endif %}
+            </div>
+            <a href="{{ path("fos_user_profile_show") }}" class="edit-profile">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+            </a>
         </div>
 
         {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-        <h2 class="h2-title hidden change-font">Niveau d'études</h2>
+        <h2 class="h2-title hidden">Niveau d'études</h2>
 
         <div class="col-md-12 margin-bottom20">
-            <h2 class="h2-title change-font">Centres d'intérets</h2><br><br>
+            <h2 class="h2-title">Centres d'intérets</h2><br><br>
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-3">
                     {{ form_widget(form.interests) }}
@@ -47,17 +45,18 @@
         </div>
 
         <div class="col-md-12 margin-bottom20">
-            <h2 class="h2-title change-font">Coordonnées</h2><br><br>
+            <h2 class="h2-title">Coordonnées</h2><br><br>
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-3">
                     {{ form_widget(form.address) }}
                     {{ form_errors(form.address) }}
                 </div>
+                <div class="hidden" id="default-city">{{ user.address.city.id }}|{{ user.address.city.name }}</div>
             </div>
         </div>
 
         <div class="col-md-12 margin-bottom20">
-            <h2 class="h2-title change-font">Informations personelles</h2><br><br>
+            <h2 class="h2-title">Informations personelles</h2><br><br>
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-3">
                     {{ form_widget(form.email) }}
