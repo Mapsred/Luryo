@@ -1,48 +1,37 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <link href="{{ asset("assets/user/css/profile.css") }}" rel="stylesheet">
+<ul class="liste-profile text-center">
+    <a href="#"><li>Mon profil</li></a>
+    <a href="#"><li>Mes listes de sorties</li></a>
+    <a href="#"><li>Mes favoris</li></a>
+</ul>    
 <div class="container">
     <div class="row">
         <div class="container-header">
             <a href="{{ path("fos_user_profile_edit") }}"><i class="fa fa-cogs" aria-hidden="true"></i></a>
-            <div class="trait-left"></div>
-            <div class="circle-left"></div>
             <p class="text-uppercase element-profil">{{ user.username }}</p>
-            <div class="circle-right"></div>
-            <div class="trait-right"></div>
             {% if user.birthday is defined %}
                 <span class="date-element">{{ user.birthday|date("d/m/Y") }}</span>
             {% endif %}
         </div>
         <div class="col-md-12 size-colonne">
-            <div class="trait-left niveau-etude-traitleft"></div>
-            <div class="circle-left niveau-etude-circleleft"></div>
-            <h2 class="h2-title change-font">Niveau d'études</h2>
-            <div class="circle-right niveau-etude-traitright"></div>
-            <div class="trait-right niveau-etude-circleright"></div>
-            <div class="trait-left niveau-etude-traitleft"></div>
-            <div class="circle-left niveau-etude-circleleft"></div>
-            <h2 class="h2-title decalage-top change-font">Centres d'intérets</h2>
-             <div class="circle-right niveau-etude-traitright"></div>
-            <div class="trait-right niveau-etude-circleright"></div>
-            <div class="interests">
+            <h2 class="h2-title change-font">Niveau d'études</h2><br><br>
+            <h2 class="h2-title decalage-top change-font">Centres d'intérets</h2><br><br>
+            <div class="interests profils-elements">
                 {% for interest in user.interests if not user.interests.empty %}
-                    <p class="interest">{{ interest.name }}</p>
+                    <p class="interest profils-elements text-center">{{ interest.name }}</p>
                 {% else %}
-                    <p>
+                    <p class="profils-elements">
                         Vous n'avez ajouté aucun centre d'intérêts, vous pouvez modifier votre profil pour en ajouter.
                         Cela nous permettra de vous conseiller des sorties correspondantes à vos intérêts.
                     </p>
                 {% endfor %}
             </div>
-            <div class="trait-left niveau-etude-traitleft"></div>
-            <div class="circle-left niveau-etude-circleleft"></div>
-            <h2 class="h2-title change-font">Coordonnées</h2>
-             <div class="circle-right niveau-etude-traitright"></div>
-            <div class="trait-right niveau-etude-circleright"></div>
+            <h2 class="h2-title change-font">Coordonnées</h2><br><br>
             {% if user.address is not null %}
-                <p>Votre adresse est : {{ user.address.__toString }}</p>
+                <p class="text-center profils-elements">Votre adresse est : {{ user.address.__toString }}</p>
             {% endif %}
-            <div class="text-center">
+            <div class="text-center profils-elements">
                 <p>Votre email est : {{ user.email }}</p>
                 <p>Votre pseudo est : {{ user.username }}</p>
 
