@@ -51,7 +51,9 @@
                     {{ form_widget(form.address) }}
                     {{ form_errors(form.address) }}
                 </div>
-                <div class="hidden" id="default-city">{{ user.address.city.id }}|{{ user.address.city.name }}</div>
+                {% if user.address is not empty %}
+                    <div class="hidden" id="default-city">{{ user.address.city.id }}|{{ user.address.city.name }}</div>
+                {% endif %}
             </div>
         </div>
 
