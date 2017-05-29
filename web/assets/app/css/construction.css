@@ -1,4 +1,7 @@
-body { background : url("../images/construction.jpg") no-repeat center center fixed; }
+body {
+    background-color: #2b2727;
+}
+
 
 
 img.centree {
@@ -19,4 +22,96 @@ p.text-construction {
     font-size: 25px;
     color: #fff;
     font-family: kalinga,sans-serif;
+}
+
+.text-contact {
+    font-family: Aileron,sans-serif;
+    font-size: 69px;
+    color: #fff;
+}
+.input-contact {
+    background-color: #878289;
+    border: #878289;
+    width: 277px;
+    height: 58px;
+}
+
+.input-contact::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #fff;
+    font-family: Kalinga;
+    padding-left: 20px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #fff;
+    font-family: Kalinga;
+    padding-left: 20px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #fff;
+    font-family: Kalinga;
+    padding-left: 20px;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+    font-family: Kalinga;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.input-mail {
+    width:863px;
+}
+
+.input-textarea {
+    width: 863px;
+    height: 305px;
+    color: #fff;
+    font-family: Kalinga;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.send {
+    width: 277px;
+    height: 50px;
+    background-color: #ef3054;
+    border: none;
+    font-family: Kalinga;
+    text-align: center;
+    color: #ffffff;
+    font-size: 22px;
+}
+.group {
+    margin-left: 12px;
+}
+
+.form {
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+    .group {
+        margin-top: 30px;
+        margin-left: 0;
+    }
+    .input-mail {
+        width: 277px;
+    }
+    .input-textarea {
+        width: 277px;
+    }
+}
+
+.firstbr {
+    display: none;
+}
+
+@media screen and (max-width: 1700px) {
+    .firstbr {
+        display: block;
+    }
+    .group {
+        margin-top: 20px;
+        margin-left: 0;
+    }
 }

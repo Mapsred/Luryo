@@ -11,9 +11,20 @@
 {% endblock %}
 
 {% block body %}
-    <img src="{{ asset("assets/app/images/picto-construction.png") }}" alt="avion" class="img-responsive centree"/> 
-     <img src="{{ asset("assets/app/images/machette.png") }}" alt="avion" class="img-responsive centree machette"/> <br>
-     <p class="text-construction">Page actuellement <br>en cours de création </p>
+    <h1 class="text-center text-contact">Nous contacter</h1>
+    <div class="container-fluid">
+        <div class="col-md-6 col-md-offset-1">
+            <form action="" class="form">
+                <input type="text" name="prenom" placeholder="Prénom" class="input-contact"><br class="firstbr">
+                <input type="text" name="nom" placeholder="Nom" class="input-contact group"><br class="firstbr">
+                <input type="text" name="tel" placeholder="N° de téléphone" class="input-contact group"><br><br>
+                <input type="text" name="mail" placeholder="Adresse mail" class="input-contact input-mail"><br><br>
+                <input type="text" name="motif" placeholder="Motif" class="input-contact "><br><br>
+                <textarea rows="4" cols="50" name="message" class="input-contact input-textarea">Votre message</textarea><br><br>
+                <input type="submit" value="Submit" class="send">
+            </form>
+        </div>
+    </div>
 {% endblock %}
 
 {% block footer %}{% endblock %}
