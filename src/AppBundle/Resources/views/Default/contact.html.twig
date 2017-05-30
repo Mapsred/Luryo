@@ -9,6 +9,7 @@
     <h1 class="text-center text-contact">Nous contacter</h1>
     <div class="container-fluid">
         <div class="col-md-6 col-md-offset-1">
+{#
             <form action="" class="form">
                 <input type="text" name="prenom" placeholder="Prénom" class="input-contact"><br class="firstbr">
                 <input type="text" name="nom" placeholder="Nom" class="input-contact group"><br class="firstbr">
@@ -18,6 +19,44 @@
                 <textarea rows="4" cols="50" name="message" class="input-contact input-textarea">Votre message</textarea><br><br>
                 <input type="submit" value="Submit" class="send">
             </form>
+#}
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.firstname, {'attr': {'class': "input-contact"}}) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.lastname, {'attr': {'class': "input-contact"}}) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.phone, {'attr': {'class': "input-contact"}}) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-12">
+                    {{ form_widget(form.email, {'attr': {'class': "input-contact"}}) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.reason, {'attr': {'class': "input-contact"}}) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-12">
+                    {{ form_widget(form.message, {'attr': {'class': "input-contact input-textarea"}}) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <input type="submit"  value="Envoyer" class="form-control send" />
+                </div>
+            </div>
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}

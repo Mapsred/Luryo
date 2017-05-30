@@ -1,12 +1,10 @@
 body {
-    background-color: #2b2727;
+    background-color : #2b2727;
+    font-family      : Kalinga, serif;
 }
 
-
-
 img.centree {
-    margin: 0 auto;
-    margin-top: 400px;
+    margin : 400px auto 0;
 }
 img.machette {
     margin-top: -107px;
@@ -32,41 +30,35 @@ p.text-construction {
 .input-contact {
     background-color: #878289;
     border: #878289;
-    width: 277px;
     height: 58px;
+    border-radius: 0;
 }
 
 .input-contact::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #fff;
-    font-family: Kalinga;
     padding-left: 20px;
 }
+
 ::-moz-placeholder { /* Firefox 19+ */
     color: #fff;
-    font-family: Kalinga;
     padding-left: 20px;
 }
+
 :-ms-input-placeholder { /* IE 10+ */
     color: #fff;
-    font-family: Kalinga;
     padding-left: 20px;
 }
+
 :-moz-placeholder { /* Firefox 18- */
     color: #fff;
-    font-family: Kalinga;
     font-weight: bold;
     padding-left: 20px;
 }
 
-.input-mail {
-    width:863px;
-}
 
 .input-textarea {
-    width: 863px;
     height: 305px;
     color: #fff;
-    font-family: Kalinga;
     padding-left: 20px;
     padding-top: 20px;
 }
@@ -76,13 +68,9 @@ p.text-construction {
     height: 50px;
     background-color: #ef3054;
     border: none;
-    font-family: Kalinga;
     text-align: center;
     color: #ffffff;
     font-size: 22px;
-}
-.group {
-    margin-left: 12px;
 }
 
 .form {

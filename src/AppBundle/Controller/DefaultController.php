@@ -10,12 +10,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Pagerfanta\Adapter\AdapterInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use UserBundle\Entity\Contact;
 use UserBundle\Entity\Favorite;
 use UserBundle\Entity\User;
+use UserBundle\Form\ContactType;
 
 /**
  * Class DefaultController
@@ -172,12 +175,26 @@ class DefaultController extends Controller
         return $this->render('AppBundle:Default:nousrejoindre.html.twig');
     }
 
-     /**
+    /**
      * @Route("/contact", name="contact")
+     * @param Request $request
+     * @return RedirectResponse|Response
      */
-    public function contactAction()
+    public function contactAction(Request $request)
     {
-        return $this->render('AppBundle:Default:contact.html.twig');
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($contact);
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', 'Votre message a bien été envoyé');
+
+            return $this->redirectToRoute('contact');
+        }
+        return $this->render('AppBundle:Default:contact.html.twig', ['form' => $form->createView()]);
     }
 
 }
