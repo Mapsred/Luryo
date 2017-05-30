@@ -10,12 +10,7 @@
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
-    {% stylesheets 'assets/app/css/search.css'
-    'assets/bower/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css'
-    'assets/bower/select2/dist/css/select2.min.css' output='compiled/css/bootstrap-datepicker3.min.css'
-    filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/app/css/search.css') }}">
 {% endblock %}
 
 {% block body %}
