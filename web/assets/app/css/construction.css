@@ -32,6 +32,7 @@ p.text-construction {
     border: #878289;
     height: 58px;
     border-radius: 0;
+    margin-top:30px;
 }
 
 .input-contact::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -61,6 +62,7 @@ p.text-construction {
     color: #fff;
     padding-left: 20px;
     padding-top: 20px;
+    height: 250px !important;
 }
 
 .send {
@@ -71,6 +73,9 @@ p.text-construction {
     text-align: center;
     color: #ffffff;
     font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-radius: 0px;
 }
 
 .form {
@@ -102,4 +107,8 @@ p.text-construction {
         margin-top: 20px;
         margin-left: 0;
     }
+}
+
+.mgtop {
+    margin-top: 100px;
 }
