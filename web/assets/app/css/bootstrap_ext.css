@@ -1,0 +1,46 @@
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.col-flex {
+    display                : -webkit-box;
+    display                : -moz-box;
+    display                : -ms-flexbox;
+    display                : -webkit-flex;
+    display                : flex;
+    -webkit-box-orient     : vertical;
+    -moz-box-orient        : vertical;
+    -ms-flex-direction     : column;
+    -webkit-flex-direction : column;
+    flex-direction         : column;
+}
+
+.col-flex .panel-default {
+    -ms-flex         : 1 0 auto;
+    -webkit-flex     : 1 0 auto;
+    flex             : 1 0 auto;
+    -webkit-box-flex : 1.0;
+}
+
+.row-eq-height {
+    padding-left  : 15px;
+    padding-right : 15px;
+    float         : left;
+    width         : 100%;
+    align-items   : stretch;
+    display       : block;
+}
+
+
+@media (min-width : 992px) {
+    .row-eq-height {
+        display : -webkit-box;
+        display : -webkit-flex;
+        display : -ms-flexbox;
+        display : flex;
+    }
+}

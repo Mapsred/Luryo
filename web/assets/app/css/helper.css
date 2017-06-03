@@ -636,6 +636,6 @@
 
 .text-underline { text-decoration : underline; }
 
-.text-white { color : #FFFFFF; }
+.text-white { color : #FFFFFF !important; }
 
 .text-gray { color : #808080; }

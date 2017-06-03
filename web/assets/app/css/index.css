@@ -1,236 +1,158 @@
 @font-face {
-    font-family: Aileron;
-    src: url(../fonts/Ailerons.ttf);
+    font-family : Aileron;
+    src         : url(../fonts/Ailerons.ttf);
 }
 
-
-
-.first{
-    background  : url("../images/image_page_accueil.jpg ") no-repeat;
+.first {
+    background  : url("../images/image_page_accueil.jpg") no-repeat;
     max-width   : 100%;
-
     text-align  : left;
     padding-top : 7%;
     color       : white;
-    margin-top  :-20px;
+    margin-top  : -20px;
     font-size   : 25px;
     height      : 70vh;
-
 }
 
-.second{
-    background-color: #f5f5f6;
-    max-width: 100%;
-    height: 90vh;
-
+.second {
+    background-color : #F5F5F6;
+    min-height       : 65vh;
+    padding-bottom   : 20px;
 }
 
-.troisieme{
-    background-image: url("../images/motifs_video.jpg ");
-    max-width: 100%;
-    min-height:800px;
-
+.troisieme {
+    background-image : url("../images/motifs_video.jpg");
+    max-width        : 100%;
+    min-height       : 800px;
 }
 
-.quatrieme{
-    background-color: #e8e9eb;
-    max-width: 100%;
-    text-align: center;
-    height: 100vh;
-    display:none
-}
-
-.icone1{
-    padding-left: 50%;
-    width: 20px;
+.quatrieme {
+    background-color : #E8E9EB;
+    max-width        : 100%;
+    text-align       : center;
+    height           : 100vh;
+    display          : none
 }
 
 .bx-wrapper {
-    background: #e8e9eb;
-    border: none;
+    background : #E8E9EB;
+    border     : none;
 }
 
 .quatrieme .bx-wrapper {
-     background         : #E8E9EB;
-     border             : 5px solid #E8E9EB;
-     -webkit-box-shadow : 0 0;
-     -moz-box-shadow    : 0 0;
-     box-shadow         : 0 0;
- }
-
-.pantheon{
-    width: 180px;
-    height: 180px;
+    background         : #E8E9EB;
+    border             : 5px solid #E8E9EB;
+    -webkit-box-shadow : 0 0;
+    -moz-box-shadow    : 0 0;
+    box-shadow         : 0 0;
 }
 
-.avion{
-    width: 180px;
-    height: 180px;
-}
-
-.Ami{
-    width: 180px;
-    height: 180px;
-
-}
-
-.h1 {
-    text-align: center;
-    color: #878289;
-    font-family: Aileron, serif;
-    font-size: 69px;
-}
-
-.btn-warning {
-    background-image: none;
-}
-
-.button {
-    background-color: #e7bb41;
-    color: white;
-    width: 174px;
-    height: 40px;
-    border: none;
-    padding-top: 10px;
-    font-size: 15px;
-    font-weight: bolder;
-    z-index: -1;
-    margin-top: 10%;
-    border-radius: 0px;
-}
-.button:hover {
-   background-color: #e7bb41 !important; 
-}
-
-
-.avis{
-    background-color: #e8e9eb;
-}
-
-.video {
-    background-color: #f02d54;
-    height: 800px;
-
-
-}
-
-.video-concept{
-    width: 800px;
-    height: 400px;
-    margin-left: 400px;
-}
-
-.symbole {
-    color: #878289;
-    margin-left: 49%;
-}
-
-.ticket{
-    color: white;
-    margin-left: 49%;
-    font-size: 49px;
-}
-
-.h1-video{
-    text-align  : center;
-    color       : white;
-    font-size   : 43px;
-    font-family : Aileron, serif;
-}
-
-i{
-    margin-top: 30px;
-}
-
-.firsth1{
-
-    margin-bottom: 50px;
-    font-size: 74px;
-    margin-top: 5%;
-    text-align: center;
-
-}
-
-.videoWrapper {
-    display: block;
-    margin: 0 auto;
-}
-.videoWrapper iframe {
-
-}
-
-
-@media screen and (min-width: 801px) and (max-width: 1240px) {
-   .videoWrapper {
-    padding-bottom: 40.25%; /* 16:9 */
-    }
-    .videoWrapper iframe {
-    left: 15%;
-    }
-}
-@media screen and (min-width: 1241px) and (max-width: 1600px) {
-   .videoWrapper {
-    padding-bottom: 28.25%;
-    }
-}
-@media screen and (max-width:800px) {
-   .videoWrapper {
-        padding-bottom: 55.25%;
-    }
-    .videoWrapper iframe {
-    width: 700px;
-    left: 0;
-    }
+.avis {
+    background-color : #E8E9EB;
 }
 
 .btn-completer-profil {
-    margin-left: 0;
-    width: 300px;
-    border-radius: 0;
-    margin-top: 120px;
+    margin-left   : 0;
+    width         : 300px;
+    border-radius : 0;
+    margin-top    : 120px;
 }
 
-.picto {
-    margin-top: 3%;
-}
-p.p-concept {
-    color: #000000;
-    font-family: Kalinga,sans-serif;
-    text-align: center;
-    font-weight: bolder;
-}
-
-.relou{
-    display: block;
-    margin: 0 auto;
+.concept div {
+    color       : #000000;
+    font-family : Kalinga, sans-serif;
+    text-align  : center;
+    font-weight : bolder;
 }
 
 .third {
-    background: #ef3054;
-    padding-bottom: 50px;
-}
-.h1-sorties {
-    color: #fff !important;
+    background     : #EF3054;
+    padding-bottom : 50px;
 }
 
-i.fa.fa-ticket {
-    color: #fff;
-}
-.btn-sortie {
-    margin-left: 10px;
-    margin-bottom: 30px;
+.thumbnail a > img, .thumbnail > img {
+    max-height : 300px;
 }
 
-.thumbnail a>img, .thumbnail>img {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 100% !important;
-    max-height: 300px !important;
+.thumbnail h3 {
+    margin-top  : 10px;
+    text-align  : left;
+    font-weight : bold;
+    padding     : 15px;
+}
+
+.thumbnail h3 a {
+    color : #000000;
 }
 
 .thumbnail {
-    max-height: 100%;
-    max-width: 500px;
-    min-width: 100%;
-    height: 800px;
+    margin-right   : 20px;
+    padding-bottom : 50px;
 }
+
+.thumbnail .caption {
+    padding : 15px;
+}
+
+.button {
+    background-color : #E7BB41;
+    color            : white;
+    min-width        : 174px;
+    height           : 40px;
+    border           : none;
+    padding-top      : 10px;
+    font-size        : 15px;
+    font-weight      : bolder;
+    border-radius    : 0;
+}
+
+.thumbnail .button {
+    position    : absolute;
+    bottom      : 10px;
+    margin-left : 10px;
+    padding-top : 10px;
+}
+
+.button:hover { background-color : #E7BB41; }
+
+.row-title {
+    text-align     : center;
+    text-transform : uppercase;
+    margin-bottom  : 40px;
+    font-family    : Aileron, sans-serif;
+    color          : #878289;
+}
+
+.row-title h1 {
+    font-size : 69px;
+}
+
+.row-title i {
+    margin-top : 30px;
+}
+
+.row-title.white i, .row-title.white h1 {
+    color : #FFFFFF;
+}
+
+
+.picto {
+    width  : 180px;
+    height : 180px;
+}
+
+@media (max-width : 992px) {
+    .btn-center {
+        text-align : center;
+    }
+
+    .thumbnail {
+        padding-bottom : 0;
+    }
+
+    .thumbnail .button {
+        position   : relative;
+        margin-top : 20px;
+    }
+}
+
