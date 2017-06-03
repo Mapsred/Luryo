@@ -4,14 +4,15 @@
 }
 
 .first {
-    background  : url("../images/image_page_accueil.jpg") no-repeat;
-    max-width   : 100%;
-    text-align  : left;
-    padding-top : 7%;
-    color       : white;
-    margin-top  : -20px;
-    font-size   : 25px;
-    height      : 70vh;
+    background      : url("../images/image_page_accueil.jpg") no-repeat;
+    background-size : cover;
+    max-width       : 100%;
+    text-align      : left;
+    padding-top     : 7%;
+    color           : white;
+    margin-top      : -20px;
+    font-size       : 25px;
+    height          : 70vh;
 }
 
 .second {
@@ -134,7 +135,6 @@
 .row-title.white i, .row-title.white h1 {
     color : #FFFFFF;
 }
-
 
 .picto {
     width  : 180px;

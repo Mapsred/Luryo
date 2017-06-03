@@ -38,6 +38,9 @@
 
 .margin40 { margin : 40px !important; }
 
+.margin75 { margin : 75px !important; }
+
+
 /* Margin top */
 
 .margin-top2 { margin-top : 2px !important; }
@@ -55,6 +58,10 @@
 .margin-top30 { margin-top : 30px !important; }
 
 .margin-top40 { margin-top : 40px !important; }
+
+.margin-top60 { margin-top : 60px !important; }
+
+.margin-top75 { margin-top : 75px !important; }
 
 /* Margin left */
 
@@ -74,6 +81,10 @@
 
 .margin-left40 { margin-left : 40px !important; }
 
+.margin-left60 { margin-left : 60px !important; }
+
+.margin-left75 { margin-left : 75px !important; }
+
 /* Margin bottom */
 
 .margin-bottom2 { margin-bottom : 2px !important; }
@@ -92,6 +103,10 @@
 
 .margin-bottom40 { margin-bottom : 40px !important; }
 
+.margin-bottom60 { margin-bottom : 60px !important; }
+
+.margin-bottom75 { margin-bottom : 75px !important; }
+
 /* Margin right */
 
 .margin-right2 { margin-right : 2px !important; }
@@ -109,6 +124,11 @@
 .margin-right30 { margin-right : 30px !important; }
 
 .margin-right40 { margin-right : 40px !important; }
+
+.margin-right60 { margin-right : 60px !important; }
+
+.margin-right75 { margin-right : 75px !important; }
+
 
 /* Margin Remove */
 
