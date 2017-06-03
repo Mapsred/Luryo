@@ -28,16 +28,17 @@ p.text-construction {
     color: #fff;
 }
 .input-contact {
-    background-color: #878289;
-    border: #878289;
+    background-color: #383334;
+    border: #383334;
     height: 58px;
     border-radius: 0;
-    margin-top:30px;
+    margin-top: 30px;
 }
 
 .input-contact::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #fff;
     padding-left: 20px;
+    font-size: 21px;
 }
 
 ::-moz-placeholder { /* Firefox 19+ */
@@ -111,4 +112,8 @@ p.text-construction {
 
 .mgtop {
     margin-top: 100px;
+}
+
+textarea#userbundle_contact_message {
+    width: 100%;
 }
