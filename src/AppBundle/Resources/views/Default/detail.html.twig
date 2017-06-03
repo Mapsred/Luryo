@@ -9,75 +9,79 @@
     {% set images = travel.images.toArray %}
     <div class="container-fluid">
         <h1 class="text-uppercase text-center">{{ travel.title }}</h1>
-        <div class="col-md-5">
-            <iframe class="google-map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.2718789676023!2d2.3305988964536684!3d48.83395253659682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671b9d2da3de9%3A0x3494d132bb3ba63c!2s1+Avenue+du+Colonel+Henri+Rol-Tanguy%2C+75014+Paris!5e0!3m2!1sfr!2sfr!4v1479997992629"
-                    width="600" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
-            <div class="travel-images">
-                {% for image in travel.images %}
-                    <div class="col-md-5 margin-top10 no-padding-left">
-                        <img src="{{ image|image }}" alt="voyage" class="img-responsive center-block"/>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="row">
+                    <iframe class="google-map col-md-12"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.2718789676023!2d2.3305988964536684!3d48.83395253659682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671b9d2da3de9%3A0x3494d132bb3ba63c!2s1+Avenue+du+Colonel+Henri+Rol-Tanguy%2C+75014+Paris!5e0!3m2!1sfr!2sfr!4v1479997992629"
+                            width="600" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <div class="travel-images col-md-12">
+                        {% for image in travel.images %}
+                            <div class="col-md-5 margin-top10 no-padding-left">
+                                <img src="{{ image|image }}" alt="voyage" class="img-responsive center-block"/>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="col-md-12 margin-bottom20 margin-top20">
-                <div class="col-md-2 no-padding-left">
-                    <div class="disponible-carre">
-                        <i class="fa fa-square-o" aria-hidden="true"></i>
-                        <span class="text-white">{{ travel.places|length > travel.places ? "Disponible" : "Non disponible" }}</span>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
-                    {{ travel.price }} €
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <i class="fa fa-hourglass-half" aria-hidden="true"></i>
-                    {{ travel.updatedAt | date("d/m/Y") }}
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                    {{ travel.createdAt | date("d/m/Y") }}
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
-                    Destination {# TODO AJOUTER LES DESTINATIONS #}
-                </div>
-                {% if app.user %}
-                    <div class="col-md-2 col-xs-6">
-                        {% if app.user.hasFavorite(travel) %}
-                            <a href="#" id="favorite" data-id="{{ travel.id }}" data-action="remove" class="favorite-link">
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                Retirer des favoris
-                            </a>
-                        {% else %}
-                            <a href="#" id="favorite" data-id="{{ travel.id }}" data-action="add" class="favorite-link">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                Ajouter aux favoris
-                            </a>
+            <div class="col-lg-6 col-md-7">
+                <div class="col-md-12 margin-bottom20 margin-top20">
+                    <div class="row row-parameters">
+                        <div class="col-md-3 col-xs-6 disponible-carre">
+                            <i class="fa fa-square-o" aria-hidden="true"></i>
+                            <span class="text-white">{{ travel.places|length > travel.orders|length ? "Disponible" : "Non disponible" }}</span>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                            {{ travel.price }} €
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <i class="fa fa-hourglass-half" aria-hidden="true"></i>
+                            {{ travel.updatedAt | date("d/m/Y") }}
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            {{ travel.createdAt | date("d/m/Y") }}
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                            Destination {# TODO AJOUTER LES DESTINATIONS #}
+                        </div>
+                        {% if app.user %}
+                            <div class="col-md-3 col-xs-6">
+                                {% if app.user.hasFavorite(travel) %}
+                                    <a href="#" id="favorite" data-id="{{ travel.id }}" data-action="remove" class="favorite-link">
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                        Retirer des favoris
+                                    </a>
+                                {% else %}
+                                    <a href="#" id="favorite" data-id="{{ travel.id }}" data-action="add" class="favorite-link">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        Ajouter aux favoris
+                                    </a>
+                                {% endif %}
+                            </div>
                         {% endif %}
                     </div>
-                {% endif %}
-            </div>
-            <div class="col-md-12">
-                <div class="text-description">{{ travel.description|nl2br }}</div>
-                {% if is_granted("ROLE_USER") %}
-                    <form action="{{ path("checkout", {'slug': travel.slug}) }}">
-                        <input type="submit" value="S'inscrire à la sortie" class="submit"/><br>
-                    </form>
-                {% endif %}
-            </div>
-            <div class="col-md-4">
-                <div class="col-xs-2">
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                 </div>
-                <div class="col-xs-2">
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <div class="col-md-12">
+                    <div class="text-description">{{ travel.description|nl2br }}</div>
+                    {% if is_granted("ROLE_USER") %}
+                        <form action="{{ path("checkout", {'slug': travel.slug}) }}">
+                            <input type="submit" value="S'inscrire à la sortie" class="submit"/><br>
+                        </form>
+                    {% endif %}
                 </div>
-                <div class="col-xs-2">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <div class="col-md-4">
+                    <div class="col-xs-2">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

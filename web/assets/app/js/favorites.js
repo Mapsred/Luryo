@@ -4,6 +4,7 @@
 
 $(document).ready(function () {
     $("#favorite").click(function () {
+        $(this).append("<i class=\"fa fa-spinner\" aria-hidden=\"true\"></i>");
         $.ajax({
             type: "POST",
             url: Routing.generate("favorite"),
@@ -13,12 +14,13 @@ $(document).ready(function () {
             },
             success: function () {
                 var favorite = $("#favorite");
+                $("i.fa.fa-spinner").remove();
                 if (favorite.data("action") === "remove") {
                     favorite.data("action", "add");
-                    favorite.html('<i class="fa fa-heart-o" aria-hidden="true"></i> Retirer aux favoris');
+                    favorite.html('<i class="fa fa-heart-o" aria-hidden="true"></i> Retiré des favoris');
                 }else {
                     favorite.data("action", "remove");
-                    favorite.html('<i class="fa fa-heart" aria-hidden="true"></i> Ajouter aux favoris');
+                    favorite.html('<i class="fa fa-heart" aria-hidden="true"></i> Ajouté aux favoris');
                 }
             }
         });
