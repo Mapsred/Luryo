@@ -2,13 +2,31 @@
 
 {% block title %}Concept{% endblock %}
 {% block head %}
-    <link rel="stylesheet" href="{{ asset('assets/app/css/construction.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/app/css/concept.css') }}">
 {% endblock %}
 
 {% block body %}
-    <img src="{{ asset("assets/app/images/picto-construction.png") }}" alt="avion" class="img-responsive centree"/> 
-     <img src="{{ asset("assets/app/images/machette.png") }}" alt="avion" class="img-responsive centree machette"/> <br>
-     <p class="text-construction">Page actuellement <br>en cours de création </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 block-concept mgtop">
+                <div class="container">
+                    <div class="row">
+                        <h1>A propos de Luryo </h1>
+                        <div class="container col-md-offset-1">
+                        <p class="p-concept">
+                            Luryo est un service proposant aux jeunes à travers la France de pouvoir s’instruire de façon ludique en leur permettant des sorties culturelles à prix réduit et de pouvoir rencontrer des personnes ayant les mêmes centres intérêts. Les activités proposées sont principalement des sorties culturelles comme par exemple le musée du Louvre, le château de Versailles ou bien une exposition de Street art. De plus, nous faisons appel à des artisans, proposant des ateliers afin de faire découvrir leur métiers. Les artisans peuvent par ailleurs, vendre leur création lors de ces ateliers (exemple: un souffleur de verre).<br><br>
+                            Afin que chaque sortie soit rentable et alimenter le côté social, chaque sortie nécessitera un nombre minimum défini de participants. Une fois ce nombre atteint, les participants pourront donc rejoindre la sortie et ainsi profiter de nombreuses offres négociées avec les structures locales. On peut donc avoir par exemple: des tarifs préférentiels (tarifs de groupe) pour la visite d’un musée, des réductions dans un petit restaurant local en échange d’une promesse d’un certain nombre de personnes (les participants de la sortie). Le but de notre projet est de valoriser la culture française accessible aux jeunes et à tarif réduit.
+                        </p>
+                        </div>
+                        <div class="col-md-12 col-md-offset-3 block-map">
+                            <img src="{{ asset("assets/app/images/carte.png") }}" alt="plane" class=" img-responsive"/> 
+                            <p class="pcarte col-md-offset-4">Les zones culturel <br> en France</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block footer %}{% endblock %}

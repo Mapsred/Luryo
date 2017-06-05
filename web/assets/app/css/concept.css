@@ -1,0 +1,34 @@
+body {
+    background : url("../images/concept.jpg") no-repeat center center fixed;
+}
+.block-concept {
+    border-top:4px solid #e7bb41;
+    height: auto;
+    background-color: #fff;
+    margin-bottom: 100px;
+}
+.mgtop {
+    margin-top: 100px;
+}
+
+h1 {
+    color: #ef3054;
+    font-family: Aileron,sans-serif;
+    font-size: 49px;
+}
+p.p-concept {
+    width: 80%;
+    padding-top: 40px;
+    font-family: Kalinga, sans-serif;
+    font-size: 23px;
+}
+
+.pcarte {
+    font-family: Kalinga, sans-serif;
+    font-size: 15px;
+    margin-top: -300px;
+}
+
+.block-map {
+    padding-bottom: 150px;
+}
