@@ -115,9 +115,3 @@ p.text-construction {
 textarea#userbundle_contact_message {
     width: 100%;
 }
-
-@media screen and (max-width: 992px) {
-.plane {
-    display: none;
-    }
-}
