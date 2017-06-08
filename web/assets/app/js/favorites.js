@@ -37,7 +37,7 @@ function initMap() {
 
         var coords = {lat: parseFloat(splitted[0]), lng: parseFloat(splitted[1])};
         new google.maps.Marker({
-            position: coords,
+            position: coords, title: $("#map").data("title"),
             map: new google.maps.Map(document.getElementById('map'), {zoom: 15, center: coords})
         });
 

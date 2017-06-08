@@ -16,7 +16,10 @@
             <div class="col-md-5">
                 <div class="row">
                     {% if travel.address is not empty %}
-                        <div id="map" class="google-map col-md-12" data-coords="{{ travel.address.coordinates }}"></div>
+                        <div id="map" class="google-map col-md-12"
+                             data-coords="{{ travel.address.coordinates }}"
+                             data-title="{{ travel.title }} {{ travel.address.__toString }}"
+                        ></div>
                     {% endif %}
                     <div class="travel-images col-md-12">
                         {% for image in travel.images %}
