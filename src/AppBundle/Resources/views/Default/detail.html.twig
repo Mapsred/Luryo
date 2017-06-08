@@ -4,6 +4,9 @@
 {% block head %}
     <link href="{{ asset("assets/app/css/detail.css") }}" rel="stylesheet">
     <script src="{{ asset('assets/app/js/favorites.js') }}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}"></script>
+
+
 {% endblock %}
 {% block body %}
     {% set images = travel.images.toArray %}
@@ -12,9 +15,9 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="row">
-                    <iframe class="google-map col-md-12"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.2718789676023!2d2.3305988964536684!3d48.83395253659682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671b9d2da3de9%3A0x3494d132bb3ba63c!2s1+Avenue+du+Colonel+Henri+Rol-Tanguy%2C+75014+Paris!5e0!3m2!1sfr!2sfr!4v1479997992629"
-                            width="600" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    {% if travel.address is not empty %}
+                        <div id="map" class="google-map col-md-12" data-coords="{{ travel.address.coordinates }}"></div>
+                    {% endif %}
                     <div class="travel-images col-md-12">
                         {% for image in travel.images %}
                             <div class="col-md-5 margin-top10 no-padding-left">

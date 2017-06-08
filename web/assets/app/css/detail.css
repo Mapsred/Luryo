@@ -89,3 +89,7 @@ a > i.fa.fa-instagram:hover {
     min-height: 30px;
     padding-top: 5px;
 }
+
+.google-map {
+    height: 380px;
+}

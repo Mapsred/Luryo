@@ -18,12 +18,29 @@ $(document).ready(function () {
                 if (favorite.data("action") === "remove") {
                     favorite.data("action", "add");
                     favorite.html('<i class="fa fa-heart-o" aria-hidden="true"></i> Retiré des favoris');
-                }else {
+                } else {
                     favorite.data("action", "remove");
                     favorite.html('<i class="fa fa-heart" aria-hidden="true"></i> Ajouté aux favoris');
                 }
             }
         });
 
-    })
+    });
+
+    initMap();
 });
+
+
+function initMap() {
+    if ($("#map").length !== "undefined") {
+        var splitted = $("#map").data("coords").split("|");
+
+        var coords = {lat: parseFloat(splitted[0]), lng: parseFloat(splitted[1])};
+        new google.maps.Marker({
+            position: coords,
+            map: new google.maps.Map(document.getElementById('map'), {zoom: 15, center: coords})
+        });
+
+    }
+}
+
