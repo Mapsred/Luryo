@@ -9,133 +9,165 @@
 {% endblock %}
 {% block body %}
 
-    <div class="container-fluid">
+    <section id="home">
         <div class="row">
-            <div class="first col-sm-12">
-                {#DO NOT DELETE BECAUSE OF CSS BACKGROUND#}
+            <div class="col-lg-offset-1 col-lg-10">
+                <form action="#" method="post">
+                    <input type="text" placeholder="Où ?" />
+                    <input type="text" placeholder="Quand ?" />
+                    <input type="text" placeholder="Prix ?" />
+                    <input type="text" placeholder="Votre choix ?" />
+                    <button type="submit">C'est parti !</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="img_footer">
+        <div class="col-sm-4 col-lg-4">
+            <img src="{{ asset("assets/app/images/map.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+
+        </div>
+
+
+        <div class="col-sm-4 col-lg-4">
+
+            <div class="col-sm-6 col-lg-6">
+                <img src="{{ asset("assets/app/images/maison.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+
+            </div>
+            <div class="col-sm-6 col-lg-6">
+                <img src="{{ asset("assets/app/images/arc.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+
+
             </div>
 
-            <div class="second col-sm-12">
-                <div class="row-title">
-                    <i class="fa fa-globe fa-3x" aria-hidden="true"></i>
-                    <h1>Concept</h1>
-                </div>
-                <div class="row concept">
-                    <div class="col-sm-4">
-                        <img src="{{ asset("assets/app/images/sage.png") }}" alt="picto" class="picto img-responsive center-block"/> 
-                        <span class="text">
-                        Transmettez votre savoir ou faites vous accompagner tout au long de la visite à laquelle vous
-                        participerez grâce à notre plateforme 
-                    </span>
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="{{ asset("assets/app/images/rencontre.png") }}" alt="picto" class="picto img-responsive center-block"/> 
-                        <span class="text">
-                    Un moyen simple de rencontrer des acteurs du milieu artistique, tout en partageant votre passion
-                    en groupe 
-                    </span>
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="{{ asset("assets/app/images/monument.png") }}" alt="picto" class="picto img-responsive center-block"/> 
-                        <span class="text">
-                        Grâce à nous, visiter une expo ou sortir dans Paris ne vous aura jamais semblé aussi ludique et
-                        interactif ! 
-                    </span>
-                    </div>
-                    <div class="col-sm-12 text-center">
-                        {% if not is_granted("ROLE_USER") %}
-                            <a href="{{ path("fos_user_registration_register") }}"
-                               class="btn btn-warning text-uppercase button">S'incrire</a>
-                        {% else %}
-                            <a href="{{ path("fos_user_profile_edit") }}"
-                               class="btn btn-warning btn-completer-profil text-uppercase button">Compléter mon profil</a>
-                        {% endif %}
-                    </div>
-                </div>
+
+            <div class="col-sm-6">
+                <img src="{{ asset("assets/app/images/sacr%C3%A9%20coeur.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+            </div>
+            <div class="col-sm-6">
+                <img src="{{ asset("assets/app/images/catacomble.png") }}" alt="picto" class="picto img-responsive center-block"/> 
             </div>
 
-            <div class="third col-sm-12">
-                <div class="row-title white">
-                    <i class="fa fa-ticket fa-4x "></i>
-                    <h1>Quelques sorties</h1>
+        </div>
+        <div class="col-sm-4 ">
+            <img src="{{ asset("assets/app/images/tour%20eiffel.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+        </div>
+    </div>
+
+
+    <section id="concept">
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <img src="{{ asset("assets/app/images/concept/titre_concept.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                </div>
+                <div class="col-lg-4">
+                    <img src="{{ asset("assets/app/images/concept/pictogramme1.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                    <div class="texte">
+                        <b>Des connaissances transmises</b><br><br>
+                        <p>Transmettez votre savoir ou faites vous accompagner tout au long de la visite à laquelle vous participerez grâce à notre plateforme
+                        </p>
+                    </div>
                 </div>
 
-                <div class="container-fluid">
-                    <div class="col-center-block">
-                        <div class="row-eq-height">
-                            {% for travel in travels %}
-                                {% set link = path("detail_page", {'slug': travel.slug}) %}
-                                <div class="col-md-4 col-flex thumbnail">
-                                    <a href="{{ link }}">
-                                        <img src="{{ travel.images.0|image }}" alt="{{ travel.title }}" class="img-responsive">
-                                    </a>
-                                    <h3 class="text-center"><a href="{{ link }}">{{ travel.title }}</a></h3>
-                                    <div class="caption">{{ travel.description|nl2br }}</div>
-                                    <div class="btn-center">
-                                        <a href="{{ link }}" class="btn text-uppercase button">Voir la sortie</a>
-                                    </div>
+                <div class="col-lg-4">
+                    <img src="{{ asset("assets/app/images/concept/pictogramme2.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                    <div class="texte">
+                        <b>Des connaissances transmises</b><br><br>
+                        <p>Transmettez votre savoir ou faites vous accompagner tout au long de la visite à laquelle vous participerez grâce à notre plateforme</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <img src="{{ asset("assets/app/images/concept/pictogramme3.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                    <div class="texte">
+                        <b>Des connaissances transmises</b><br><br>
+                        <p>Transmettez votre savoir ou faites vous accompagner tout au long de la visite à laquelle vous participerez grâce à notre plateforme</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <button class="button_inscrip "><b>S'INSCRIRE</b></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sorties">
+        <div class="row">
+            <div class="col-sm-12 pictos">
+                <img src="{{ asset("assets/app/images/sorties/sortie_titre.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+            </div>
+            <div class="col-lg-12 sorties">
+                <h1>Quelques sorties</h1>
+            </div>
+
+            <div class="container-fluid">
+                <div class="col-center-block">
+                    <div class="row-eq-height">
+                        {% for travel in travels %}
+                            {% set link = path("detail_page", {'slug': travel.slug}) %}
+                            <div class="col-md-4 col-flex thumbnail">
+                                <a href="{{ link }}">
+                                    <img src="{{ travel.images.0|image }}" alt="{{ travel.title }}" class="img-responsive">
+                                </a>
+                                <h3 class="text-center"><a href="{{ link }}">{{ travel.title }}</a></h3>
+                                <div class="caption">{{ travel.description|nl2br }}</div>
+                                <div class="btn-center">
+                                    <a href="{{ link }}" class="btn text-uppercase button">Voir la sortie</a>
                                 </div>
-                            {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="communaute">
+        <div class="row">
+            <div class="col-lg-12 pictos">
+                <img src="{{ asset("assets/app/images/communaute/commu_titre.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+            </div>
+            <div class="col-lg-12 sombre">
+                <h1>Nôtre communauté</h1>
+            </div>
+            <div class="col-sm-12">
+                <div class=" col-sm-offset-1 col-sm-5">
+                    <div class="rectangle">
+                        <div class="photo">
+                            <img src="{{ asset("assets/app/images/clement.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                        </div>
+                        <div class="name"> Clément Sberro</div>
+                        <div class="profession">Web Designer</div>
+                        <div class="description">
+                            <p>Étudiant en Web Design, interessé par l’art et souhaitant rencontrer de nouvelles personne dans son domaine ou même des personnes différentes.
+                                <br><br>
+                                Il n’a pas assez de temps et d’argent pour pouvoir sortir et se faire des sorties et souhaite trouvé une solution afin de sortir pour des prix réduit avec des produit intéressant </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5 col-sm-offset-1">
+                    <div class="rectangle-2">
+                        <div class="photo">
+                            <img src="{{ asset("assets/app/images/louvre.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                        </div>
+                        <div class="profession">Une sortie au Louvre</div>
+                        <div class="description">
+                            <p>Une sortie Geniale avec d’autres personnes qui sont dans le même milieu que moi avec des centres d’interet commun aux miens !
+                                <br><br>
+                                Une journée qui m’a appris énormement de choses et qui va me permettre de garder des souvenirs magnifiques.
+                                <br> <br>
+                                Je recommande a 100%.</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            <div class="quatrieme col-sm-12">
-                <div class="row-title white">
-                    <i class="fa fa-thumbs-o-up fa-4x"></i>
-                    <h1>Avis utilisateurs</h1>
-                </div>
-
-
-                <div class="slider2">
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            “J’ai beaucoup appris grâce à Luryo. J’ai d’ailleurs eu une idée de projet dans un de leurs
-                            ateliers, <br>
-                            des petites animations pour le cinéma ! Il faut encore que je vois pour les personnages,
-                            peut être une souris… On verra” - Walt Disney
-                        </p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            “On était un peu à sec avec mon prof de peinture, Henri. Du coup on est passé par Luryo pour
-                            essayer de voir si il y avait des bon plans.<br>
-                            On a pu aller à la nouvelle expo “Cubisme” pour trois fois rien, on avait même un guide !” -
-                            Pablo Picasso
-                        </p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            “Etre artiste c’est pas tous les jours facile. Il y avait des mois où j’avais un peu de mal
-                            à joindre les deux bouts. Du coup j’ai organisé des petits cours dans mon atelier.
-                            Je touche un peu à tout donc il y avait de quoi faire. Et ça m’a permis de faire des
-                            rencontres inoubliables !
-                            D’ailleurs Mona si tu lis ça, je suis toujours chaud pour te faire un petit portrait ;)” -
-                            Léonard de Vinci
-                        </p>
-                    </div>
-                </div>
-
-                {% for i in 3..6 %}
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                            dolor.<br>
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-                            ridiculus
-                            mus.
-                        </p>
-                    </div>
-                {% endfor %}
-            </div>
         </div>
-    </div>
+    </section>
 {% endblock %}
