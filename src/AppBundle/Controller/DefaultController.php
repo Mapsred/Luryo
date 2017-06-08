@@ -33,7 +33,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $travels = $this->getDoctrine()->getRepository("AppBundle:Travel")->findBy([], ['createdAt' => "DESC"], 3);
+        $travels = $this->getDoctrine()->getRepository("AppBundle:Travel")->findBy([], ['createdAt' => "DESC"], 6);
 
         return $this->render('AppBundle:Default:homepage.html.twig', ['travels' => $travels]);
     }
