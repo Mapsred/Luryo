@@ -26,11 +26,9 @@ $(document).ready(function () {
         });
 
     });
-
-    initMap();
 });
 
-
+/** No Not Delete, Used by the callback query parameter for maps.googleapis on detail page **/
 function initMap() {
     if ($("#map").length !== "undefined") {
         var splitted = $("#map").data("coords").split("|");

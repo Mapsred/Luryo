@@ -4,7 +4,7 @@
 {% block head %}
     <link href="{{ asset("assets/app/css/detail.css") }}" rel="stylesheet">
     <script src="{{ asset('assets/app/js/favorites.js') }}"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap"></script>
 
 
 {% endblock %}
