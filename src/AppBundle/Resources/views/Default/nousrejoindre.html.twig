@@ -2,13 +2,20 @@
 
 {% block title %}Nous rejoindre{% endblock %}
 {% block head %}
-    <link rel="stylesheet" href="{{ asset('assets/app/css/construction.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/app/css/nousrejoindre.css') }}">
 {% endblock %}
-
 {% block body %}
-    <img src="{{ asset("assets/app/images/picto-construction.png") }}" alt="avion" class="img-responsive centree"/> 
-     <img src="{{ asset("assets/app/images/machette.png") }}" alt="avion" class="img-responsive centree machette"/> <br>
-     <p class="text-construction">Page actuellement <br>en cours de création </p>
+    <div class="">
+        <div class="container">
+            <h1 class="text-center">Nous rejoindre</h1>
+         <div class="block-nousrejoindre">
+             <h3>Vous souhaitez nous rejoindre ?</h3><br>
+             <p>
+                 Vous avez certaines connaissances que vous souhaitez exploiter ?<br>
+                 Transmettre vos conaissances à un public ayant le meme centre d’intérêt que vous ?<br>
+                 N’hésitez pas et devenez une lumière chez Luryo. Vous possederez certains avantages comme...<br><br>
+                 Interessé ? Remplissez notre formulaire et vous recevrez une réponse en quelques jours après que nous ayons analysé votre dossier.<br><br>L’équipe Luryo vous remercie pour votre intérêt à notre projet et à votre contribution.
+             </p>
+         </div>
+        </div>
 {% endblock %}
-
-{% block footer %}{% endblock %}

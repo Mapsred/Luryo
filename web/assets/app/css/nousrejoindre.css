@@ -1,0 +1,26 @@
+body {
+    background : url("../images/fondnousrejoindre.jpg") no-repeat center center fixed;
+}
+
+h1 {
+    color: #fff;
+    font-family: Aileron, sans-serif;
+    font-size: 69px;
+}
+
+h3 {
+    color : #fff;
+    font-family: Kalinga, sans-serif;
+    font-size: 33px;
+    font-weight: bolder;
+}
+
+.block-nousrejoindre {
+    margin-top: 80px;
+}
+
+.block-nousrejoindre p {
+    color: #fff;
+    font-family: Kalinga, sans-serif;
+    font-size: 24px;
+}
