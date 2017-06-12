@@ -1,0 +1,16 @@
+h4 {
+    color: #ef3054;
+    font-family: Kalinga, sans-serif;
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+p {
+    color: #918d93;
+    font-family: Kalinga, sans-serif;
+    font-size: 26px;
+    font-weight: bolder;
+}
+.modal-dialog {
+    width: 1100px !important;
+}

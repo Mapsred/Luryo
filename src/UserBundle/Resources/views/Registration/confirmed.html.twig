@@ -1,0 +1,34 @@
+{% extends "AppBundle:Default:index.html.twig" %}
+
+{% block title %}Confirmation{% endblock %}
+{% block body %}
+    <link href="{{ asset("assets/user/css/confirm.css") }}" rel="stylesheet">
+    <!-- Modal -->
+    <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="memberModalLabel">Message de Luryo</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Nous vous remercions pour vôtre inscription sur notre plateforme en espérant que vous trouverez les sorties à votre pied.<br><br>Vous êtes maintenant inscrit !</p>
+                </div>
+                <div class="modal-footer">
+                    <a href=""><button type="button" class="btn btn-primary" data-dismiss="modal">Close</button></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#memberModal').modal('show');
+        });
+        $('button').click(function(){
+            window.location.href='/';
+        })
+    </script>
+{% endblock %}
+
+
