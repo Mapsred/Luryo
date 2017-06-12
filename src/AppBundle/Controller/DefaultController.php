@@ -17,8 +17,10 @@ use Pagerfanta\Adapter\AdapterInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use UserBundle\Entity\Contact;
 use UserBundle\Entity\Favorite;
+use UserBundle\Entity\Register;
 use UserBundle\Entity\User;
 use UserBundle\Form\ContactType;
+use UserBundle\Form\RegisterType;
 
 /**
  * Class DefaultController
@@ -168,11 +170,25 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/nousrejoindre", name="nousrejoindre")
+     * @Route("/nous-rejoindre", name="join_us")
+     * @param Request $request
+     * @return RedirectResponse|Response
      */
-    public function nousrejoindreAction()
+    public function joinUsAction(Request $request)
     {
-        return $this->render('AppBundle:Default:nousrejoindre.html.twig');
+        $register = new Register();
+        $form = $this->createForm(RegisterType::class);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($register);
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', 'Votre message a bien été envoyé');
+
+            return $this->redirectToRoute('join_us');
+        }
+        return $this->render('AppBundle:Default:nousrejoindre.html.twig', ['form' => $form->createView()]);
     }
 
     /**
