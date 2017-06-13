@@ -170,7 +170,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/nous-rejoindre", name="join_us")
+     * @Route("/nous-rejoindre", name="nous-rejoindre")
      * @param Request $request
      * @return RedirectResponse|Response
      */
@@ -186,7 +186,7 @@ class DefaultController extends Controller
 
             $this->addFlash('success', 'Votre message a bien été envoyé');
 
-            return $this->redirectToRoute('join_us');
+            return $this->redirectToRoute('nous-rejoindre');
         }
         return $this->render('AppBundle:Default:nousrejoindre.html.twig', ['form' => $form->createView()]);
     }

@@ -18,5 +18,59 @@
              </p>
          </div>
         </div>
+ <hr>       
+        <div class="container">
+         <div class="row">   
+        <div class="col-md-6 col-lg-12 mgtop">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.fullname, {'attr': {'class': "input-nousrejoindre"}}) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.age, {'attr': {'class': "input-nousrejoindre"}}) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.phone, {'attr': {'class': "input-nousrejoindre"}}) }}
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.establishment, {'attr': {'class': "input-nousrejoindre"}}) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.formation, {'attr': {'class': "input-nousrejoindre"}}) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.email, {'attr': {'class': "input-nousrejoindre"}}) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.establishment, {'attr': {'class': "input-nousrejoindre"}}) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.formation, {'attr': {'class': "input-nousrejoindre"}}) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form_widget(form.email, {'attr': {'class': "input-nousrejoindre"}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-10">
+                    {{ form_widget(form.description, {'attr': {'class': "input-nousrejoindre input-description"}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 col-md-3">
+                    <input type="submit"  value="Envoyer" class="form-control input-nousrejoindre send" />
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
     </div>
+</div>
+   </div> 
 {% endblock %}

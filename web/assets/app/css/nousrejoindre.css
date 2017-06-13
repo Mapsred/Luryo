@@ -24,3 +24,35 @@ h3 {
     font-family: Kalinga, sans-serif;
     font-size: 24px;
 }
+
+.input-nousrejoindre {
+    opacity: 0.6;
+    background: rgba(255, 255, 255, 0.5);
+    height: 78px;
+    color: #fff;
+     font-size: 22px;
+    border-radius: 0px;
+}
+
+.input-nousrejoindre::placeholder {
+  font-family: Kalinga;
+  font-weight: bold;
+  font-size: 23px;
+  color: #fff;
+}
+
+.input-description {
+    height: 273px !important;
+}
+
+hr {
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.send {
+    font-size: 39px !important;
+    text-transform: uppercase;
+  margin-bottom: 70px !important;
+  margin-top: 25px;
+}
