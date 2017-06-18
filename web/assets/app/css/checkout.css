@@ -1,0 +1,82 @@
+body {
+    background : url("../images/bgreglement.jpg") no-repeat center center fixed;
+}
+
+button.btn.btn-default {
+    background: #ef3054;
+    color: #fff;
+    width: 300px;
+    height: 70px;
+  font-family: Kalinga;  color: #ffffff;
+  border-color: transparent;
+  border-radius: 0px;
+  font-size: 18px;
+}
+
+button.btn-payement {
+      background: #fff;
+    width: 300px;
+    height: 70px;
+    font-family: Kalinga;
+    color: #ef3054;
+    border-color: transparent;
+    border-radius: 0px;
+    font-size: 18px;
+}
+
+
+.add-margin {
+  margin-top: 70px;
+}
+
+h2 {
+  font-family: Aileron;
+  font-size: 67px;
+  text-align: left;
+  color: black;
+  color: #fff;
+}
+
+.remove-margin {
+	margin-top: -40px;
+	margin-bottom: 40px;
+}
+
+.text-description {
+	margin-top: 40px;
+  font-family: Kalinga;
+  font-size: 17px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.block-description {
+	color: #fff;
+	margin-left: -12px;
+
+}
+
+button.btn-continue {
+    width: 214px;
+    height: 70px;
+    background-color: #ef3054;
+    border-color: transparent;
+  font-family: Kalinga;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.payement {
+  display: none;
+}
+
+h4 {
+  color: #fff;
+  text-align: center;
+}
+
+.img-paypal {
+  width: 30%;
+  margin : 0 auto ;
+}

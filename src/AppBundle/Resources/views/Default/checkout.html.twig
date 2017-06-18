@@ -3,22 +3,38 @@
 {% block title %}Réservation {{ travel.title }}{% endblock %}
 {% block head %}
     <link href="{{ asset("assets/app/css/checkout.css") }}" rel="stylesheet">
+    <script src="{{ asset("assets/app/js/payement.js") }}"></script>
 {% endblock %}
 {% block body %}
-    <div class="container-fluid">
+    <div class="container add-margin">
         <div class="row">
             <div class="col-md-4">
-                <h2>Récapitulatif de la sortie <i>{{ travel.title }}</i> :</h2>
-                <ul class="list-group">
-                    <li class="list-group-item active">{{ travel.title }}</li>
-                    <li class="list-group-item">Prix : {{ travel.price }} €</li>
-                    <li class="list-group-item">Date : {{ travel.updatedAt | date("d/m/Y") }}</li>
-                    <li class="list-group-item">Destination : {{ travel.address is not null ? travel.address.__toString : "Non spécifiée" }}</li>
-                </ul>
-
-                {#TODO afficher carte google maps#}
+                <button type="button" class="btn btn-default btn-recap">Récapitulatif de la sortie</button><br><br>
+                <button type="button" class="btn-payement">Payement</button><br><br>
+            </div>  
+            <div class="col-md-8 remove-margin recap">  
+                <h2>{{ travel.title }} :</h2><br>
+                         <div class="col-md-3 col-xs-6 block-description">
+                            <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                            {{ travel.price }} €
+                        </div>
+                        <div class="col-md-3 col-xs-6 block-description">
+                            <i class="fa fa-hourglass-half" aria-hidden="true"></i>
+                            {{ travel.updatedAt | date("d/m/Y") }}
+                        </div>
+                        <div class="col-md-3 col-xs-6 block-description">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            {{ travel.createdAt | date("d/m/Y") }}
+                        </div>
+                        <div class="col-md-3 col-xs-6 block-description">
+                            <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                            Destination {# TODO AJOUTER LES DESTINATIONS #}
+                        </div>
+                     <div class="text-description">{{ travel.description|nl2br }}</div>
+                   <button type="button" class="btn-continue">Continuer</button><br><br>   
             </div>
-            <div class="col-md-offset-1 col-md-7">
+            <div class="col-md-8 remove-margin payement">
+                  <h2>{{ travel.title }} :</h2><br>
                 {% if result is defined %}
                     {% if result.0 == "success" %}
                         <h1>Paiement Réussi</h1>
@@ -40,18 +56,16 @@
                         </div>
                     {% endif %}
                 {% else %}
-                    <h1>Réserver la sortie</h1>
                     <div class="description">
-                        Vous pouvez dès maintenant régler le montant de votre réservation via PayPal. <br>
-                        Si vous ne possédez pas de compte PayPal il vous sera possible de régler en carte bancaire une
-                        fois
-                        sur leur site. <br>
+                         <h4>Vous pouvez désormais payer via Paypal : </h4><br>
                         <a href="{{ paypalLink }}">
-                            <img src="{{ asset("assets/app/images/paypal.png") }}" alt="paypal">
+                            <img src="{{ asset("assets/app/images/paypal.png") }}" alt="paypal" class="img-responsive img-paypal">
                         </a>
                     </div>
                 {% endif %}
             </div>
         </div>
     </div>
+    </div>
 {% endblock %}
+{% block footer %}{% endblock %}
