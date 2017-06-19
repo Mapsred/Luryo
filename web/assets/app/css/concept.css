@@ -1,34 +1,43 @@
-body {
-    background : url("../images/concept.png") no-repeat center center fixed;
-}
+body { background : url("../images/concept.png") no-repeat center center fixed; }
+
 .block-concept {
-    border-top:4px solid #e7bb41;
-    height: auto;
-    background-color: #fff;
-    margin-bottom: 100px;
-}
-.mgtop {
-    margin-top: 100px;
+    border-top       : 4px solid #E7BB41;
+    height           : auto;
+    background-color : #FFFFFF;
+    margin-bottom    : 100px;
 }
 
+.mgtop { margin-top : 100px; }
+
 h1 {
-    color: #ef3054;
-    font-family: Aileron,sans-serif;
-    font-size: 49px;
+    color       : #EF3054;
+    font-family : Aileron, sans-serif;
+    font-size   : 49px;
 }
+
 p.p-concept {
-    width: 80%;
-    padding-top: 40px;
-    font-family: Kalinga, sans-serif;
-    font-size: 23px;
+    width       : 80%;
+    padding-top : 40px;
+    font-family : Kalinga, sans-serif;
+    font-size   : 23px;
 }
 
 .pcarte {
-    font-family: Kalinga, sans-serif;
-    font-size: 15px;
-    margin-top: -300px;
+    font-family : Kalinga, sans-serif;
+    font-size   : 15px;
+    margin-top  : -120px;
 }
 
-.block-map {
-    padding-bottom: 150px;
+.block-map { padding-bottom : 150px; }
+
+.block-map img {
+    width: 161px;
+    height: 160px;
+}
+
+@media (min-width : 1200px) {
+    .container {
+        width      : 960px;
+        max-height : 950px;
+    }
 }

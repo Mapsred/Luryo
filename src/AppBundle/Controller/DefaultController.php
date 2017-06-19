@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Pagerfanta\Adapter\AdapterInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use UserBundle\Entity\Contact;
-use UserBundle\Entity\Favorite;
 use UserBundle\Entity\Register;
 use UserBundle\Entity\User;
 use UserBundle\Form\ContactType;
