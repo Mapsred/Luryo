@@ -3,7 +3,7 @@
     src         : url(../fonts/Ailerons.ttf);
 }
 
-body { padding-top : 50px; }
+body { padding-top : 100px; }
 
 .navbar.navbar-default {
     background    : #f5f5f5;
