@@ -28,11 +28,12 @@
 }
 
 .quatrieme {
-    background-color : #E8E9EB;
+    background-color : #fff;
     max-width        : 100%;
     text-align       : center;
     height           : 100vh;
-    display          : none
+    display          : block;
+    margin-bottom: 180px;
 }
 
 .bx-wrapper {
@@ -62,8 +63,12 @@
 .concept div {
     color       : #000000;
     font-family : Kalinga, sans-serif;
-    text-align  : center;
-    font-weight : bolder;
+}
+
+span.text {
+    font-size: 23px;
+    line-height: 1.35;
+    text-align: left;
 }
 
 .third {
@@ -72,7 +77,10 @@
 }
 
 .thumbnail a > img, .thumbnail > img {
-    max-height : 300px;
+    max-width: 100%;
+    height: auto;
+    width: 397px;
+    height: 397px;
 }
 
 .thumbnail h3 {
@@ -80,6 +88,7 @@
     text-align  : left;
     font-weight : bold;
     padding     : 15px;
+    font-family: Kalinga,sans-serif;
 }
 
 .thumbnail h3 a {
@@ -98,14 +107,16 @@
 .button {
     background-color : #E7BB41;
     color            : white;
-    min-width        : 174px;
-    height           : 40px;
     border           : none;
-    padding-top      : 10px;
-    font-size        : 15px;
     font-weight      : bolder;
     border-radius    : 0;
-    margin-top       : 50px;
+    margin-top       : 80px;
+    font-family: Kalinga,sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    width: 255px;
+    height: 78px;
+    padding-top: 25px !important;
 }
 
 .thumbnail .button {
@@ -115,7 +126,7 @@
     padding-top : 10px;
 }
 
-.button:hover { background-color : #E7BB41; }
+.button:hover { background-color : #E7BB41; color: #fff;}
 
 .row-title {
     text-align     : center;
@@ -127,10 +138,11 @@
 
 .row-title h1 {
     font-size : 69px;
+    letter-spacing: 15.2px;
 }
 
 .row-title i {
-    margin-top : 30px;
+    margin-top : 90px;
 }
 
 .row-title.white i, .row-title.white h1 {
@@ -138,8 +150,8 @@
 }
 
 .picto {
-    width  : 180px;
-    height : 180px;
+    width  : 280px;
+    height : 280px;
 }
 
 @media (max-width : 992px) {
@@ -157,3 +169,128 @@
     }
 }
 
+.thumbnail .caption {
+    padding: 9px;
+    color: #333;
+    font-family: Kalinga,sans-serif;
+}
+
+h4.text-picto {
+    font-family: Kalinga;
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1.35;
+    text-align: left;
+    color: #000000;
+}
+
+.btn-login {
+    width: 174px;
+    height: 46px;
+    font-size: 23px;
+    line-height: 1.13;
+    padding-top: 15px !important;
+    background-image: none;
+    margin-bottom: 90px !important;
+}
+
+.concept-picto {
+    margin-top: 80px;
+}
+
+.avis-title {
+    color: #878289 !important;
+}
+
+.avis-img {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 107px;
+}
+
+/*-------------------------------*/
+/*      Code snippet by          */
+/*      @maridlcrmn              */
+/*-------------------------------*/
+
+
+section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.quote {
+    color: rgba(0,0,0,.1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/*-------------------------------*/
+/*    Carousel Fade Transition   */
+/*-------------------------------*/
+
+#fade-quote-carousel.carousel {
+  padding-bottom: 60px;
+}
+#fade-quote-carousel.carousel .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+      -ms-transition-property: opacity;
+          transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-inner .active {
+  opacity: 1;
+  -webkit-transition-property: opacity;
+      -ms-transition-property: opacity;
+          transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-indicators {
+  bottom: 10px;
+}
+#fade-quote-carousel.carousel .carousel-indicators > li {
+  background-color: #878289;
+  border: none;
+}
+#fade-quote-carousel.carousel .carousel-indicators > li.active{
+  background-color: #e7bb41;
+  border: none;
+}
+#fade-quote-carousel blockquote {
+    text-align: center;
+    border: none;
+}
+#fade-quote-carousel .profile-circle {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.avis-p {
+  font-family: Kalinga;
+  font-size: 23px;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #000000;
+}
+
+.elements-avis {
+     background-color: #fff;
+     border : 6px solid #ef3054;
+    padding:30px;
+}
+
+.name {
+  font-family: Kalinga;
+  font-size: 37px;
+  font-weight: bold;
+  text-align: center;
+  color: #ef3054;
+}
+
+.img-avis {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}

@@ -14,38 +14,38 @@
             <div class="first col-sm-12">
                 {#DO NOT DELETE BECAUSE OF CSS BACKGROUND#}
             </div>
-
             <div class="second col-sm-12">
                 <div class="row-title">
                     <i class="fa fa-globe fa-3x" aria-hidden="true"></i>
                     <h1>Concept</h1>
-                </div>
-                <div class="row concept">
+                </div>   
+                <div class="container-fluid">
+                <div class="row concept concept-picto">
                     <div class="col-sm-4">
-                        <img src="{{ asset("assets/app/images/sage.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                        <img src="{{ asset("assets/app/images/livre.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                        <h4 class="text-picto">Des connaissances transmises</h4>
                         <span class="text">
-                        Transmettez votre savoir ou faites vous accompagner tout au long de la visite à laquelle vous
-                        participerez grâce à notre plateforme 
+                        Transmettez votre savoir ou faites vous accompagner tout au long de la visite à laquelle vous participerez grâce à notre plateforme 
                     </span>
                     </div>
                     <div class="col-sm-4">
-                        <img src="{{ asset("assets/app/images/rencontre.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                        <img src="{{ asset("assets/app/images/people.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                           <h4 class="text-picto">Des connaissances transmises</h4>
                         <span class="text">
-                    Un moyen simple de rencontrer des acteurs du milieu artistique, tout en partageant votre passion
-                    en groupe 
+                    Un moyen simple de rencontrer des acteurs du milieu artistique, tout en partageant votre passion en groupe 
                     </span>
                     </div>
                     <div class="col-sm-4">
                         <img src="{{ asset("assets/app/images/monument.png") }}" alt="picto" class="picto img-responsive center-block"/> 
+                           <h4 class="text-picto">Des connaissances transmises</h4>
                         <span class="text">
-                        Grâce à nous, visiter une expo ou sortir dans Paris ne vous aura jamais semblé aussi ludique et
-                        interactif ! 
+                        Grâce à nous, visiter une expo ou sortir dans Paris ne vous aura jamais semblé aussi ludique et interactif !  
                     </span>
                     </div>
                     <div class="col-sm-12 text-center">
                         {% if not is_granted("ROLE_USER") %}
                             <a href="{{ path("fos_user_registration_register") }}"
-                               class="btn btn-warning text-uppercase button">S'incrire</a>
+                               class="btn btn-warning text-uppercase button btn-login">S'incrire</a>
                         {% else %}
                             <a href="{{ path("fos_user_profile_edit") }}"
                                class="btn btn-warning btn-completer-profil text-uppercase button">Compléter mon profil</a>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-
+            </div>
             <div class="third col-sm-12">
                 <div class="row-title white">
                     <i class="fa fa-ticket fa-4x "></i>
@@ -72,7 +72,7 @@
                                     <h3 class="text-center"><a href="{{ link }}">{{ travel.title }}</a></h3>
                                     <div class="caption">{{ travel.description|nl2br }}</div>
                                     <div class="btn-center">
-                                        <a href="{{ link }}" class="btn text-uppercase button">Voir la sortie</a>
+                                        <br><br><br><a href="{{ link }}" class="btn text-uppercase button">Voir la sortie</a>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -84,57 +84,52 @@
 
             <div class="quatrieme col-sm-12">
                 <div class="row-title white">
-                    <i class="fa fa-thumbs-o-up fa-4x"></i>
-                    <h1>Avis utilisateurs</h1>
+                    <img class="img-responsive avis-img" src="{{ asset("assets/app/images/avis.png") }}" alt="avis">
+                    <h1 class="avis-title">Avis utilisateurs</h1>
+                    <section id="carousel">                 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" >
+                  <!-- Carousel indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
+                    <li data-target="#fade-quote-carousel" data-slide-to="2"></li>
+                  </ol>
+                  <!-- Carousel items -->
+                  <div class="carousel-inner">
+                    <div class="active item elements-avis">
+                        <div class="profile-circle"><img class="img-responsive img-avis" src="{{ asset("assets/app/images/john.png") }}" alt="john"></div>
+                        <blockquote>
+                            <h2 class="name">John doe</h2>
+                            <p class="avis-p">Etudiant en Web Design, interessé par l’art et souhaitant rencontrer de nouvelles personne dans son domaine ou même des personnes différentes.<br><br>
+                            Il n’a pas assez de temps et d’argent pour pouvoir sortir et se faire des sorties et souhaite trouvé une solution afin de sortir pour des prix réduit avec des produit intéressant.</p>
+                        </blockquote>  
+                    </div>
+                    <div class="item elements-avis">
+                         <div class="profile-circle"><img class="img-responsive img-avis" src="{{ asset("assets/app/images/minions.png") }}" alt="john"></div>
+                        <blockquote>
+                           <h2 class="name">Minions</h2>
+                            <p class="avis-p">Une sortie Geniale avec d’autres personnes qui sont dans le même milieu que moi avec des centres d’interet commun aux miens ! <br><br>Une journée qui m’a appris énormement de choses et qui va me permettre de garder des souvenirs magnifiques.<br><br>Je recommande a 100% </p>
+                        </blockquote> 
+                    </div>
+                      <div class="item elements-avis">
+                        <div class="profile-circle"><img class="img-responsive img-avis" src="{{ asset("assets/app/images/etudiante.png") }}" alt="john"></div>
+                        <blockquote>
+                            <h2 class="name">Lara Jenson</h2>
+                            <p class="avis-p">Etudiante en Web Design, interessé par l’art et souhaitant rencontrer de nouvelles personne dans son domaine ou même des personnes différentes.<br><br>
+                            Il n’a pas assez de temps et d’argent pour pouvoir sortir et se faire des sorties et souhaite trouvé une solution afin de sortir pour des prix réduit avec des produit intéressant.</p>
+                        </blockquote>  
+                    </div>
+                    </div>
+                  </div>
                 </div>
-
-
-                <div class="slider2">
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            “J’ai beaucoup appris grâce à Luryo. J’ai d’ailleurs eu une idée de projet dans un de leurs
-                            ateliers, <br>
-                            des petites animations pour le cinéma ! Il faut encore que je vois pour les personnages,
-                            peut être une souris… On verra” - Walt Disney
-                        </p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            “On était un peu à sec avec mon prof de peinture, Henri. Du coup on est passé par Luryo pour
-                            essayer de voir si il y avait des bon plans.<br>
-                            On a pu aller à la nouvelle expo “Cubisme” pour trois fois rien, on avait même un guide !” -
-                            Pablo Picasso
-                        </p>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            “Etre artiste c’est pas tous les jours facile. Il y avait des mois où j’avais un peu de mal
-                            à joindre les deux bouts. Du coup j’ai organisé des petits cours dans mon atelier.
-                            Je touche un peu à tout donc il y avait de quoi faire. Et ça m’a permis de faire des
-                            rencontres inoubliables !
-                            D’ailleurs Mona si tu lis ça, je suis toujours chaud pour te faire un petit portrait ;)” -
-                            Léonard de Vinci
-                        </p>
-                    </div>
+            </div>                          
+        </div>
+    </div>
+</section>
                 </div>
-
-                {% for i in 3..6 %}
-                    <div class="col-sm-12 col-md-4 slide">
-                        <img src="{{ asset("assets/app/images/oeil.png") }}" alt="oeil" class=" img-responsive oeil"/> 
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-                            dolor.<br>
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-                            ridiculus
-                            mus.
-                        </p>
-                    </div>
-                {% endfor %}
             </div>
         </div>
     </div>
