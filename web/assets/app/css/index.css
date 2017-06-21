@@ -4,7 +4,7 @@
 }
 
 .first {
-    background      : url("../images/image_page_accueil.jpg") no-repeat;
+    background      : url("../images/fond.png") no-repeat fixed;
     background-size : cover;
     max-width       : 100%;
     text-align      : left;

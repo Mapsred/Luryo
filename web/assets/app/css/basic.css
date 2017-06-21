@@ -17,9 +17,9 @@ body { padding-top : 100px; }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover {
-    background : #ef3054;
-    color: #fff;
-   padding-left: 50px;
+    color: #ef3054;
+    background: none;
+    box-shadow: none;
 }
 
 .logo-bar {

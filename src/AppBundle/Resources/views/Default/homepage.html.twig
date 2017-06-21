@@ -12,11 +12,28 @@
     <div class="container-fluid">
         <div class="row">
             <div class="first col-sm-12">
-                {#DO NOT DELETE BECAUSE OF CSS BACKGROUND#}
+                <div class="container">
+                <div class="input-group">
+                    <div class="form-group  has-feedback">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="destination" placeholder="Où ?">
+                    </div>
+                     <div class="col-md-4">
+                        <input type="date" class="form-control" id="date" placeholder="Quand ?">
+                    </div>
+                     <div class="col-md-4">
+                        <input type="text" class="form-control" id="prix" placeholder="Prix ?">
+                    </div>
+                    </div>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">C'est parti!</button>
+                    </span>
+             </div>
             </div>
+        </div>
             <div class="second col-sm-12">
                 <div class="row-title">
-                    <i class="fa fa-globe fa-3x" aria-hidden="true"></i>
+                     <img class="img-responsive avis-img" src="{{ asset("assets/app/images/picto.png") }}" alt="concept">
                     <h1>Concept</h1>
                 </div>   
                 <div class="container-fluid">
@@ -85,12 +102,12 @@
             <div class="quatrieme col-sm-12">
                 <div class="row-title white">
                     <img class="img-responsive avis-img" src="{{ asset("assets/app/images/avis.png") }}" alt="avis">
-                    <h1 class="avis-title">Avis utilisateurs</h1>
+                    <h1 class="avis-title">Notre communauté</h1>
                     <section id="carousel">                 
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" >
+                <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
                   <!-- Carousel indicators -->
                   <ol class="carousel-indicators">
                     <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
