@@ -13,16 +13,20 @@
         <div class="row">
             <div class="first col-sm-12">
                 <div class="container">
+         {{ form_start(form) }}
                 <div class="input-group">
                     <div class="form-group  has-feedback">
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="destination" placeholder="Où ?">
+                    <div class="col-md-3 remove-padding">
+                         {{ form_widget(form.location, {'attr': {'class': "input-home", 'placeholder ': 'Ou?'}}) }}
                     </div>
-                     <div class="col-md-4">
-                        <input type="date" class="form-control" id="date" placeholder="Quand ?">
+                     <div class="col-md-3 remove-padding">
+                        {{ form_widget(form.date, {'attr': {'class': "input-home", 'placeholder ': 'Quand ?'}}) }}
                     </div>
-                     <div class="col-md-4">
-                        <input type="text" class="form-control" id="prix" placeholder="Prix ?">
+                     <div class="col-md-3 remove-padding">
+                        {{ form_widget(form.price, {'attr': {'class': "input-home",'placeholder ': 'Prix ?'}}) }}
+                    </div>
+                     <div class="col-md-3 remove-padding">
+                        {{ form_widget(form.choice, {'attr': {'class': "input-home", 'placeholder ': 'Ajouter un mot clé'}}) }}
                     </div>
                     </div>
                     <span class="input-group-btn">
@@ -30,6 +34,7 @@
                     </span>
              </div>
             </div>
+        {{ form_end(form) }}
         </div>
             <div class="second col-sm-12">
                 <div class="row-title">

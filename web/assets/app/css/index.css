@@ -12,7 +12,7 @@
     color           : white;
     margin-top      : -20px;
     font-size       : 25px;
-    height          : 70vh;
+    height          : 40vh;
 }
 
 .second {
@@ -293,4 +293,36 @@ section {
     margin: 0 auto;
     width: 250px;
     height: 250px;
+}
+
+.input-home {
+    width: 289px;
+    height: 84px;
+    background-color: #f5f5f5;
+}
+
+
+.input-home::placeholder {;
+  font-family: Kalinga;
+  font-size: 14px;
+  line-height: 2.04;
+  text-align: left;
+  color: #878289;
+}
+
+button.btn.btn-default {
+    width: 289px;
+    height: 84px;
+    background: #ef3054 !important;
+    border: none;
+    font-family: Kalinga;
+    font-size: 23px;
+    line-height: 2.04;
+    text-align: center;
+    color: #ffffff;
+}
+
+
+.remove-padding {
+    padding: 0;
 }

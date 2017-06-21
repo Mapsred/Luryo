@@ -8,7 +8,7 @@
 
 {% block body %}
 <h1 class="text-uppercase text-center">rejoins nos équipes de folies</h1>
-    <div class="container">
+    <div class="container decalage">
         <form action="{{ path("fos_user_security_check") }}" method="post" class="form">
             {% if csrf_token %}
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
