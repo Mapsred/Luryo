@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Search;
 use AppBundle\Entity\Travel;
 use Doctrine\ORM\EntityRepository;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
@@ -33,29 +34,35 @@ class TravelRepository extends EntityRepository
     }
 
     /**
-     * @param Request $request
+     * @param Search $search
      * @return DoctrineORMAdapter
      */
-    public function searchPaginator(Request $request)
+    public function searchPaginator(Search $search)
     {
         $queryBuilder = $this->createQueryBuilder('q')->where("q.status != :status")->setParameter("status", "closed");
-        if ($request->query->has("date") && $request->query->get("date")) {
+        if (null !== $search->getDate()) {
             $queryBuilder->andWhere("q.date BETWEEN :now AND :next")
                 ->setParameter('now', new \DateTime())
-                ->setParameter('next', new \DateTime($request->query->get("date")));
+                ->setParameter('next', $search->getDate());
         }
-        if ($request->query->has("city") && $request->query->get("city")) {
-                $queryBuilder->leftJoin("q.address", "address")->leftJoin("address.city", "city")
-                    ->andWhere("city.id = :city")->setParameter("city", $request->query->get("city"));
+        if (null !== $search->getLocation()) {
+                $queryBuilder
+                    ->leftJoin("q.address", "address")
+                    ->andWhere("address.city = :city")
+                    ->setParameter("city", $search->getLocation());
         }
-        if ($request->query->has("price") && $request->query->get("price")) {
-            $queryBuilder->andWhere("q.price = :price")->setParameter("price", $request->query->get("price"));
+        if (null !== $search->getPrice()) {
+            $queryBuilder
+                ->andWhere("q.price = :price")
+                ->setParameter("price", $search->getPrice());
         }
-        if ($request->query->has("search") && $request->query->get("search")) {
-            $queryBuilder->andWhere("q.title LIKE :search")->setParameter("search", "%".$request->query->get("search")."%");
+        if (null !== $search->getChoice()) {
+            $queryBuilder
+                ->andWhere("q.title LIKE :search")
+                ->setParameter("search", "%".$search->getChoice()."%");
         }
 
-        $queryBuilder->orderBy("q.".$request->query->get("sort", "date"), $request->query->get("order", "asc"));
+        $queryBuilder->orderBy("q.".$search->getSort(), $search->getOrder());
 
         return $adapter = new DoctrineORMAdapter($queryBuilder->getQuery());
     }

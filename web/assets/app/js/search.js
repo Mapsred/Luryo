@@ -26,10 +26,10 @@ $(document).ready(function () {
     $("#orderForm").submit(function (e) {
         e.preventDefault();
         var parameters = getParams();
-        parameters.order = $("#order").find(":selected").val();
-        parameters.sort = $("#sort").find(":selected").val();
+        parameters["search%5Dorder%5D"] = $("#order").find(":selected").val();
+        parameters["search%5Dsort%5D"] = $("#sort").find(":selected").val();
         $.each(parameters, function (key, value) {
-            if (value.length == 0) {
+            if (value.length === 0) {
                 delete parameters[key]
             }
         });

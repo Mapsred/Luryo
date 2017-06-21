@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Order;
+use AppBundle\Entity\Search;
 use AppBundle\Entity\Travel;
 use AppBundle\Form\SearchType;
 use Pagerfanta\Exception\NotValidCurrentPageException;
@@ -31,20 +32,17 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
-     * @param Request $request
      * @return Response
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $travels = $this->getDoctrine()->getRepository("AppBundle:Travel")->findBy([], ['createdAt' => "DESC"], 3);
 
-        $form = $this->createForm(SearchType::class);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // TODO - do some work, like saving stuff
-
-        }
+        $search = new Search();
+        $form = $this->createForm(SearchType::class, $search, [
+            'action' => $this->generateUrl('search'),
+            'method' => 'GET',
+        ]);
 
         return $this->render('AppBundle:Default:homepage.html.twig', ['travels' => $travels, 'form' => $form->createView()]);
     }
@@ -139,10 +137,16 @@ class DefaultController extends Controller
      */
     public function searchAction(Request $request)
     {
-        $keys = $request->query->keys();
-        if (isset($keys[0]) && in_array($keys[0], ["date", "city", "price", "search"])) {
+        $search = new Search();
+        $form = $this->createForm(SearchType::class, $search, ['method' => "GET"]);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (null !== $city = $request->query->get("search")['location']) {
+                $search->setLocation($this->getDoctrine()->getRepository("AppBundle:City")->find($city));
+            }
             try {
-                $adapter = $this->getDoctrine()->getRepository("AppBundle:Travel")->searchPaginator($request);
+                $adapter = $this->getDoctrine()->getRepository("AppBundle:Travel")->searchPaginator($search);
                 $page = $request->query->get("page", 1);
                 $pagerfanta = new Pagerfanta($adapter);
                 /** @var Travel[] $travels */
@@ -165,9 +169,7 @@ class DefaultController extends Controller
             return $this->render("AppBundle:Default:list.html.twig", $twigArray);
         }
 
-        $travels = $this->getDoctrine()->getRepository("AppBundle:Travel")->findRand(5);
-
-        return $this->render('AppBundle:Default:search.html.twig', ["travels" => $travels]);
+        return $this->redirectToRoute("homepage");
     }
 
     /**
