@@ -12,9 +12,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="first col-sm-12">
-                {{ form_start(form) }}
-                <button class="btn btn-default" type="submit">C'est parti!</button>
-                {{ form_end(form) }}
                 <div class="container">
          {{ form_start(form) }}
                 <div class="input-group">
@@ -23,7 +20,7 @@
                          {{ form_widget(form.location, {'attr': {'class': "input-home", 'placeholder ': 'Ou?'}}) }}
                     </div>
                      <div class="col-md-3 remove-padding">
-                        {{ form_widget(form.date, {'attr': {'class': "input-home", 'placeholder ': 'Quand ?'}}) }}
+                        {{ form_widget(form.date, {'attr': {'class': "input-home date-picker", 'placeholder ': 'Quand ?'}}) }}
                     </div>
                      <div class="col-md-3 remove-padding">
                         {{ form_widget(form.price, {'attr': {'class': "input-home",'placeholder ': 'Prix ?'}}) }}
@@ -38,6 +35,18 @@
              </div>
             </div>
         {{ form_end(form) }}
+        <div class="col-center-block">
+                            {% for travel in travels %}
+                                {% set link = path("detail_page", {'slug': travel.slug}) %}
+                                <div class="col-md-6 remove-padding col-flex">
+                                    <a href="{{ link }}">
+                                        <img src="{{ travel.images.0|image }}" alt="{{ travel.title }}" class="img-responsive img-header">
+                                    </a>
+                                    <!--<h3 class="text-center"><a href="{{ link }}">{{ travel.title }}</a></h3>-->
+                                </div>
+                            {% endfor %}
+                    </div>
+
         </div>
             <div class="second col-sm-12">
                 <div class="row-title">

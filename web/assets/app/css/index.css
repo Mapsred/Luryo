@@ -11,8 +11,8 @@
     padding-top     : 7%;
     color           : white;
     margin-top      : -20px;
-    font-size       : 25px;
-    height          : 40vh;
+    font-size       : 23px;
+    height          : 80vh;
 }
 
 .second {
@@ -325,4 +325,13 @@ button.btn.btn-default {
 
 .remove-padding {
     padding: 0;
+}
+
+label.control-label {
+    display: none;
+}
+
+.btn-completer-profil {
+    width: 350px;
+    background-image: none;
 }
