@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 class Search
 {
-    /** @var string $location */
+    /** @var City $location */
     private $location;
     /** @var \DateTime $date */
     private $date;
@@ -12,9 +12,13 @@ class Search
     private $price;
     /** @var string $choice */
     private $choice;
+    /** @var string $sort */
+    private $sort;
+    /** @var string $order */
+    private $order;
 
     /**
-     * @return string
+     * @return City
      */
     public function getLocation()
     {
@@ -22,10 +26,10 @@ class Search
     }
 
     /**
-     * @param string $location
+     * @param City $location
      * @return Search
      */
-    public function setLocation($location)
+    public function setLocation(City $location = null)
     {
         $this->location = $location;
 
@@ -88,4 +92,44 @@ class Search
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getSort()
+    {
+        return $this->sort;
+    }
+
+    /**
+     * @param string $sort
+     * @return Search
+     */
+    public function setSort($sort)
+    {
+        $this->sort = $sort;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param string $order
+     * @return Search
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+
 }

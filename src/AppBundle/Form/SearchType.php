@@ -18,19 +18,21 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('location', ChoiceType::class, ['mapped' => false, 'label' => "Ou"])
-            ->add('date', DateType::class, ['label' => "Quand"])
-            ->add('price', IntegerType::class, ['label' => "Prix"])
-            ->add('choice', TextType::class, ['label' => "Votre choix"])
+            ->add('location', ChoiceType::class, ['mapped' => false, 'label' => "Ou", "required" => "false"])
+            ->add('date', DateType::class, ['label' => "Quand", "required" => "false", 'widget' => 'single_text'])
+            ->add('price', IntegerType::class, ['label' => "Prix", "required" => "false"])
+            ->add('choice', TextType::class, ['label' => "Votre choix", "required" => "false"])
+            ->add("sort", TextType::class, ["required" => false, "empty_data" => "date", "attr" => ['class' => "hidden"]])
+            ->add("order", TextType::class, ["required" => false, "empty_data" => "ASC", "attr" => ['class' => "hidden"]])
             ->get('location')->resetViewTransformers();
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(['data_class' => 'AppBundle\Entity\Search']);
+        $resolver->setDefaults(['data_class' => 'AppBundle\Entity\Search', 'csrf_protection' => false]);
     }
 
     /**
@@ -38,8 +40,6 @@ class SearchType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_search';
+        return 'search';
     }
-
-
 }
