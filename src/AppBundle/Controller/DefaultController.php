@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Order;
 use AppBundle\Entity\Travel;
+use AppBundle\Form\SearchType;
 use Pagerfanta\Exception\NotValidCurrentPageException;
 use Pagerfanta\Pagerfanta;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -30,13 +31,22 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @param Request $request
      * @return Response
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $travels = $this->getDoctrine()->getRepository("AppBundle:Travel")->findBy([], ['createdAt' => "DESC"], 3);
 
-        return $this->render('AppBundle:Default:homepage.html.twig', ['travels' => $travels]);
+        $form = $this->createForm(SearchType::class);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // TODO - do some work, like saving stuff
+
+        }
+
+        return $this->render('AppBundle:Default:homepage.html.twig', ['travels' => $travels, 'form' => $form->createView()]);
     }
 
     /**
