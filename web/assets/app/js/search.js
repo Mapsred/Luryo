@@ -36,8 +36,6 @@ $(document).ready(function () {
 
         window.location.href = Routing.generate("search", parameters);
     });
-
-
 });
 
 function getParams(param, as_array) {
