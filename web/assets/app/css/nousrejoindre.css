@@ -1,3 +1,8 @@
+@font-face {
+    font-family : Kalinga;
+    src         : url(../fonts/kalinga.ttf);
+}
+
 body {
     background : url("../images/fondnousrejoindre.jpg") no-repeat center center fixed;
 }
@@ -22,7 +27,11 @@ h3 {
 .block-nousrejoindre p {
     color: #fff;
     font-family: Kalinga, sans-serif;
-    font-size: 24px;
+    font-size: 23px;
+}
+
+.block-nousrejoindre h3 {
+    font-size: 26px;
 }
 
 .input-nousrejoindre {
@@ -31,14 +40,19 @@ h3 {
     height: 78px;
     color: #fff;
      font-size: 22px;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .input-nousrejoindre::placeholder {
-  font-family: Kalinga;
-  font-weight: bold;
-  font-size: 23px;
-  color: #fff;
+  font-family : Kalinga, sans-serif;
+  font-weight   : bold;
+  font-size     : 23px;
+  color         : #fff;
+}
+
+.input-nousrejoindre.send {
+    font-family :Kalinga, sans-serif;
+    font-weight :bold;
 }
 
 .input-description {
