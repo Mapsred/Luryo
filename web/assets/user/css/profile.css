@@ -29,10 +29,12 @@ div.container div.container-header {
 
 .h2-title {
     text-transform : uppercase;
-    text-align     : center;
     font-family: Aileron, serif;
     font-size: 49px;
     color: #EF3054;
+    border-bottom: rgba(135, 130, 137, 0.3) 1px solid;
+    display: inline;
+    padding-bottom: 11px;
 }
 
 .user-infos {
@@ -70,6 +72,7 @@ i.fa.fa-ban {
 
 .size-colonne {
     min-height : 600px;
+    text-align     : center;
 }
 
 span.select2-selection.select2-selection--multiple,
@@ -138,4 +141,8 @@ input.form-control, select.form-control {
     -webkit-box-shadow : none;
     box-shadow         : none;
     border             : 1px solid #ddd;
+}
+
+.fa-gear-custom:before {
+    content : url("../images/gear.png");
 }
