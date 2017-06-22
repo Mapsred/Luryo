@@ -25,19 +25,18 @@ p.p-concept {
 .pcarte {
     font-family : Kalinga, sans-serif;
     font-size   : 15px;
-    margin-top  : -120px;
+    margin-top  : -180px;
 }
 
 .block-map { padding-bottom : 150px; }
 
 .block-map img {
-    width: 161px;
-    height: 160px;
+    height: 270px;
 }
 
 @media (min-width : 1200px) {
     .container {
         width      : 960px;
-        max-height : 950px;
+        max-height : 1000px;
     }
 }
