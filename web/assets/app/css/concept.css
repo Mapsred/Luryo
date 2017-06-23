@@ -28,15 +28,13 @@ p.p-concept {
     margin-top  : -180px;
 }
 
-.block-map { padding-bottom : 150px; }
 
 .block-map img {
-    height: 270px;
+    height: 320px;
 }
 
 @media (min-width : 1200px) {
     .container {
         width      : 960px;
-        max-height : 1000px;
     }
 }

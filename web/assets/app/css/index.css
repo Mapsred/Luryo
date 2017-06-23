@@ -12,8 +12,14 @@
     color           : white;
     margin-top      : -20px;
     font-size       : 23px;
-    height          : auto;
-    padding-bottom: 72px;
+    padding-top: 144px;
+    padding-bottom: 144px;
+}
+
+.first h2 {
+    font-size : 69px;
+    font-family: Aileron, sans-serif;
+    text-align: center;
 }
 
 .second {

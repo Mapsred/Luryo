@@ -65,8 +65,8 @@ hr {
 }
 
 .send {
-    font-size: 39px !important;
+    font-size: 30px !important;
     text-transform: uppercase;
-  margin-bottom: 70px !important;
-  margin-top: 25px;
+    margin-bottom: 70px !important;
+    margin-top: 50px;
 }

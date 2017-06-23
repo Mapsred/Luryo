@@ -17,7 +17,7 @@ h1{
     color: white;
     margin-top: 5%;
     font-family: 'Aileron',sans-serif;
-    font-size: 60px;
+    font-size: 75px;
 }
 
 .login_form_control{
@@ -29,10 +29,64 @@ h1{
     background-color: #f02d54;
     color: #fff;
     border : 0;
+      height: 71px;
 }
 
 .login_link{ color: white; }
 
 .decalage {
     margin-bottom: 150px;
+}
+
+.block-login {
+    margin-bottom: 250px;
+    padding-top: 150px;
+}
+
+.login-form::placeholder {
+    text-align: center;
+  font-family: Kalinga;
+  font-size: 20px;
+  line-height: 2.99;
+  color: #000000;
+}
+
+.login-form {
+    text-align: center;
+    font-family: Kalinga;
+  font-size: 20px;
+  line-height: 2.99;
+  color: #000000;
+      height: 55px;
+    border-radius: 10px;
+    background-color: #e8e9eb;
+}
+
+.send {
+  font-family: Kalinga;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 2.39;
+  text-align: center;
+  color: #ffffff;
+}
+
+.login_link.pull-left {
+    font-family: Kalinga;
+    font-size: 23px;
+    line-height: 2.6;
+    text-align: left;
+    color: #ffffff;
+}
+
+.login_link.pull-right {
+    font-family: Kalinga;
+    font-size: 23px;
+    line-height: 2.6;
+    text-align: left;
+    color: #ffffff;
+}
+
+a:hover{
+    text-decoration: none;
 }

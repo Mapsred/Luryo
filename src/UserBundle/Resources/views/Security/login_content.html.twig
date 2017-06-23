@@ -7,6 +7,7 @@
 {% endif %}
 
 {% block body %}
+<div class="block-login">    
 <h1 class="text-uppercase text-center">rejoins nos équipes de folies</h1>
     <div class="container decalage">
         <form action="{{ path("fos_user_security_check") }}" method="post" class="form">
@@ -15,16 +16,16 @@
             {% endif %}
             <div class="col-md-offset-3 col-md-6 form-group">
                 <input type="text" id="username" name="_username" value="{{ last_username }}" required
-                       placeholder="Pseudo" class="login_form_control form-control" />
+                       placeholder="Pseudo" class=" login-form login_form_control form-control" />
             </div>
             <div class="col-md-offset-3 col-md-6 form-group">
                 <input type="password" id="password" name="_password" required
-                       placeholder="Mot de passe" class="login_form_control form-control" />
+                       placeholder="Mot de passe" class=" login-form login_form_control form-control" />
             </div>
 
             <div class="col-md-offset-3 col-md-6 form-group">
                 <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"
-                       class="form-control login_form_control connect" />
+                       class=" send form-control login_form_control connect" />
             </div>
 
             <div class="col-md-offset-3 col-md-6 text-left">
@@ -34,8 +35,5 @@
             </div>
         </form>
     </div>
-
-{% endblock %}
-
-{% block footer %}
+</div>
 {% endblock %}

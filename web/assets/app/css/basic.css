@@ -136,6 +136,11 @@ a.connexion:hover {
     background : #B2B2B2 !important;
     color      : #FFFFFF !important;
 }
+a.connexion:active {
+    background : #B2B2B2 !important;
+    color      : #FFFFFF !important;
+}
+
 
 @media (min-width : 768px) {
     .navbar-brand-centered {
@@ -167,7 +172,7 @@ a.connexion:hover {
     .navbar-brand { height : 34px; }
 }
 
-@media (max-width : 1400px) {
+@media (max-width : 1540px) {
     .navbar-header { float : none; }
 
     .navbar-left, .navbar-right { float : none !important; }

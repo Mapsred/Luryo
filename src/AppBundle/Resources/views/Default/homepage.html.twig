@@ -13,6 +13,7 @@
         <div class="row">
             <div class="first col-sm-12">
                 <div class="container">
+                    <h2>Avec Luryo, on visite en s'amusant !</h2><br><br>
          {{ form_start(form) }}
                 <div class="input-group">
                     <div class="form-group  has-feedback">
@@ -35,23 +36,6 @@
              </div>
             </div>
         {{ form_end(form) }}      
-        </div>
-        <div class="col-md-12 items-home remove-pdg">
-            <div class="col-md-6 remove-pdg">
-                    {% for travel in travels %}
-                                {% set link = path("detail_page", {'slug': travel.slug}) %}
-                                <div class="col-md-6 test">
-                                    <a href="{{ link }}" class="image-container">
-                                        <img src="{{ travel.images.0|image }}" alt="{{ travel.title }}" class="img-responsive add-border">
-                                     <div class="after"><span class="test-span">{{ travel.title }}</span></div>
-                        </a>
-                                </div>
-                    {% endfor %}
-            </div>
-
-            <div class="col-md-6 remove-pdg">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.75769496214!2d2.2775173799821795!3d48.85895068076406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C+France!5e0!3m2!1sfr!2sca!4v1498157190173" class="iframe-home" width="940" height="470" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
         </div> 
             <div class="second col-sm-12">
                 <div class="row-title">
